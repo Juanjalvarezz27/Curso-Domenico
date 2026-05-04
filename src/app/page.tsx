@@ -1,4 +1,3 @@
-import React from 'react';
 import Image from 'next/image';
 import { 
   GraduationCap, 
@@ -18,7 +17,7 @@ import Footer from './components/ui/Footer';
 
 export default function LandingPage() {
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative overflow-hidden pt-20">
       
       {/* HEADER / HERO SECTION */}
       <section className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-8 text-center">
@@ -47,7 +46,7 @@ export default function LandingPage() {
       </section>
 
       {/* SECCIÓN VISUAL: QUÉ VAS A APRENDER */}
-      <section id="temario" className="relative z-20 max-w-7xl mx-auto px-6 py-10 md:py-12 scroll-mt-10">
+      <section id="temario" className="relative z-20 max-w-7xl mx-auto px-6 py-10 md:py-12 scroll-mt-24">
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-superficie border border-gray-200 text-gray-500 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
              <Target size={14} className="text-acento-naranja" />
@@ -61,7 +60,7 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-superficie rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
             <div className="relative w-full h-40">
-              <Image src="/Profile1.png" alt="Tu Perfil Perfecto" fill className="object-cover grayscale-20" />
+              <Image src="/Profile1.png" alt="Tu Perfil Perfecto" fill className="object-cover grayscale-[20%]" />
             </div>
             <div className="p-6 grow flex flex-col">
               <div className="flex items-center gap-3 mb-4">
@@ -181,8 +180,8 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PRICING / PLANES */}
-      <section className="relative z-20 max-w-5xl mx-auto px-6 py-10 md:py-12">
+      {/* PRICING / PLANES (Ahora con id="planes" y scroll margin) */}
+      <section id="planes" className="relative z-20 max-w-5xl mx-auto px-6 py-10 md:py-12 scroll-mt-24">
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-acento-naranja text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
              <Sparkles size={14} />

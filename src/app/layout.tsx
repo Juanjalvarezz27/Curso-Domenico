@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans, Syncopate } from "next/font/google";
+import Navbar from "./components/ui/Navbar"; 
 import "./globals.css";
 
 const outfit = Outfit({ 
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth">
       <body className={`${outfit.variable} ${jakarta.variable} ${syncopate.variable} font-jakarta bg-fondo text-texto-principal selection:bg-acento-naranja selection:text-white antialiased`}>
         
+        {/* Fondos Globales */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
           <div className="absolute top-[-5%] left-[-5%] w-96 h-96 bg-blue-400/15 rounded-full blur-3xl scale-150"></div>
           <div className="absolute top-[20%] right-[-5%] w-96 h-96 bg-orange-400/15 rounded-full blur-3xl scale-150"></div>
@@ -41,13 +43,11 @@ export default function RootLayout({
 
         <div 
           className="fixed inset-0 pointer-events-none z-10 opacity-25"
-          style={{ 
-            backgroundImage: 'radial-gradient(#475569 1.5px, transparent 1.5px)', 
-            backgroundSize: '48px 48px' 
-          }}
+          style={{ backgroundImage: 'radial-gradient(#475569 1.5px, transparent 1.5px)', backgroundSize: '48px 48px' }}
         ></div>
 
         <div className="relative z-20 flex flex-col min-h-screen">
+          <Navbar /> 
           {children}
         </div>
 
