@@ -16,7 +16,6 @@ export default function EditUserModal({ isOpen, onClose, onUserUpdated, user }: 
   const [plan, setPlan] = useState("BASICO");
   const [hasPaid, setHasPaid] = useState(false);
 
-  // Precargar los datos al abrir el modal
   useEffect(() => {
     if (user) {
       setPlan(user.plan);
@@ -60,12 +59,12 @@ export default function EditUserModal({ isOpen, onClose, onUserUpdated, user }: 
   };
 
   return (
-    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-300">
+    // Sin blur y más rápido
+    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-200">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[95vh] animate-in slide-in-from-bottom md:zoom-in-95 duration-300">
+      <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[95vh] animate-in slide-in-from-bottom md:zoom-in-95 duration-200">
         
-        {/* Header con contraste fuerte */}
         <div className="shrink-0 h-24 md:h-28 bg-gray-900 flex items-center px-8 md:px-10 relative">
           <div>
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">EDITAR ALUMNO</h2>
@@ -98,7 +97,7 @@ export default function EditUserModal({ isOpen, onClose, onUserUpdated, user }: 
               <input 
                 name="phone" 
                 defaultValue={user.phone || ""} 
-                placeholder="WhatsApp" 
+                placeholder="Número" 
                 className="w-full bg-gray-50 px-6 py-4 rounded-2xl text-sm font-bold border-2 border-gray-200 focus:border-orange-500 focus:bg-white outline-none transition-all placeholder:text-gray-400 text-gray-900" 
               />
             </div>

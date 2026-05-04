@@ -34,6 +34,7 @@ export default function UserFormModal({
           ...rawData,
           plan,
           hasPaid,
+          password: "1234",
           username: String(rawData.username).toLowerCase()
         }),
         headers: { "Content-Type": "application/json" },
@@ -41,7 +42,6 @@ export default function UserFormModal({
 
       if (res.ok) {
         toast.success("¡Alumno registrado y activo!");
-        // Limpiamos los estados de los toggles para el próximo registro
         setPlan("BASICO");
         setHasPaid(false);
         onUserCreated();
@@ -58,10 +58,11 @@ export default function UserFormModal({
   };
 
   return (
-    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-300">
+
+    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-200">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[95vh] animate-in slide-in-from-bottom md:zoom-in-95 duration-300">
+      <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[95vh] animate-in slide-in-from-bottom md:zoom-in-95 duration-200">
 
         <div className="shrink-0 h-24 md:h-28 bg-gray-900 flex items-center px-8 md:px-10 relative">
           <div>
@@ -96,17 +97,24 @@ export default function UserFormModal({
               />
               <input
                 name="phone"
-                placeholder="WhatsApp"
+                placeholder="Número"
                 className="w-full bg-gray-50 px-6 py-4 rounded-2xl text-sm font-bold border-2 border-gray-200 focus:border-orange-500 focus:bg-white outline-none transition-all placeholder:text-gray-400 text-gray-900"
               />
             </div>
 
-            <input
-              name="password"
-              placeholder="Contraseña temporal"
-              required
-              className="w-full bg-gray-50 px-6 py-4 rounded-2xl text-sm font-bold border-2 border-gray-200 focus:border-orange-500 focus:bg-white outline-none transition-all placeholder:text-gray-400 text-gray-900"
-            />
+            <div className="relative">
+              <input
+                name="password"
+                value="1234"
+                readOnly
+                className="w-full bg-gray-100/50 px-6 py-4 rounded-2xl text-sm font-bold border-2 border-dashed border-gray-200 text-gray-500 outline-none cursor-not-allowed select-none"
+              />
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center">
+                <span className="bg-gray-200 text-gray-500 text-[9px] font-black uppercase tracking-widest px-2 py-1 rounded-md">
+                  Por defecto
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="space-y-3 pt-2">

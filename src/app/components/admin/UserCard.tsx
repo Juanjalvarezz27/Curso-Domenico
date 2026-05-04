@@ -6,7 +6,7 @@ interface User {
   id: string;
   name: string;
   username: string;
-  password?: string; 
+  password?: string;
   phone?: string;
   plan: "BASICO" | "PREMIUM";
   hasPaid: boolean;
@@ -22,16 +22,25 @@ interface UserCardProps {
 export default function UserCard({ user, onEdit, onDelete }: UserCardProps) {
   const initial = user.name ? user.name.charAt(0).toUpperCase() : "?";
 
+  // Función para formatear el número y abrir WhatsApp
   const handleWhatsApp = () => {
     if (!user.phone) return;
+
+    // 1. Limpiamos el número
     let cleanNumber = user.phone.replace(/\s+/g, '').replace(/-/g, '');
+
+    // 2. Convertimos a formato internacional (+58)
     if (cleanNumber.startsWith('0')) {
       cleanNumber = '58' + cleanNumber.substring(1);
     } else if (!cleanNumber.startsWith('58')) {
       cleanNumber = '58' + cleanNumber;
     }
-    const message = `Hola ${user.name}, aquí tienes tus credenciales de acceso:\n\n👤 *Usuario:* ${user.username}\n🔑 *Contraseña:* ${user.password || '********'}\n\n¡Gracias por ser parte de nuestro servicio!`;
+
+    // 3. Mensaje con clave fija 1234 y enlace oficial
+    const message = `¡Hola, ${user.name}! \n\nTu cuenta ya está activa. Aquí tienes tus datos de acceso a la plataforma:\n\n *Usuario:* ${user.username}\n *Contraseña:* 1234\n\n *Ingresa aquí:* https://doraziomarketing.vercel.app/\n\n_(Te recomendamos cambiar tu contraseña una vez ingreses al sistema)_.\n\n¡Bienvenido y mucho éxito!`;
+    
     const whatsappUrl = `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
+
     window.open(whatsappUrl, '_blank');
   };
 
@@ -84,7 +93,6 @@ export default function UserCard({ user, onEdit, onDelete }: UserCardProps) {
       </div>
 
       <div className="flex gap-2.5 mt-auto pt-2">
-        {/* Aquí conectamos los botones a los callbacks */}
         <button onClick={() => onEdit(user)} className="flex-1 py-3.5 bg-white border-2 border-gray-100 hover:border-gray-900 hover:bg-gray-900 hover:text-white text-gray-500 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2">
           <Edit2 size={14} /> Editar
         </button>
