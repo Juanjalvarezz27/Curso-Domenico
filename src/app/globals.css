@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+  /* Tu paleta de colores ganadora */
+  --color-fondo: #F8FAFC;
+  --color-texto-principal: #0F172A;
+  --color-acento-naranja: #EA580C;
+  --color-superficie: #FFFFFF;
+
+  /* Tus tipografías de Google Fonts */
+  --font-outfit: var(--font-outfit), sans-serif;
+  --font-jakarta: var(--font-jakarta), sans-serif;
+}
