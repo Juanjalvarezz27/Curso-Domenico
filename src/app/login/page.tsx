@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Loader2, Lock, MessageCircle, Eye, EyeOff } from "lucide-react";
@@ -29,7 +29,16 @@ export default function LoginPage() {
       setError(res.error);
       setLoading(false);
     } else {
-      router.push("/home"); 
+      // Pedimos la sesión recién creada para revisar el rol
+      const session = await getSession();
+      
+      // Lógica de ruteo según el rol
+      if (session?.user?.role === "ADMIN") {
+        router.push("/admin"); // Tu panel exclusivo
+      } else {
+        router.push("/home"); // Panel de los estudiantes
+      }
+      
       router.refresh();
     }
   };
@@ -37,7 +46,6 @@ export default function LoginPage() {
   return (
     <main className="min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
       
-      {/* Botón de regreso al Landing */}
       <Link href="/" className="absolute top-8 left-8 flex items-center gap-2 text-gray-500 hover:text-texto-principal transition-colors text-sm font-bold tracking-widest uppercase z-20">
         <ArrowLeft size={16} /> Volver
       </Link>
@@ -105,7 +113,6 @@ export default function LoginPage() {
             </button>
           </form>
 
-          {/* DIVISOR Y SECCIÓN DE CONTACTO WHATSAPP */}
           <div className="mt-8 pt-6 border-t border-gray-100/80 flex flex-col items-center gap-4">
             <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest text-center">
               ¿Aún no tienes una cuenta?

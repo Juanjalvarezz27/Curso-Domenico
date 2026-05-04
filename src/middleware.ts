@@ -5,53 +5,51 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. EXCEPCIONES: Archivos estáticos, Landing, Login, NextAuth y Setup temporal
-  if (
-    pathname.startsWith("/_next") || 
-    pathname.startsWith("/api/auth") ||
-    pathname.startsWith("/login") || 
-    pathname === "/" || 
-    pathname.endsWith(".png") || 
-    pathname === "/favicon.ico"
-  ) {
-    return NextResponse.next();
-  }
-
-  // 2. OBTENER SESIÓN DESDE EL TOKEN JWT
+  // 1. OBTENER SESIÓN DESDE EL TOKEN JWT
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  // 3. SI NO HAY SESIÓN ACTIVA (No Autorizado)
-  if (!token) {
-    // Si un componente intenta hacer fetch a la API sin estar logueado
-    if (pathname.startsWith("/api/")) {
-      return NextResponse.json(
-        { error: "No autorizado. Inicie sesión." }, 
-        { status: 401 }
-      );
+  // 2. RUTAS PÚBLICAS (Landing y Login)
+  const isPublicRoute = pathname === "/" || pathname.startsWith("/login");
+  
+  if (isPublicRoute) {
+    if (token) {
+      // Si YA tiene sesión, lo sacamos de aquí y lo mandamos a su panel
+      if (token.role === "ADMIN") {
+        return NextResponse.redirect(new URL("/admin", request.url));
+      } else {
+        return NextResponse.redirect(new URL("/home", request.url));
+      }
     }
-    // Si intenta entrar al sistema, lo pateamos a la vista de /login
+    // Si no tiene sesión, que vea la landing o el login tranquilamente
+    return NextResponse.next();
+  }
+
+  // 3. RUTAS PROTEGIDAS (Si llega aquí, intenta entrar a /admin, /home, etc)
+  if (!token) {
+    // Si un componente intenta hacer fetch a la API
+    if (pathname.startsWith("/api/")) {
+      return NextResponse.json({ error: "No autorizado." }, { status: 401 });
+    }
+    // Si es una vista, patada al login
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // 4. SI HAY SESIÓN: VERIFICACIÓN DE ROLES (RBAC)
-  // Si alguien intenta entrar a las rutas de /admin, verificamos si es ADMIN
+  // 4. CONTROL DE ACCESO (RBAC) PARA ADMIN
   if (pathname.startsWith("/admin") && token.role !== "ADMIN") {
-    // Si un usuario normal intenta hacerse el listo, lo devolvemos a su panel
+    // Usuario normal intentando entrar al panel administrativo
     return NextResponse.redirect(new URL("/home", request.url));
   }
 
-  // 5. SI HAY SESIÓN Y EL ROL ES CORRECTO: Pase libre
+  // 5. PASE LIBRE
   return NextResponse.next();
 }
 
-// 6. MATCHERS: ¿Qué rutas vigila este middleware?
+// MATCHERS: Vigila toda la app EXCEPTO los estáticos de Next.js, la API de Auth y las imágenes
 export const config = {
   matcher: [
-    "/home/:path*",      // Protege el panel de los estudiantes
-    "/admin/:path*",     // Protege tu panel administrativo
-    "/api/((?!auth|setup).*)"  // Protege toda la API excepto NextAuth y la creación de tu admin
+    "/((?!_next/static|_next/image|api/auth|api/setup|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

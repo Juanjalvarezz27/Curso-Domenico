@@ -3,16 +3,25 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { signOut } from 'next-auth/react';
-import { User, LogOut, Users, BookOpen, Menu, X as CloseIcon, ChevronRight } from 'lucide-react';
+import { signOut, getSession } from 'next-auth/react';
+import { User, LogOut, Users, Menu, X as CloseIcon, ChevronRight, BookOpen } from 'lucide-react';
 import LogoutModal from './LogoutModal';
 
 export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
+  
+  const [userRole, setUserRole] = useState<string | null>(null);
 
-  // Bloquear el scroll de la página de fondo cuando el menú móvil está abierto
+  useEffect(() => {
+    getSession().then((session) => {
+      if (session?.user?.role) {
+        setUserRole(session.user.role);
+      }
+    });
+  }, [pathname]);
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -22,17 +31,14 @@ export default function Navbar() {
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMobileMenuOpen]);
 
-  // Lógica inteligente para saber dónde estamos
   const isLanding = pathname === '/';
   const isLogin = pathname === '/login';
-  const isSystem = pathname.startsWith('/home');
+  const isSystem = pathname.startsWith('/home') || pathname.startsWith('/admin');
 
-  // Si estamos en el Login, ocultamos el Navbar por completo
   if (isLogin) return null;
 
-  // Ejecuta el logout de NextAuth y manda a /home (que luego el middleware mandará a /login)
   const handleLogout = () => {
-    signOut({ callbackUrl: '/home' });
+    signOut({ callbackUrl: '/login' }); 
   };
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -42,7 +48,6 @@ export default function Navbar() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-fondo/80 backdrop-blur-xl border-b border-gray-200/60">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           
-          {/* LOGO */}
           <Link 
             href="/" 
             onClick={closeMobileMenu}
@@ -52,7 +57,6 @@ export default function Navbar() {
             D'ORAZIO
           </Link>
 
-          {/* BOTÓN HAMBURGUESA (MÓVIL) */}
           <button 
             className="md:hidden relative z-50 text-texto-principal p-2 -mr-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -60,7 +64,6 @@ export default function Navbar() {
             {isMobileMenuOpen ? <CloseIcon size={24} /> : <Menu size={24} />}
           </button>
 
-          {/* MENÚ DESKTOP */}
           <div className="hidden md:flex items-center gap-8">
             {isLanding && (
               <>
@@ -82,12 +85,11 @@ export default function Navbar() {
             {isSystem && (
               <>
                 <div className="flex items-center gap-8 text-xs font-bold text-gray-500 uppercase tracking-widest">
-                  <Link href="/home" className="flex items-center gap-2 hover:text-acento-naranja transition-colors">
-                    <BookOpen size={14} /> Cursos
-                  </Link>
-                  <Link href="/home/admin/usuarios" className="flex items-center gap-2 hover:text-acento-naranja transition-colors">
-                    <Users size={14} /> Gestión de Usuarios
-                  </Link>
+                  {userRole === 'ADMIN' && (
+                    <Link href="/admin" className="flex items-center gap-2 hover:text-acento-naranja transition-colors">
+                      <Users size={14} /> Gestión de Usuarios
+                    </Link>
+                  )}
                 </div>
                 
                 <button 
@@ -102,7 +104,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* MENÚ DESPLEGABLE FULLSCREEN (MÓVIL) */}
         <div className={`md:hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] bg-fondo flex flex-col transition-all duration-300 ease-in-out overflow-y-auto ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
           <div className="px-6 py-8 flex flex-col grow">
             
@@ -154,33 +155,21 @@ export default function Navbar() {
             {isSystem && (
               <>
                 <div className="flex flex-col gap-4 mt-2">
-                  <Link 
-                    href="/home" 
-                    onClick={closeMobileMenu} 
-                    className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
-                        <BookOpen size={20} />
+                  {userRole === 'ADMIN' && (
+                    <Link 
+                      href="/admin" 
+                      onClick={closeMobileMenu} 
+                      className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
+                          <Users size={20} />
+                        </div>
+                        <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Gestión de Usuarios</span>
                       </div>
-                      <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Cursos</span>
-                    </div>
-                    <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
-                  </Link>
-
-                  <Link 
-                    href="/home/admin/usuarios" 
-                    onClick={closeMobileMenu} 
-                    className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
-                        <Users size={20} />
-                      </div>
-                      <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Gestión de Usuarios</span>
-                    </div>
-                    <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
-                  </Link>
+                      <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
+                    </Link>
+                  )}
                 </div>
 
                 <div className="mt-auto pb-8">
