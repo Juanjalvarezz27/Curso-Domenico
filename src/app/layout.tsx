@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Outfit, Plus_Jakarta_Sans, Syncopate } from "next/font/google";
 import Navbar from "./components/ui/Navbar"; 
 import "./globals.css";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 const outfit = Outfit({ 
   subsets: ["latin"], 
@@ -50,6 +52,20 @@ export default function RootLayout({
           <Navbar /> 
           {children}
         </div>
+
+            <ToastContainer 
+            position="top-center"
+            autoClose={3000}
+            hideProgressBar={true}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+            toastClassName="rounded-2xl shadow-lg border border-slate-100 font-sans text-sm"
+          />
 
       </body>
     </html>
