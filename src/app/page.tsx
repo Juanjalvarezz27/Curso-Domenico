@@ -20,7 +20,7 @@ export default function LandingPage() {
     <main className="relative overflow-hidden pt-20">
       
       {/* HEADER / HERO SECTION */}
-      <section className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-8 text-center">
+      <section className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 pt-24 md:pt-28 pb-16 text-center">
         <div className="inline-flex items-center gap-2 bg-orange-50 px-5 py-2.5 rounded-full border border-orange-200 shadow-sm text-xs md:text-sm font-bold tracking-widest text-acento-naranja mb-8 uppercase">
           <GraduationCap size={18} strokeWidth={2.5} />
           <span>Programa de Formación para Creadores</span>
@@ -39,18 +39,29 @@ export default function LandingPage() {
           Aprende a estructurar tu marca personal, profesionalizar tu contenido y convertir a tus seguidores en clientes.
         </p>
         
-        <a href="#temario" className="group inline-flex bg-texto-principal text-superficie font-bold py-4 px-8 rounded-full hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 items-center justify-center gap-2 mx-auto">
+        <a href="#temario" className="group inline-flex bg-texto-principal text-superficie font-bold py-4 px-8 rounded-full hover:bg-gray-800 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 items-center justify-center gap-2 mx-auto mb-16">
           Ver Temario del Curso
           <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
         </a>
+
+        {/* CONTENEDOR DEL VIDEO (PLACEHOLDER EN BLANCO) */}
+        <div className="relative max-w-4xl mx-auto rounded-[3rem] border-2 border-dashed border-gray-300 bg-gray-50 aspect-video flex flex-col items-center justify-center shadow-sm">
+          <PlayCircle size={48} className="text-gray-300 mb-4" />
+          <span className="font-outfit text-2xl font-black text-gray-400 uppercase tracking-widest">
+            VIDEO
+          </span>
+          <span className="text-sm font-bold text-gray-400 mt-2 uppercase tracking-widest">
+            Espacio reservado para el reproductor
+          </span>
+        </div>
       </section>
 
       {/* SECCIÓN VISUAL: QUÉ VAS A APRENDER */}
       <section id="temario" className="relative z-20 max-w-7xl mx-auto px-6 py-10 md:py-12 scroll-mt-24">
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-superficie border border-gray-200 text-gray-500 text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
-             <Target size={14} className="text-acento-naranja" />
-             Módulos del Programa
+            <Target size={14} className="text-acento-naranja" />
+            Módulos del Programa
           </div>
           <h2 className="font-outfit text-3xl md:text-4xl font-black mb-4 text-texto-principal tracking-tight">
             ¿Qué vas a <span className="text-acento-naranja">dominar?</span>
@@ -128,8 +139,8 @@ export default function LandingPage() {
         <div className="bg-superficie rounded-[3rem] p-8 md:p-14 shadow-[0_8px_40px_rgba(0,0,0,0.06)] border border-gray-100 relative overflow-hidden">
           <div className="relative z-10 text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-acento-naranja text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
-               <TrendingUp size={14} />
-               Tu Transformación
+              <TrendingUp size={14} />
+              Tu Transformación
             </div>
             <h2 className="font-outfit text-3xl md:text-5xl font-black text-texto-principal tracking-tight max-w-3xl mx-auto mb-5 leading-tight">
               El objetivo no es ser famoso, es <span className="text-acento-naranja">ser rentable.</span>
@@ -184,8 +195,8 @@ export default function LandingPage() {
               <div className="relative z-10 w-full bg-fondo/80 p-4 rounded-2xl border border-gray-100 shadow-inner flex flex-col gap-3 h-28 justify-end">
                 <div className="bg-green-50 px-4 py-3 rounded-2xl rounded-bl-sm border border-green-200 shadow-md self-start flex items-center gap-3">
                   <div className="relative flex shrink-0">
-                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
-                     <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-lg shadow-sm">🤝</div>
+                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-lg shadow-sm">🤝</div>
                   </div>
                   <div className="flex flex-col text-left">
                     <span className="text-[10px] text-green-600 font-bold uppercase tracking-wider mb-0.5">Venta Cerrada</span>
@@ -198,12 +209,12 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* PRICING / PLANES (Ahora con id="planes" y scroll margin) */}
+      {/* PRICING / PLANES */}
       <section id="planes" className="relative z-20 max-w-5xl mx-auto px-6 py-10 md:py-12 scroll-mt-24">
         <div className="text-center mb-10 md:mb-12 flex flex-col items-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-acento-naranja text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
-             <Sparkles size={14} />
-             Inversión Única
+            <Sparkles size={14} />
+            Inversión Única
           </div>
           <h2 className="font-outfit text-3xl md:text-4xl font-black mb-4 text-texto-principal tracking-tight">
             Elige tu <span className="text-acento-naranja">plan de acción</span>
@@ -216,7 +227,7 @@ export default function LandingPage() {
               <h3 className="font-outfit text-3xl font-bold mb-2 text-texto-principal">Básico</h3>
               <p className="text-gray-500 text-sm">Los cimientos para ordenar la casa.</p>
             </div>
-            <div className="text-5xl font-outfit font-bold mb-8 text-texto-principal">$X.XX</div>
+            <div className="text-5xl font-outfit font-bold mb-8 text-texto-principal">$5.99</div>
             <ul className="space-y-4 mb-2 grow text-gray-600 font-medium text-sm">
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-gray-400" />Configuración de Perfil</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-gray-400" />Guías de Canva y CapCut</li>
@@ -231,13 +242,13 @@ export default function LandingPage() {
               <h3 className="font-outfit text-3xl font-bold mb-2 text-superficie">Premium</h3>
               <p className="text-gray-400 text-sm">Monetiza y eleva tu autoridad.</p>
             </div>
-            <div className="text-5xl font-outfit font-bold mb-8 text-superficie">$X.XX</div>
+            <div className="text-5xl font-outfit font-bold mb-8 text-superficie">$9.99</div>
             <ul className="space-y-4 mb-2 grow text-gray-300 font-medium text-sm">
               <li className="flex items-center gap-3"><ShieldCheck size={20} className="text-acento-naranja" />Todo el contenido Básico</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Psicología Visual Avanzada</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Neuromarketing de Retención</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Cierre de Ventas en WhatsApp</li>
-              <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Tu Imagen como Experto</li>
+              <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Bancos de IA (Pexels) y videos de referencia</li>
             </ul>
           </div>
         </div>
