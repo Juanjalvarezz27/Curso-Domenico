@@ -29,7 +29,7 @@ export default function LoginPage() {
       setError(res.error);
       setLoading(false);
     } else {
-      router.push("/home"); // Si todo sale bien, lo mandamos al sistema
+      router.push("/home"); 
       router.refresh();
     }
   };

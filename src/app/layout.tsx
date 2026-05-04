@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="scroll-smooth">
+    <html lang="es" className="scroll-smooth" data-scroll-behavior="smooth">
       <body className={`${outfit.variable} ${jakarta.variable} ${syncopate.variable} font-jakarta bg-fondo text-texto-principal selection:bg-acento-naranja selection:text-white antialiased`}>
         
         {/* Fondos Globales */}

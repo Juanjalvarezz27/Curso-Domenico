@@ -60,7 +60,13 @@ export default function LandingPage() {
         <div className="grid md:grid-cols-3 gap-6">
           <div className="bg-superficie rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
             <div className="relative w-full h-40">
-              <Image src="/Profile1.png" alt="Tu Perfil Perfecto" fill className="object-cover grayscale-[20%]" />
+              <Image 
+                src="/Profile1.png" 
+                alt="Tu Perfil Perfecto" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale-20" 
+              />
             </div>
             <div className="p-6 grow flex flex-col">
               <div className="flex items-center gap-3 mb-4">
@@ -75,7 +81,13 @@ export default function LandingPage() {
 
           <div className="bg-superficie rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
             <div className="relative w-full h-40">
-              <Image src="/Meeting1.png" alt="Retención y Edición" fill className="object-cover grayscale-20" />
+              <Image 
+                src="/Meeting1.png" 
+                alt="Retención y Edición" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale-20" 
+              />
             </div>
             <div className="p-6 grow flex flex-col">
               <div className="flex items-center gap-3 mb-4">
@@ -90,7 +102,13 @@ export default function LandingPage() {
 
           <div className="bg-superficie rounded-3xl overflow-hidden shadow-lg border border-gray-100 flex flex-col">
             <div className="relative w-full h-40">
-              <Image src="/Stats1.png" alt="Estrategia y Ventas" fill className="object-cover grayscale-20" />
+              <Image 
+                src="/Stats1.png" 
+                alt="Estrategia y Ventas" 
+                fill 
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale-20" 
+              />
             </div>
             <div className="p-6 grow flex flex-col">
               <div className="flex items-center gap-3 mb-4">
