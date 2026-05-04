@@ -10,7 +10,7 @@ export default function Navbar() {
   // Lógica inteligente para saber dónde estamos
   const isLanding = pathname === '/';
   const isLogin = pathname === '/login';
-  const isSystem = pathname.startsWith('/plataforma') || pathname.startsWith('/admin');
+  const isSystem = pathname.startsWith('/home');
 
   // Si estamos en el Login, ocultamos el Navbar por completo
   if (isLogin) return null;
