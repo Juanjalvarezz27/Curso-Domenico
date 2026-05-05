@@ -38,7 +38,8 @@ export default function Navbar() {
   if (isLogin) return null;
 
   const handleLogout = () => {
-    signOut({ callbackUrl: '/login' }); 
+    // Redirige a la landing page (/) al cerrar sesión
+    signOut({ callbackUrl: '/' }); 
   };
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -104,7 +105,8 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className={`md:hidden fixed top-20 left-0 w-full h-[calc(100vh-5rem)] bg-fondo flex flex-col transition-all duration-300 ease-in-out overflow-y-auto ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
+        {/* CONTENEDOR MENÚ MÓVIL CORREGIDO: Usando bottom-0 en vez de 100vh para evitar bugs en iOS/Android */}
+        <div className={`md:hidden fixed top-20 left-0 right-0 bottom-0 bg-fondo flex flex-col transition-all duration-300 ease-in-out overflow-y-auto ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
           <div className="px-6 py-8 flex flex-col grow">
             
             {isLanding && (
@@ -139,7 +141,8 @@ export default function Navbar() {
                   </a>
                 </div>
 
-                <div className="mt-auto pb-8">
+                {/* BOTÓN INGRESAR: Se cambió mt-auto por mt-8 para que quede visible justo debajo de los links */}
+                <div className="mt-8 pb-8">
                   <Link 
                     href="/login" 
                     onClick={closeMobileMenu}
@@ -172,7 +175,8 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <div className="mt-auto pb-8">
+                {/* BOTÓN SALIR: Se cambió mt-auto por mt-8 igual que arriba */}
+                <div className="mt-8 pb-8">
                   <button 
                     onClick={() => {
                       closeMobileMenu();
