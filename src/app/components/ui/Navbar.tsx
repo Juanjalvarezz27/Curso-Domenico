@@ -38,7 +38,6 @@ export default function Navbar() {
   if (isLogin) return null;
 
   const handleLogout = () => {
-    // Redirige a la landing page (/) al cerrar sesión
     signOut({ callbackUrl: '/' }); 
   };
 
@@ -104,96 +103,99 @@ export default function Navbar() {
             )}
           </div>
         </div>
-
-        {/* CONTENEDOR MENÚ MÓVIL CORREGIDO: Usando bottom-0 en vez de 100vh para evitar bugs en iOS/Android */}
-        <div className={`md:hidden fixed top-20 left-0 right-0 bottom-0 bg-fondo flex flex-col transition-all duration-300 ease-in-out overflow-y-auto ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
-          <div className="px-6 py-8 flex flex-col grow">
-            
-            {isLanding && (
-              <>
-                <div className="flex flex-col gap-4 mt-2">
-                  <a 
-                    href="#temario" 
-                    onClick={closeMobileMenu} 
-                    className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
-                        <BookOpen size={20} />
-                      </div>
-                      <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">El Programa</span>
-                    </div>
-                    <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
-                  </a>
-
-                  <a 
-                    href="#planes" 
-                    onClick={closeMobileMenu} 
-                    className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
-                        <User size={20} />
-                      </div>
-                      <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Planes</span>
-                    </div>
-                    <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
-                  </a>
-                </div>
-
-                {/* BOTÓN INGRESAR: Se cambió mt-auto por mt-8 para que quede visible justo debajo de los links */}
-                <div className="mt-8 pb-8">
-                  <Link 
-                    href="/login" 
-                    onClick={closeMobileMenu}
-                    className="flex items-center justify-center gap-3 w-full bg-texto-principal text-superficie px-5 py-4 rounded-xl font-bold text-base hover:bg-gray-800 transition-all shadow-md active:scale-95"
-                  >
-                    <User size={20} className="text-acento-naranja" />
-                    <span>Ingresar al Sistema</span>
-                  </Link>
-                </div>
-              </>
-            )}
-
-            {isSystem && (
-              <>
-                <div className="flex flex-col gap-4 mt-2">
-                  {userRole === 'ADMIN' && (
-                    <Link 
-                      href="/admin" 
-                      onClick={closeMobileMenu} 
-                      className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
-                          <Users size={20} />
-                        </div>
-                        <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Gestión de Usuarios</span>
-                      </div>
-                      <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
-                    </Link>
-                  )}
-                </div>
-
-                {/* BOTÓN SALIR: Se cambió mt-auto por mt-8 igual que arriba */}
-                <div className="mt-8 pb-8">
-                  <button 
-                    onClick={() => {
-                      closeMobileMenu();
-                      setIsLogoutModalOpen(true);
-                    }}
-                    className="flex items-center justify-center gap-3 w-full bg-red-50 text-red-600 border border-red-200 px-5 py-4 rounded-xl font-bold text-base hover:bg-red-500 hover:text-white transition-all shadow-sm active:scale-95"
-                  >
-                    <LogOut size={20} className="opacity-80" />
-                    <span>Cerrar Sesión</span>
-                  </button>
-                </div>
-              </>
-            )}
-
-          </div>
-        </div>
       </nav>
+
+      {/* MENÚ MÓVIL: Estructura mejorada para empujar el botón al fondo */}
+      <div className={`md:hidden fixed inset-0 z-40 bg-fondo transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        
+        {/* Contenedor interno que maneja el flex y el scroll de forma segura */}
+        <div className={`flex flex-col h-full pt-28 pb-12 px-6 overflow-y-auto transition-transform duration-300 ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-4'}`}>
+          
+          {isLanding && (
+            <>
+              {/* Opciones Superiores */}
+              <div className="flex flex-col gap-4">
+                <a 
+                  href="#temario" 
+                  onClick={closeMobileMenu} 
+                  className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
+                      <BookOpen size={20} />
+                    </div>
+                    <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">El Programa</span>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
+                </a>
+
+                <a 
+                  href="#planes" 
+                  onClick={closeMobileMenu} 
+                  className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
+                      <User size={20} />
+                    </div>
+                    <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Planes</span>
+                  </div>
+                  <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
+                </a>
+              </div>
+
+              {/* Botón Inferior: mt-auto lo empuja al fondo. pt-8 le da aire si la pantalla es muy pequeña */}
+              <div className="mt-auto pt-8">
+                <Link 
+                  href="/login" 
+                  onClick={closeMobileMenu}
+                  className="flex items-center justify-center gap-3 w-full bg-texto-principal text-superficie px-5 py-4 rounded-xl font-bold text-base hover:bg-gray-800 transition-all shadow-md active:scale-95"
+                >
+                  <User size={20} className="text-acento-naranja" />
+                  <span>Ingresar al Sistema</span>
+                </Link>
+              </div>
+            </>
+          )}
+
+          {isSystem && (
+            <>
+              <div className="flex flex-col gap-4">
+                {userRole === 'ADMIN' && (
+                  <Link 
+                    href="/admin" 
+                    onClick={closeMobileMenu} 
+                    className="flex items-center justify-between bg-white border border-gray-100 p-4 rounded-2xl shadow-sm hover:shadow-md hover:border-orange-200 transition-all active:scale-95 group"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="bg-orange-50 p-2.5 rounded-xl text-acento-naranja group-hover:scale-110 transition-transform">
+                        <Users size={20} />
+                      </div>
+                      <span className="font-bold text-gray-700 uppercase tracking-widest text-sm">Gestión de Usuarios</span>
+                    </div>
+                    <ChevronRight size={18} className="text-gray-300 group-hover:text-acento-naranja group-hover:translate-x-1 transition-all" />
+                  </Link>
+                )}
+              </div>
+
+              {/* Botón Inferior de Salir */}
+              <div className="mt-auto pt-8">
+                <button 
+                  onClick={() => {
+                    closeMobileMenu();
+                    setIsLogoutModalOpen(true);
+                  }}
+                  className="flex items-center justify-center gap-3 w-full bg-red-50 text-red-600 border border-red-200 px-5 py-4 rounded-xl font-bold text-base hover:bg-red-500 hover:text-white transition-all shadow-sm active:scale-95"
+                >
+                  <LogOut size={20} className="opacity-80" />
+                  <span>Cerrar Sesión</span>
+                </button>
+              </div>
+            </>
+          )}
+
+        </div>
+      </div>
 
       <LogoutModal 
         isOpen={isLogoutModalOpen} 
