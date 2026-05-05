@@ -59,13 +59,12 @@ export default function EditUserModal({ isOpen, onClose, onUserUpdated, user }: 
   };
 
   return (
-    // Sin blur y más rápido
-    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-black/70 animate-in fade-in duration-200">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[95vh] animate-in slide-in-from-bottom md:zoom-in-95 duration-200">
+      <div className="bg-white w-full max-w-lg rounded-[2rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[90dvh] animate-in zoom-in-95 duration-200">
         
-        <div className="shrink-0 h-24 md:h-28 bg-gray-900 flex items-center px-8 md:px-10 relative">
+        <div className="shrink-0 h-24 md:h-28 bg-gray-900 flex items-center px-6 md:px-10 relative">
           <div>
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">EDITAR ALUMNO</h2>
             <p className="text-orange-500 text-[10px] font-black uppercase tracking-widest">Actualización de datos</p>
@@ -142,11 +141,11 @@ export default function EditUserModal({ isOpen, onClose, onUserUpdated, user }: 
           </button>
 
           <div className="flex flex-col md:flex-row gap-3 pt-4">
-            <button disabled={loading} className="order-1 md:order-2 flex-2 bg-gray-900 text-white font-black py-5 rounded-2xl hover:bg-orange-600 transition-all active:scale-[0.98] flex items-center justify-center gap-3 uppercase text-[10px] tracking-[0.2em] shadow-xl w-full">
+            <button disabled={loading} className="order-1 md:order-2 flex-[2] bg-gray-900 text-white font-black py-5 rounded-2xl hover:bg-orange-600 transition-all active:scale-[0.98] flex items-center justify-center gap-3 uppercase text-[10px] tracking-[0.2em] shadow-xl w-full">
               {loading ? <Loader2 className="animate-spin" size={18} /> : <Save size={18} className="text-orange-500" />}
               {loading ? "Guardando..." : "Guardar Cambios"}
             </button>
-            <button type="button" onClick={onClose} className="order-2 md:order-1 flex-1 py-5 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-red-50/50 text-red-600 hover:bg-red-100 transition-colors w-full">
+            <button type="button" onClick={onClose} className="order-2 md:order-1 flex-1 py-5 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-red-50 text-red-600 hover:bg-red-100 transition-colors w-full">
               Cancelar
             </button>
           </div>

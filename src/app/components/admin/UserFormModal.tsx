@@ -34,7 +34,7 @@ export default function UserFormModal({
           ...rawData,
           plan,
           hasPaid,
-          password: "1234",
+          password: "1234", 
           username: String(rawData.username).toLowerCase()
         }),
         headers: { "Content-Type": "application/json" },
@@ -58,13 +58,14 @@ export default function UserFormModal({
   };
 
   return (
-
-    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-200">
+    // Se agregó p-4 md:p-6 para forzar márgenes en móvil y se centró con items-center
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-6 bg-black/70 animate-in fade-in duration-200">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[95vh] animate-in slide-in-from-bottom md:zoom-in-95 duration-200">
+      {/* Se cambió a rounded-[2rem] y max-h-[90dvh] para respetar la barra de Safari */}
+      <div className="bg-white w-full max-w-lg rounded-4xl md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 flex flex-col max-h-[90dvh] animate-in zoom-in-95 duration-200">
 
-        <div className="shrink-0 h-24 md:h-28 bg-gray-900 flex items-center px-8 md:px-10 relative">
+        <div className="shrink-0 h-24 md:h-28 bg-gray-900 flex items-center px-6 md:px-10 relative">
           <div>
             <h2 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight">NUEVO ALUMNO</h2>
             <p className="text-orange-500 text-[10px] font-black uppercase tracking-widest">Configuración de acceso</p>
@@ -167,7 +168,7 @@ export default function UserFormModal({
             <button
               type="button"
               onClick={onClose}
-              className="order-2 md:order-1 flex-1 py-5 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-red-50/50 text-red-600 hover:bg-red-100 transition-colors w-full"
+              className="order-2 md:order-1 flex-1 py-5 rounded-2xl font-black text-[10px] uppercase tracking-widest bg-red-50 text-red-600 hover:bg-red-100 transition-colors w-full"
             >
               Cancelar
             </button>

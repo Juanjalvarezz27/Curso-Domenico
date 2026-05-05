@@ -18,7 +18,7 @@ export default function DeleteUserModal({ isOpen, onClose, onUserDeleted, user }
   if (!isOpen || !user) return null;
 
   const handleClose = () => {
-    setConfirmText(""); // Limpiamos el texto si cancelan
+    setConfirmText("");
     onClose();
   };
 
@@ -44,14 +44,14 @@ export default function DeleteUserModal({ isOpen, onClose, onUserDeleted, user }
     }
   };
 
-  // Validación: Solo se habilita si escriben "eliminar" (sin importar mayúsculas)
   const isConfirmed = confirmText.trim().toLowerCase() === "eliminar";
 
   return (
-    <div className="fixed inset-0 z-100 flex items-end md:items-center justify-center bg-black/70 animate-in fade-in duration-300">
+    // Consistencia en márgenes y centrado
+    <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-6 bg-black/70 animate-in fade-in duration-200">
       <div className="fixed inset-0" onClick={handleClose} />
 
-      <div className="bg-white w-full max-w-sm rounded-t-[2.5rem] md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 animate-in slide-in-from-bottom md:zoom-in-95 duration-300 p-8 text-center pb-12 md:pb-8">
+      <div className="bg-white w-full max-w-sm rounded-4xl md:rounded-[3rem] shadow-2xl overflow-hidden relative z-10 animate-in zoom-in-95 duration-200 p-8 text-center max-h-[90dvh] overflow-y-auto">
         
         <button onClick={handleClose} className="absolute top-6 right-6 text-gray-400 hover:text-gray-800 transition-colors p-2 bg-gray-50 rounded-full">
           <X size={20} />
@@ -67,7 +67,6 @@ export default function DeleteUserModal({ isOpen, onClose, onUserDeleted, user }
           <span className="text-red-500 font-black text-sm">@{user.username}</span>
         </p>
 
-        {/* Input de confirmación estricto */}
         <div className="mb-8 text-left bg-gray-50 p-5 rounded-3xl border border-gray-100">
           <label className="block text-[10px] font-black text-gray-500 uppercase tracking-widest mb-3 text-center">
             Escribe <span className="text-red-500 bg-red-50 px-2 py-0.5 rounded-md">ELIMINAR</span> para confirmar
