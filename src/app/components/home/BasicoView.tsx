@@ -322,7 +322,7 @@ export default function BasicoView() {
           <div className="bg-white rounded-4xl border border-gray-200 shadow-sm flex flex-col overflow-hidden group hover:shadow-2xl transition-all duration-500">
             <div className="h-44 sm:h-48 xl:h-56 bg-gray-200 relative overflow-hidden">
               <Image 
-                src="/Meeting.png" 
+                src="/Meeting1.png" 
                 alt="Video Editing" 
                 fill
                 className="object-cover mix-blend-multiply opacity-70 group-hover:scale-110 transition-transform duration-700"
@@ -379,7 +379,7 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 3: ESTRATEGIA VISUAL                */}
+      {/* MÓDULO 3: FORMATOS QUE FUNCIONAN (DARK BENTO) */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -399,55 +399,55 @@ export default function BasicoView() {
           </div>
         </div>
 
-        {/* 3 COLUMNAS DIRECTAS EN DESKTOP (TODO DARK MODE) */}
+        {/* 3 COLUMNAS COMPACTAS Y ELEGANTES */}
         <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
 
           {/* CARD REELS */}
-          <div className="bg-gray-900 rounded-[2.5rem] border border-gray-800 shadow-2xl flex flex-col overflow-hidden group hover:shadow-pink-500/10 transition-all duration-500">
+          <div className="bg-gray-900 rounded-4xl border border-gray-800 shadow-2xl flex flex-col overflow-hidden group hover:shadow-pink-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-gray-950 shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1516280440502-86db406a4a75?q=80&w=1000&auto=format&fit=crop"
+              <Image
+                src="/Reels.png"
                 alt="Reels Creator"
-                className="w-full h-full object-cover opacity-30 group-hover:scale-105 group-hover:opacity-40 transition-all duration-700 mix-blend-luminosity"
+                fill
+                className="object-cover opacity-40 group-hover:scale-105 group-hover:opacity-50 transition-all duration-700 mix-blend-overlay"
               />
               <div className="absolute inset-0 bg-linear-to-t from-gray-900 via-gray-900/40 to-transparent"></div>
               <div className="absolute bottom-5 left-6 flex items-center gap-4">
-                <div className="w-12 h-12 bg-linear-to-br from-pink-500 to-rose-500 text-white rounded-xl flex items-center justify-center shadow-lg border border-white/10 group-hover:rotate-6 transition-transform shrink-0">
+                <div className="w-12 h-12 bg-linear-to-br from-pink-500 to-rose-500 text-white rounded-xl flex items-center justify-center shadow-lg border border-white/10 shrink-0 group-hover:rotate-6 transition-transform">
                   <Play className="w-5 h-5 fill-white" />
                 </div>
                 <div>
-                  <h4 className="text-2xl sm:text-3xl font-black text-white leading-none mb-1">Reels</h4>
-                  <p className="text-[10px] font-black text-pink-400 uppercase tracking-widest mt-1">Alcance Masivo</p>
+                  <h4 className="text-2xl font-black text-white leading-none mb-1">Reels</h4>
+                  <p className="text-[10px] font-black text-pink-400 uppercase tracking-widest">Alcance Masivo</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 flex flex-col flex-1 text-white">
-              <p className="text-sm sm:text-base text-gray-300 font-medium mb-5 leading-relaxed">
+            <div className="p-5 sm:p-6 flex flex-col flex-1">
+              <p className="text-sm text-gray-300 font-medium mb-5 leading-relaxed">
                 El motor para que gente nueva te descubra. Instagram los muestra masivamente a <strong className="text-white">no seguidores</strong>.
               </p>
-              
               <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex-1">
                 <h5 className="font-black text-white text-xs mb-4 flex items-center gap-2 uppercase tracking-widest">
                   <Video size={16} className="text-pink-400" /> Anatomía Viral
                 </h5>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-pink-500/30 mt-0.5">1</div>
+                    <div className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-black text-xs shrink-0 border border-pink-500/30 mt-0.5">1</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Gancho (0-3s)</strong>
                       <p className="text-sm sm:text-base text-gray-300 leading-relaxed">Di el beneficio o dolor más grande rápido para atrapar al usuario.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-pink-500/30 mt-0.5">2</div>
+                    <div className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-black text-xs shrink-0 border border-pink-500/30 mt-0.5">2</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Cuerpo (3-15s)</strong>
                       <p className="text-sm sm:text-base text-gray-300 leading-relaxed">Entrega la solución rápido sin introducciones aburridas.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-pink-500/30 mt-0.5">3</div>
+                    <div className="w-6 h-6 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center font-black text-xs shrink-0 border border-pink-500/30 mt-0.5">3</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Llamado a la Acción</strong>
                       <p className="text-sm sm:text-base text-gray-300 leading-relaxed">Dile a la gente qué hacer: "Comenta INFO para más detalles".</p>
@@ -459,27 +459,28 @@ export default function BasicoView() {
           </div>
 
           {/* CARD CARRUSELES */}
-          <div className="bg-blue-950 rounded-[2.5rem] border border-blue-900 shadow-2xl flex flex-col overflow-hidden group hover:shadow-blue-500/10 transition-all duration-500">
+          <div className="bg-blue-950/80 rounded-4xl border border-blue-900/50 shadow-2xl flex flex-col overflow-hidden group hover:shadow-blue-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-blue-900 shrink-0">
-              <img
-                src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=800&auto=format&fit=crop"
+              <Image
+                src="/Historias.png"
                 alt="Carousel Grid"
-                className="w-full h-full object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity"
+                fill
+                className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-700 mix-blend-overlay"
               />
               <div className="absolute inset-0 bg-linear-to-t from-blue-950 via-blue-950/60 to-transparent"></div>
               <div className="absolute bottom-5 left-6 flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-500 text-white rounded-xl flex items-center justify-center shadow-lg border border-white/10 shrink-0">
-                  <Images className="w-6 h-6" />
+                <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center shadow-lg border border-white/10 shrink-0">
+                  <Images className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xl sm:text-2xl font-black text-white leading-none">Carruseles</h4>
-                  <p className="text-[10px] sm:text-xs font-black text-blue-300 uppercase tracking-widest mt-1">Autoridad</p>
+                  <h4 className="text-2xl font-black text-white leading-none mb-1">Carruseles</h4>
+                  <p className="text-[10px] font-black text-blue-300 uppercase tracking-widest mt-1">Autoridad</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 flex flex-col flex-1">
-              <p className="text-sm sm:text-base text-blue-200 font-medium mb-5 leading-relaxed">
+            <div className="p-5 sm:p-6 flex flex-col flex-1">
+              <p className="text-sm text-blue-200 font-medium mb-5 leading-relaxed">
                 El formato perfecto para enseñar. Mantiene al usuario deslizando, lo cual <strong className="text-white">Instagram premia</strong>.
               </p>
               <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-5 flex-1">
@@ -488,21 +489,21 @@ export default function BasicoView() {
                 </h5>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-blue-500/30 mt-0.5">A</div>
+                    <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-xs shrink-0 border border-blue-500/30 mt-0.5">A</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Atención (Slide 1)</strong>
                       <p className="text-sm sm:text-base text-blue-200 leading-relaxed">Título gigante que despierte curiosidad inmediata.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-blue-500/30 mt-0.5">I</div>
+                    <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-xs shrink-0 border border-blue-500/30 mt-0.5">I</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Interés (Slides 2-7)</strong>
                       <p className="text-sm sm:text-base text-blue-200 leading-relaxed">Una sola idea o consejo por imagen. Usa letra grande.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-blue-500/30 mt-0.5">A</div>
+                    <div className="w-6 h-6 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center font-black text-xs shrink-0 border border-blue-500/30 mt-0.5">A</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Acción (Slide Final)</strong>
                       <p className="text-sm sm:text-base text-blue-200 leading-relaxed">Pide explícitamente que guarden o compartan el post.</p>
@@ -514,13 +515,13 @@ export default function BasicoView() {
           </div>
 
           {/* CARD HISTORIAS */}
-          <div className="bg-orange-950 rounded-[2.5rem] border border-orange-900 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
+          <div className="bg-orange-950/80 rounded-4xl border border-orange-900/50 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-orange-900 shrink-0">
               <Image
-                src="/Historias.png"
+                src="/Youtube.png"
                 alt="Stories Creator"
                 fill
-                className="object-cover opacity-20 group-hover:scale-105 transition-transform duration-700 mix-blend-luminosity"
+                className="object-cover opacity-40 group-hover:scale-105 transition-transform duration-700 mix-blend-overlay"
               />
               <div className="absolute inset-0 bg-linear-to-t from-orange-950 via-orange-950/60 to-transparent"></div>
               <div className="absolute bottom-5 left-6 flex items-center gap-4">
@@ -528,14 +529,14 @@ export default function BasicoView() {
                   <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="text-xl sm:text-2xl font-black text-white leading-none mb-1">Historias</h4>
-                  <p className="text-[10px] sm:text-xs font-black text-orange-300 uppercase tracking-widest mt-1">Conexión Diaria</p>
+                  <h4 className="text-2xl font-black text-white leading-none mb-1">Historias</h4>
+                  <p className="text-[10px] font-black text-orange-300 uppercase tracking-widest mt-1">Conexión Diaria</p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 sm:p-7 flex flex-col flex-1">
-              <p className="text-sm sm:text-base text-orange-200 font-medium mb-5 leading-relaxed">
+            <div className="p-5 sm:p-6 flex flex-col flex-1">
+              <p className="text-sm text-orange-200 font-medium mb-5 leading-relaxed">
                 Para los que <strong className="text-white">ya te siguen</strong>. Aquí conectas humanamente y cierras ventas por DM.
               </p>
               <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5 flex-1">
@@ -544,21 +545,21 @@ export default function BasicoView() {
                 </h5>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-orange-500/30 mt-0.5">1</div>
+                    <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black text-xs shrink-0 border border-orange-500/30 mt-0.5">1</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Contexto</strong>
                       <p className="text-sm sm:text-base text-orange-200 leading-relaxed">Muestra algo de tu día a día o un detrás de cámaras.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-orange-500/30 mt-0.5">2</div>
+                    <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black text-xs shrink-0 border border-orange-500/30 mt-0.5">2</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Problema</strong>
                       <p className="text-sm sm:text-base text-orange-200 leading-relaxed">Habla de un dolor o problema común de tus clientes actuales.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black text-[10px] shrink-0 border border-orange-500/30 mt-0.5">3</div>
+                    <div className="w-6 h-6 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center font-black text-xs shrink-0 border border-orange-500/30 mt-0.5">3</div>
                     <div>
                       <strong className="text-white text-sm sm:text-base block mb-0.5">Llamado (CTA)</strong>
                       <p className="text-sm sm:text-base text-orange-200 leading-relaxed">"Vota en la encuesta" o "Mándame un DM para ayudarte".</p>
@@ -605,7 +606,7 @@ export default function BasicoView() {
               <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">3</div>
               <div>
                 <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Grabación en Bloque</h4>
-                <p className="text-gray-400 text-sm xl:text-base mt-1">Cámbiate de camisa 3 veces en un día y graba 3 videos seguidos. Ahorrarás horas.</p>
+                <p className="text-gray-400 text-sm mt-1">Cámbiate de camisa 3 veces en un día y graba 3 videos seguidos. Ahorrarás horas.</p>
               </div>
             </div>
           </div>
