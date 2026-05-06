@@ -5,57 +5,54 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 1. EXCEPCIONES CRÍTICAS (Ignorar archivos y auth interno)
+  // 1. Ignorar archivos del sistema, imágenes y rutas de NextAuth
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/auth") ||
-    pathname.startsWith("/api/setup") ||
-    pathname.includes(".") // Ignora cualquier archivo con extensión (imágenes, favicons)
+    pathname.includes(".")
   ) {
     return NextResponse.next();
   }
 
-  // 2. OBTENER TOKEN
+  // 2. Obtener el token de la sesión
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  // 3. LÓGICA PARA RUTA DE LOGIN
-  // Si ya está logueado y trata de ir al login, lo mandamos a su panel correspondiente
-  if (pathname.startsWith("/login")) {
-    if (token) {
-      const url = token.role === "ADMIN" ? "/admin" : "/home";
-      return NextResponse.redirect(new URL(url, request.url));
+  // 3. SI NO ESTÁ LOGUEADO: Bloquear zonas privadas
+  const isProtectedRoute = pathname.startsWith("/admin") || pathname.startsWith("/home") || pathname.startsWith("/api/users");
+  
+  if (!token && isProtectedRoute) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+
+  // ==========================================
+  // REGLA DE ORO: EL ADMIN ES TODOPODEROSO
+  // ==========================================
+  if (token?.role === "ADMIN") {
+    // Solo lo sacamos de la página de /login por lógica (ya está dentro)
+    if (pathname.startsWith("/login")) {
+      return NextResponse.redirect(new URL("/admin", request.url));
     }
+    // ¡Dejamos que pase a cualquier otra ruta sin estorbar!
     return NextResponse.next();
   }
 
-  // 4. PROTECCIÓN DE RUTAS (ADMIN y HOME)
-  if (pathname.startsWith("/admin") || pathname.startsWith("/home")) {
-    // Si no hay token, al login
-    if (!token) {
-      return NextResponse.redirect(new URL("/login", request.url));
-    }
-
-    // Si es ruta de admin pero no es admin, al home
-    if (pathname.startsWith("/admin") && token.role !== "ADMIN") {
+  // ==========================================
+  // REGLA PARA ALUMNOS (No admins)
+  // ==========================================
+  if (token && token.role !== "ADMIN") {
+    // Si intenta hacerse el listo y entrar a /admin, o si va a /login, al Aula Virtual
+    if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
       return NextResponse.redirect(new URL("/home", request.url));
     }
-    
-    // Si es ruta de home pero es admin, podrías dejarlo o mandarlo a /admin (opcional)
-    // Aquí lo dejamos pasar por si quieres que el admin vea lo que ve el alumno
-  }
-
-  // 5. PROTECCIÓN DE API (Excepto auth y setup)
-  if (pathname.startsWith("/api/users") && !token) {
-    return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   }
 
   return NextResponse.next();
 }
 
-// Un matcher mucho más simple para evitar conflictos de parseo
+// El matcher define en qué rutas se activa este filtro
 export const config = {
-  matcher: ["/((?!api/auth|api/setup|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!api/auth|_next/static|_next/image|favicon.ico).*)"],
 };

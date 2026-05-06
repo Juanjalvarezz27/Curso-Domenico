@@ -3,7 +3,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
-// Instanciamos Prisma directo aquí (sin singletons, como pediste)
 const prisma = new PrismaClient();
 
 export const authOptions: NextAuthOptions = {
@@ -19,7 +18,6 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Por favor ingresa usuario y contraseña");
         }
 
-        // Buscamos al usuario en la BD de Neon
         const user = await prisma.user.findUnique({
           where: { username: credentials.username }
         });
@@ -28,14 +26,12 @@ export const authOptions: NextAuthOptions = {
           throw new Error("No existe un usuario con esas credenciales");
         }
 
-        // Comparamos el hash de la contraseña
         const passwordMatch = await bcrypt.compare(credentials.password, user.password);
 
         if (!passwordMatch) {
           throw new Error("Contraseña incorrecta");
         }
 
-        // Si todo está bien, retornamos el usuario
         return {
           id: user.id,
           name: user.name,
@@ -47,7 +43,6 @@ export const authOptions: NextAuthOptions = {
     })
   ],
   callbacks: {
-    // 1. Metemos el rol y el plan en el Token JWT
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;
@@ -56,7 +51,6 @@ export const authOptions: NextAuthOptions = {
       }
       return token;
     },
-    // 2. Pasamos el Token a la Sesión para poder usarlo en el frontend
     async session({ session, token }) {
       if (session?.user) {
         session.user.role = token.role;
@@ -67,13 +61,13 @@ export const authOptions: NextAuthOptions = {
     }
   },
   pages: {
-    signIn: '/login', // Aquí es donde NextAuth redirigirá si alguien no está logueado
+    signIn: '/login', 
   },
   session: {
-    strategy: "jwt", // Obligatorio al usar Credentials
-    maxAge: 30 * 24 * 60 * 60, // 30 días de sesión
+    strategy: "jwt", 
+    maxAge: 8 * 60 * 60, 
   },
-  secret: process.env.NEXTAUTH_SECRET, // Asegúrate de tener esto en tu .env
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
