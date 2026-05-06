@@ -326,7 +326,7 @@ export default function BasicoView() {
           <div className="bg-white rounded-4xl border border-gray-200 shadow-sm flex flex-col overflow-hidden group hover:shadow-2xl transition-all duration-500">
             <div className="h-44 sm:h-48 xl:h-56 bg-gray-200 relative overflow-hidden">
               <Image 
-                src="/Meeting.png" 
+                src="/Meeting1.png" 
                 alt="Video Editing" 
                 fill
                 className="object-cover mix-blend-multiply opacity-70 group-hover:scale-110 transition-transform duration-700"
