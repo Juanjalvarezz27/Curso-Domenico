@@ -7,18 +7,17 @@ import {
   Lightbulb, Video, PenTool, ImageIcon, AlertTriangle,
   ExternalLink, Download, UserCircle, Timer, Map, ArrowRight,
   Mic, Camera, Scissors, Sparkles, Zap, Clock, Star,
-  Play, Images, MessageCircle
+  Play, Images, MessageCircle, Pin, X
 } from "lucide-react";
 
 export default function BasicoView() {
   return (
-    <div className="space-y-24 pb-24 animate-in fade-in slide-in-from-bottom-8 duration-500">
+    <div className="space-y-20 pb-24 animate-in fade-in slide-in-from-bottom-8 duration-500">
 
       {/* ========================================== */}
       {/* HERO SECTION (ESTILO INSTAGRAM)            */}
       {/* ========================================== */}
       <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-gray-800 shadow-2xl w-full">
-        {/* Imagen Optimizada de Instagram */}
         <div className="absolute inset-0 opacity-15 mix-blend-luminosity">
           <Image
             src="/Ig.png"
@@ -379,7 +378,7 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 3: FORMATOS QUE FUNCIONAN (DARK BENTO) */}
+      {/* MÓDULO 3: FORMATOS QUE FUNCIONAN             */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -403,7 +402,7 @@ export default function BasicoView() {
         <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
 
           {/* CARD REELS */}
-          <div className="bg-gray-900 rounded-4xl border border-gray-800 shadow-2xl flex flex-col overflow-hidden group hover:shadow-pink-500/10 transition-all duration-500">
+          <div className="bg-gray-900 rounded-[2.5rem] border border-gray-800 shadow-2xl flex flex-col overflow-hidden group hover:shadow-pink-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-gray-950 shrink-0">
               <Image
                 src="/Reels.png"
@@ -536,7 +535,7 @@ export default function BasicoView() {
             </div>
 
             <div className="p-5 sm:p-6 flex flex-col flex-1">
-              <p className="text-sm text-orange-200 font-medium mb-5 leading-relaxed">
+              <p className="text-sm sm:text-base text-orange-200 font-medium mb-5 leading-relaxed">
                 Para los que <strong className="text-white">ya te siguen</strong>. Aquí conectas humanamente y cierras ventas por DM.
               </p>
               <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5 flex-1">
@@ -574,74 +573,166 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULOS 4 & 5 // CALENDARIO Y COMUNIDAD    */}
+      {/* MÓDULOS 4 & 5 // OPERACIÓN DIARIA            */}
       {/* ========================================== */}
-      <section className="w-full grid lg:grid-cols-2 gap-6 xl:gap-8">
-        <div className="bg-gray-900 p-8 md:p-12 rounded-[2.5rem] border border-gray-800 flex flex-col h-full shadow-xl">
-          <div className="mb-10">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-0.5 bg-orange-500 w-6 rounded-full"></div>
-              <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
-                Módulo 4 // Anticaos
-              </span>
-            </div>
-            <h2 className="text-3xl font-black text-white uppercase tracking-tighter">Tu Primer Calendario</h2>
+      <section className="w-full">
+        <div className="mb-10 sm:mb-12">
+          <div className="flex items-center gap-3 mb-4 sm:mb-5">
+            <div className="h-0.5 bg-orange-500 w-8 rounded-full"></div>
+            <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
+              Módulos 4 y 5 // Operación Diaria
+            </span>
           </div>
-          <div className="space-y-6">
-            <div className="flex gap-4 sm:gap-5 items-start">
-              <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">1</div>
-              <div>
-                <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Lluvia de Ideas</h4>
-                <p className="text-gray-400 text-sm xl:text-base mt-1">Anota las 5 preguntas que más te hacen tus clientes. Esas son tus primeras publicaciones.</p>
-              </div>
+          <div className="flex items-center gap-4 sm:gap-6">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white border border-gray-200 text-gray-900 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+              <CalendarDays className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
-            <div className="flex gap-4 sm:gap-5 items-start">
-              <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">2</div>
-              <div>
-                <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Video Pilar (Fijado)</h4>
-                <p className="text-gray-400 text-sm mt-1">Graba un Reel diciendo quién eres y fíjalo permanentemente arriba en tu perfil.</p>
-              </div>
-            </div>
-            <div className="flex gap-4 sm:gap-5 items-start">
-              <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">3</div>
-              <div>
-                <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Grabación en Bloque</h4>
-                <p className="text-gray-400 text-sm mt-1">Cámbiate de camisa 3 veces en un día y graba 3 videos seguidos. Ahorrarás horas.</p>
-              </div>
-            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter leading-tight sm:leading-none">
+              Organización y Comunidad
+            </h2>
           </div>
         </div>
 
-        <div className="bg-white p-8 md:p-12 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col h-full">
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="h-0.5 bg-orange-500 w-6 rounded-full"></div>
-              <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
-                Módulo 5 // Comunidad
-              </span>
+        <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-stretch">
+          
+          {/* MÓDULO 4: CALENDARIO */}
+          <div className="bg-gray-900 p-8 xl:p-12 rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden group flex flex-col">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+            
+            <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-3 relative z-10">
+              Tu Primer Calendario
+            </h3>
+            <p className="text-gray-400 font-medium text-base sm:text-lg mb-10 relative z-10">
+              La constancia vence al talento. Organiza tu semana de contenido en 3 simples pasos para evitar el caos.
+            </p>
+
+            <div className="space-y-4 sm:space-y-6 relative z-10 flex-1">
+              <div className="bg-white/5 border border-white/10 rounded-4xl p-6 hover:bg-white/10 transition-colors">
+                <div className="flex gap-4 sm:gap-5 items-start">
+                  <div className="w-12 h-12 bg-orange-500/20 text-orange-400 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                    <Lightbulb size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-white text-lg sm:text-xl mb-1">1. Lluvia de Ideas</h4>
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                      Anota las 5 preguntas que más te hacen tus clientes al comprar. Esas son tus primeras publicaciones de alto valor.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/5 border border-white/10 rounded-4xl p-6 hover:bg-white/10 transition-colors">
+                <div className="flex gap-4 sm:gap-5 items-start">
+                  <div className="w-12 h-12 bg-pink-500/20 text-pink-400 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                    <Pin size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-white text-lg sm:text-xl mb-1">2. Video Pilar (Fijado)</h4>
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                      Graba un Reel presentándote, contando tu historia y diciendo exactamente cómo puedes ayudar. Fíjalo en tu perfil.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 rounded-4xl p-6 hover:bg-white/10 transition-colors">
+                <div className="flex gap-4 sm:gap-5 items-start">
+                  <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                    <Camera size={24} />
+                  </div>
+                  <div>
+                    <h4 className="font-black text-white text-lg sm:text-xl mb-1">3. Grabación en Bloque</h4>
+                    <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
+                      Cámbiate de camisa 3 veces en un solo día y graba 3 videos seguidos. Ahorrarás horas de preparación mental y física.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tighter">Retención Activa</h2>
           </div>
-          <p className="text-gray-600 font-medium mb-8 text-base sm:text-lg">Instagram es una red social. Si publicas y te vas, te ocultará.</p>
-          <div className="space-y-4 mt-auto">
-            <div className="p-5 border border-red-200 bg-red-50 rounded-3xl">
-              <p className="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2 flex items-center gap-2">
-                <AlertTriangle size={14} /> Lo que NO debes hacer
-              </p>
-              <p className="text-sm xl:text-base font-medium text-red-900">Responder comentarios solo con emojis ("🔥🙌") o dar likes. Eso frena la interacción algorítmica.</p>
-            </div>
-            <div className="p-5 border border-green-200 bg-green-50 rounded-3xl">
-              <p className="text-[10px] font-black text-green-600 uppercase tracking-widest mb-2 flex items-center gap-2">
-                <CheckCircle2 size={14} /> La estrategia ganadora
-              </p>
-              <p className="text-sm xl:text-base font-medium text-green-900">Responde con preguntas para generar conversaciones largas. Eso dispara tu alcance.</p>
+
+          {/* MÓDULO 5: COMUNIDAD */}
+          <div className="bg-white p-8 xl:p-12 rounded-[3rem] border border-gray-200 shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all flex flex-col">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+            
+            <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-3 relative z-10">
+              Retención Activa
+            </h3>
+            <p className="text-gray-500 font-medium text-base sm:text-lg mb-10 relative z-10">
+              Instagram es una red social, no un periódico. Si publicas y te vas inmediatamente, el algoritmo te ocultará.
+            </p>
+
+            <div className="space-y-6 relative z-10 flex-1 flex flex-col justify-center">
+              
+              {/* THE DON'T */}
+              <div className="bg-red-50/50 border border-red-100 rounded-4xl p-6 sm:p-8 relative overflow-hidden">
+                <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 blur-[20px] rounded-full pointer-events-none"></div>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-red-500/10 text-red-600 flex items-center justify-center shrink-0">
+                    <AlertTriangle size={24} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black text-red-500 uppercase tracking-widest block mb-0.5">El Peor Error</span>
+                    <h5 className="font-black text-red-950 text-lg sm:text-xl leading-none">Lo que NO debes hacer</h5>
+                  </div>
+                </div>
+                <p className="text-red-900/80 font-medium text-sm sm:text-base leading-relaxed mb-4">
+                  Prácticas que matan tu alcance y le dicen al algoritmo que tu contenido no genera interés real:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <X size={18} className="text-red-500 shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-red-900/90 font-medium">Responder solo con emojis ("🔥", "🙌").</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <X size={18} className="text-red-500 shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-red-900/90 font-medium">Dar "Like" y dejar a la persona en visto sin conversar.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <X size={18} className="text-red-500 shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-red-900/90 font-medium">Ignorar por completo los comentarios largos.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* THE DO */}
+              <div className="bg-green-50/50 border border-green-100 rounded-4xl p-6 sm:p-8 relative overflow-hidden">
+                <div className="absolute -right-4 -top-4 w-24 h-24 bg-green-500/10 blur-[20px] rounded-full pointer-events-none"></div>
+                <div className="flex items-center gap-4 mb-5">
+                  <div className="w-12 h-12 rounded-2xl bg-green-500/10 text-green-600 flex items-center justify-center shrink-0">
+                    <CheckCircle2 size={24} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black text-green-600 uppercase tracking-widest block mb-0.5">La Estrategia</span>
+                    <h5 className="font-black text-green-950 text-lg sm:text-xl leading-none">Lo que SÍ debes hacer</h5>
+                  </div>
+                </div>
+                <p className="text-green-900/80 font-medium text-sm sm:text-base leading-relaxed mb-4">
+                  Transforma cada interacción en un hilo para que Instagram expanda el alcance de tu publicación:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-green-600 shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-green-900/90 font-medium">Responde con una afirmación y una pregunta.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-green-600 shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-green-900/90 font-medium">Menciona a la persona por su nombre.</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 size={18} className="text-green-600 shrink-0 mt-0.5" />
+                    <span className="text-sm sm:text-base text-green-900/90 font-medium">Deriva al DM estratégicamente ("Te envío info").</span>
+                  </li>
+                </ul>
+              </div>
+
             </div>
           </div>
         </div>
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 6 // EMBUDO DE CIERRE               */}
+      {/* MÓDULO 6 // EMBUDO DE CIERRE (REDISEÑO)    */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -652,37 +743,54 @@ export default function BasicoView() {
             </span>
           </div>
           <div className="flex items-center gap-4 sm:gap-6">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white border border-gray-200 text-green-600 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-              <LinkIcon className="w-6 h-6 sm:w-7 sm:h-7" />
+            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white border border-gray-200 text-gray-900 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+              <LinkIcon className="w-6 h-6 sm:w-7 sm:h-7 text-green-600" />
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter leading-tight sm:leading-none">
               Embudo de Cierre
             </h2>
           </div>
         </div>
-        <div className="bg-white p-8 md:p-14 rounded-[3rem] shadow-sm border border-gray-200 text-left md:text-center">
-          <p className="text-base sm:text-lg font-medium text-gray-600 mb-8 md:mb-10 max-w-2xl md:mx-auto">
-            Los likes no pagan las facturas. Tienes que llevar a la gente a tu WhatsApp. Crea un link directo a tu chat para que te contacten sin fricción.
-          </p>
 
-          <a
-            href="https://create.wa.link/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => { e.preventDefault(); window.open('https://create.wa.link/', '_blank'); }}
-            className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-600 text-white px-8 md:px-12 py-4 md:py-5 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-widest transition-all shadow-lg hover:shadow-green-500/20 w-full md:w-auto"
-          >
-            Crear Link de WhatsApp <ExternalLink size={18} />
-          </a>
+        <div className="bg-gray-900 rounded-[3rem] p-8 md:p-12 xl:p-16 relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col md:flex-row items-center gap-10 xl:gap-16">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-          <div className="mt-10 md:mt-12 p-5 sm:p-6 bg-red-50 border border-red-200 rounded-4xl max-w-xl md:mx-auto text-left flex gap-4 sm:gap-5 items-start">
-            <div className="bg-red-100 p-2 sm:p-3 rounded-xl text-red-500 shrink-0 mt-0.5">
-              <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6" />
-            </div>
-            <div>
-              <h4 className="text-red-600 font-black uppercase tracking-widest text-[11px] sm:text-xs mb-1">Regla de Oro Inquebrantable</h4>
-              <p className="text-red-900 font-medium text-xs sm:text-sm leading-relaxed">
-                <strong>NUNCA des tus precios en comentarios públicos.</strong> Responde siempre: "¡Hola! Te acabo de enviar toda la info detallada por mensaje privado 📩".
+          <div className="flex-1 relative z-10 text-left">
+            <h3 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-4">
+              De Seguidores a Clientes
+            </h3>
+            <p className="text-base sm:text-lg text-gray-400 font-medium leading-relaxed mb-8 max-w-xl">
+              Los likes no pagan las facturas. Tienes que sacar a la gente de Instagram y llevarla a tu terreno: WhatsApp. Crea un link directo a tu chat para que te contacten sin fricción.
+            </p>
+            
+            <a
+              href="https://create.wa.link/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => { e.preventDefault(); window.open('https://create.wa.link/', '_blank'); }}
+              className="inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-green-950 px-8 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all shadow-[0_0_40px_-10px_rgba(34,197,94,0.5)] hover:shadow-[0_0_60px_-15px_rgba(34,197,94,0.7)] hover:-translate-y-1 w-full sm:w-auto"
+            >
+              Crear Link de WhatsApp <ExternalLink size={18} />
+            </a>
+          </div>
+
+          <div className="w-full md:w-5/12 lg:w-2/5 relative z-10">
+            <div className="bg-red-500/10 border border-red-500/20 backdrop-blur-xl p-6 sm:p-8 rounded-4xl shadow-2xl relative overflow-hidden group">
+               <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
+               <div className="flex items-center gap-4 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
+                  <AlertTriangle size={24} />
+                </div>
+                <div>
+                  <span className="text-[10px] font-black text-red-400 uppercase tracking-widest block mb-0.5">Advertencia</span>
+                  <h4 className="font-black text-white text-lg leading-tight">La Regla de Oro</h4>
+                </div>
+              </div>
+              <p className="text-gray-300 font-medium text-sm sm:text-base leading-relaxed">
+                <strong className="text-white">NUNCA des tus precios en los comentarios públicos.</strong>
+                <br/><br/>
+                Responde siempre: <em className="text-red-200">"¡Hola! Te acabo de enviar toda la información detallada por mensaje privado 📩"</em>.
               </p>
             </div>
           </div>
