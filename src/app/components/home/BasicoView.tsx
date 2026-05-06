@@ -4,7 +4,7 @@ import {
   Settings, Smartphone, LayoutTemplate, CalendarDays, 
   MessageCircleHeart, Link as LinkIcon, CheckCircle2, 
   Lightbulb, Video, PenTool, ImageIcon, AlertTriangle, 
-  ExternalLink, Download, UserCircle, Timer, Map
+  ExternalLink, Download, UserCircle, Timer, Map, ArrowRight
 } from "lucide-react";
 
 export default function BasicoView() {
@@ -14,7 +14,7 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* HERO SECTION (ESTILO INSTAGRAM)            */}
       {/* ========================================== */}
-      <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-gray-800 shadow-2xl">
+      <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-gray-800 shadow-2xl w-full">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-15 mix-blend-luminosity"></div>
         <div className="absolute inset-0 bg-linear-to-tr from-yellow-500/5 via-pink-500/5 to-purple-500/5"></div>
         
@@ -39,13 +39,12 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* MÓDULO 1: LA VITRINA DIGITAL (BENTO BOX)   */}
       {/* ========================================== */}
-      <section className="max-w-6xl mx-auto px-4 md:px-0">
+      <section className="w-full">
         
         {/* ENCABEZADO PREMIUM */}
         <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-3 mb-4 sm:mb-5">
             <div className="h-0.5 bg-orange-500 w-8 rounded-full"></div>
-            {/* TEXTO AGRANDADO A text-xs sm:text-sm */}
             <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
               Módulo 1 // La Vitrina Digital
             </span>
@@ -60,109 +59,122 @@ export default function BasicoView() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-6 items-stretch">
+        {/* GRID ASIMÉTRICO: BentoBox (1fr) - Roadmap (320px/360px fijos) */}
+        <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px] gap-6 xl:gap-8 items-stretch">
           
           {/* LADO IZQUIERDO: BENTO BOX */}
-          <div className="lg:col-span-7 flex flex-col gap-6">
+          <div className="flex flex-col gap-6 min-w-0">
             
             {/* Bloque 1: Regla 3 Segundos */}
             <div className="bg-gray-900 rounded-4xl p-6 sm:p-8 text-white relative overflow-hidden shadow-xl border border-gray-800">
-              <div className="relative z-10 flex flex-col gap-4 sm:gap-5">
-                <div className="flex items-center gap-4 sm:gap-5">
-                  <div className="bg-linear-to-br from-orange-500 to-orange-600 text-white p-3 sm:p-4 rounded-xl sm:rounded-2xl shrink-0 shadow-lg shadow-orange-500/30">
-                    <Timer className="w-6 h-6 sm:w-7 sm:h-7" />
+              <div className="relative z-10 flex flex-col gap-4">
+                <div className="flex items-center gap-4">
+                  <div className="bg-linear-to-br from-orange-500 to-orange-600 text-white p-3 rounded-xl shrink-0 shadow-lg shadow-orange-500/30">
+                    <Timer className="w-6 h-6" />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">La regla de los 3 segundos</h3>
                 </div>
-                <p className="text-gray-300 font-medium text-base sm:text-lg leading-relaxed">
-                  Es el tiempo exacto que tienes para que un visitante decida si te sigue o se va. Si tu perfil es un laberinto visual, pierdes clientes antes de que vean tu contenido.
+                <p className="text-gray-300 font-medium text-sm sm:text-base leading-relaxed">
+                  Es el tiempo exacto que tienes para que un visitante decida si te sigue o se va. Si tu perfil es un laberinto visual o no comunicas al instante qué problema resuelves, pierdes clientes antes de que vean tu contenido.
                 </p>
               </div>
-              <div className="absolute top-0 right-0 w-48 h-48 bg-orange-500/10 blur-[60px] rounded-full pointer-events-none"></div>
+              <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 blur-[80px] rounded-full pointer-events-none"></div>
             </div>
 
-            {/* Bloque 2: Las 3 Tarjetas */}
-            <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 flex-1">
-              <div className="bg-white p-6 sm:p-7 rounded-4xl border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300">
+            {/* Bloque 2: Las 3 Tarjetas (Padding y Textos optimizados) */}
+            <div className="grid sm:grid-cols-3 gap-4 flex-1">
+              
+              <div className="bg-white p-5 xl:p-6 rounded-3xl border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-orange-50 border border-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="flex flex-row md:flex-col items-center md:items-start gap-4 mb-3">
+                  <div className="w-10 h-10 bg-orange-50 border border-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <PenTool className="w-5 h-5" />
                   </div>
-                  <h4 className="font-black text-gray-900 leading-tight text-lg sm:text-xl">Bio de Impacto</h4>
+                  <h4 className="font-black text-gray-900 leading-tight text-lg">Bio de Impacto</h4>
                 </div>
-                <p className="text-base text-gray-600 font-medium mt-auto leading-relaxed">Fórmula: <em className="text-gray-800 font-bold">"Ayudo a [X] a lograr [Y] con [Z]"</em>.</p>
+                <p className="text-sm text-gray-600 font-medium mt-auto leading-relaxed">
+                  Fórmula: <strong className="text-gray-900">"Ayudo a [X] a lograr [Y] con [Z]"</strong>. Añade tu palabra clave.
+                </p>
               </div>
 
-              <div className="bg-white p-6 sm:p-7 rounded-4xl  border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="bg-white p-5 xl:p-6 rounded-3xl border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-orange-50 border border-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="flex flex-row md:flex-col items-center md:items-start gap-4 mb-3">
+                  <div className="w-10 h-10 bg-orange-50 border border-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <UserCircle className="w-5 h-5" />
                   </div>
-                  <h4 className="font-black text-gray-900 leading-tight text-lg sm:text-xl">Identidad Visual</h4>
+                  <h4 className="font-black text-gray-900 leading-tight text-lg">Identidad Visual</h4>
                 </div>
-                <p className="text-base text-gray-600 font-medium mt-auto leading-relaxed">Foto de rostro bien iluminada o logo limpio.</p>
+                <p className="text-sm text-gray-600 font-medium mt-auto leading-relaxed">
+                  Foto de rostro iluminada con fondo sólido, o el logo de tu negocio limpio y legible.
+                </p>
               </div>
 
-              <div className="bg-white p-6 sm:p-7 rounded-4xl  border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300">
+              <div className="bg-white p-5 xl:p-6 rounded-3xl border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-xl hover:shadow-orange-500/5 hover:-translate-y-1 transition-all duration-300">
                 <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-orange-50 border border-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <div className="flex flex-row md:flex-col items-center md:items-start gap-4 mb-3">
+                  <div className="w-10 h-10 bg-orange-50 border border-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                     <LayoutTemplate className="w-5 h-5" />
                   </div>
-                  <h4 className="font-black text-gray-900 leading-tight text-lg sm:text-xl">Historias Fijas</h4>
+                  <h4 className="font-black text-gray-900 leading-tight text-lg">Historias Fijas</h4>
                 </div>
-                <p className="text-base text-gray-600 font-medium mt-auto leading-relaxed">Solo 4 carpetas: Quién soy, Servicios, Testimonios y Contacto.</p>
+                <p className="text-sm text-gray-600 font-medium mt-auto leading-relaxed">
+                  4 carpetas base: Quién soy, Servicios, Testimonios y Contacto directo.
+                </p>
               </div>
+
             </div>
 
             {/* Bloque 3: Banner de Modo Creador */}
-            <div className="bg-orange-50 border border-orange-200 p-5 sm:p-6 rounded-4xl  flex items-center gap-4 sm:gap-5 hover:bg-orange-100/50 transition-colors">
-              <div className="bg-white text-orange-500 w-12 h-12 rounded-full flex items-center justify-center shrink-0 shadow-sm border border-orange-100">
+            <div className="bg-linear-to-br from-orange-50 to-orange-100 border border-orange-200 p-5 rounded-4xl flex flex-row items-center gap-4 hover:shadow-md hover:shadow-orange-500/10 transition-all group">
+              <div className="bg-white text-orange-500 w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm border border-orange-100 group-hover:scale-105 transition-transform">
                 <Lightbulb className="w-6 h-6" />
               </div>
-              <div>
-                <h4 className="font-black text-orange-900 uppercase text-[10px] tracking-widest mb-1">Paso Obligatorio</h4>
-                <p className="text-orange-800 font-bold text-sm">Cambia a "Cuenta de Creador" en Ajustes.</p>
+              <div className="flex-1">
+                <h4 className="font-black text-orange-600 uppercase text-[10px] sm:text-xs tracking-widest mb-1">Paso Obligatorio</h4>
+                <p className="text-orange-950 font-black text-sm sm:text-base leading-tight">Cambia a "Cuenta de Creador" en Ajustes.</p>
+              </div>
+              <div className="hidden sm:flex w-8 h-8 bg-orange-200/50 text-orange-600 rounded-full items-center justify-center shrink-0 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                <ArrowRight size={16} />
               </div>
             </div>
 
           </div>
 
-          {/* LADO DERECHO: ROADMAP */}
-          <div className="lg:col-span-5 bg-white rounded-[2.5rem] p-8 md:p-10 border border-gray-200 shadow-lg flex flex-col h-full relative overflow-hidden">
-            <div className="absolute -top-12.5 -right-12.5 w-40 h-40 bg-gray-50 rounded-full blur-2xl pointer-events-none"></div>
+          {/* LADO DERECHO: ROADMAP (Más compacto y balanceado) */}
+          <div className="bg-white rounded-[2rem] p-6 xl:p-8 border border-gray-200 shadow-lg flex flex-col h-full relative overflow-hidden">
+            <div className="absolute -top-10 -right-10 w-32 h-32 bg-gray-50 rounded-full blur-2xl pointer-events-none"></div>
             
-            <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tight mb-8 flex items-center gap-3 relative z-10">
-              <Map className="text-orange-500" size={28} /> Roadmap 
+            <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-6 flex items-center gap-3 relative z-10">
+              <Map className="text-orange-500" size={24} /> Roadmap 
             </h3>
             
-            <div className="relative ml-4 space-y-10 pb-2 flex-1 z-10">
-              <div className="absolute top-2 bottom-4 left-3.75 w-0.75 bg-linear-to-b from-orange-500 via-gray-200 to-gray-100 rounded-full"></div>
+            {/* Reducido de space-y-10 a space-y-6 para acortar la altura vertical */}
+            <div className="relative ml-2 space-y-6 pb-2 flex-1 z-10">
+              <div className="absolute top-2 bottom-4 left-3 w-0.5 bg-linear-to-b from-orange-500 via-gray-200 to-gray-100 rounded-full"></div>
               
-              <div className="relative pl-12 group cursor-default">
-                <div className="absolute -left-px -top-0.5 bg-white border-4 border-orange-500 text-orange-600 w-9 h-9 rounded-full flex items-center justify-center font-black text-sm shadow-sm group-hover:scale-110 transition-transform">1</div>
-                <h4 className="font-black text-gray-900 text-base uppercase tracking-widest mb-1 group-hover:text-orange-500 transition-colors">Estructura Bio</h4>
-                <p className="text-sm text-gray-500 font-medium">Aplica la fórmula y escríbelo en tu perfil hoy mismo.</p>
+              <div className="relative pl-10 group cursor-default">
+                <div className="absolute -left-1 top-0 bg-white border-4 border-orange-500 text-orange-600 w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-sm group-hover:scale-110 transition-transform">1</div>
+                <h4 className="font-black text-gray-900 text-sm uppercase tracking-widest mb-1 group-hover:text-orange-500 transition-colors">Estructura Bio</h4>
+                <p className="text-xs xl:text-sm text-gray-500 font-medium">Aplica la fórmula y escríbelo en tu perfil hoy.</p>
               </div>
               
-              <div className="relative pl-12 group cursor-default">
-                <div className="absolute -left-px -top-0.5 bg-white border-4 border-gray-200 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center font-black text-sm shadow-sm group-hover:border-orange-300 group-hover:text-orange-400 transition-all">2</div>
-                <h4 className="font-black text-gray-900 text-base uppercase tracking-widest mb-1 group-hover:text-orange-500 transition-colors">Limpieza Visual</h4>
-                <p className="text-sm text-gray-500 font-medium">Sube una foto clara con un fondo de color sólido.</p>
+              <div className="relative pl-10 group cursor-default">
+                <div className="absolute -left-1 top-0 bg-white border-4 border-gray-200 text-gray-400 w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-sm group-hover:border-orange-300 group-hover:text-orange-400 transition-all">2</div>
+                <h4 className="font-black text-gray-900 text-sm uppercase tracking-widest mb-1 group-hover:text-orange-500 transition-colors">Limpieza Visual</h4>
+                <p className="text-xs xl:text-sm text-gray-500 font-medium">Sube foto clara con un fondo sólido.</p>
               </div>
 
-              <div className="relative pl-12 group cursor-default">
-                <div className="absolute -left-px -top-0.5 bg-white border-4 border-gray-200 text-gray-400 w-9 h-9 rounded-full flex items-center justify-center font-black text-sm shadow-sm group-hover:border-orange-300 group-hover:text-orange-400 transition-all">3</div>
-                <h4 className="font-black text-gray-900 text-base uppercase tracking-widest mb-1 group-hover:text-orange-500 transition-colors">Destacadas</h4>
-                <p className="text-sm text-gray-500 font-medium">Diseña 4 portadas simples en Canva.</p>
+              <div className="relative pl-10 group cursor-default">
+                <div className="absolute -left-1 top-0 bg-white border-4 border-gray-200 text-gray-400 w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-sm group-hover:border-orange-300 group-hover:text-orange-400 transition-all">3</div>
+                <h4 className="font-black text-gray-900 text-sm uppercase tracking-widest mb-1 group-hover:text-orange-500 transition-colors">Destacadas</h4>
+                <p className="text-xs xl:text-sm text-gray-500 font-medium">Diseña 4 portadas simples en Canva.</p>
               </div>
 
-              <div className="relative pl-12 group cursor-default">
-                <div className="absolute -left-px -top-0.5 bg-orange-500 border-4 border-orange-100 text-white w-9 h-9 rounded-full flex items-center justify-center font-black text-sm shadow-md ring-2 ring-transparent group-hover:ring-orange-200 transition-all">4</div>
-                <h4 className="font-black text-orange-600 text-base uppercase tracking-widest mb-1">Modo Creador</h4>
-                <p className="text-sm text-gray-600 font-medium">Activa el panel para profesionales en la app y listo.</p>
+              <div className="relative pl-10 group cursor-default">
+                <div className="absolute -left-1 top-0 bg-orange-500 border-4 border-orange-100 text-white w-8 h-8 rounded-full flex items-center justify-center font-black text-xs shadow-md ring-2 ring-transparent group-hover:ring-orange-200 transition-all">4</div>
+                <h4 className="font-black text-orange-600 text-sm uppercase tracking-widest mb-1">Modo Creador</h4>
+                <p className="text-xs xl:text-sm text-gray-600 font-medium">Activa el panel para profesionales en la app.</p>
               </div>
             </div>
           </div>
@@ -173,13 +185,12 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* MÓDULO 2: TU ESTUDIO DE BOLSILLO           */}
       {/* ========================================== */}
-      <section className="max-w-6xl mx-auto px-4 md:px-0">
+      <section className="w-full">
         
         {/* ENCABEZADO PREMIUM */}
         <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-3 mb-4 sm:mb-5">
             <div className="h-0.5 bg-orange-500 w-8 rounded-full"></div>
-            {/* TEXTO AGRANDADO A text-xs sm:text-sm */}
             <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
               Módulo 2 // Tu Estudio de Bolsillo
             </span>
@@ -196,8 +207,8 @@ export default function BasicoView() {
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8">
           {/* Tarjetas de Apps */}
-          <div className="space-y-6">
-            <div className="bg-white p-6 sm:p-8 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-row gap-4 sm:gap-6 items-start sm:items-center">
+          <div className="space-y-6 xl:space-y-8">
+            <div className="bg-white p-6 sm:p-8 xl:p-10 rounded-4xl border border-gray-200 shadow-sm flex flex-row gap-4 sm:gap-6 items-start sm:items-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 text-purple-600 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 mt-1 sm:mt-0">
                 <span className="font-black text-2xl sm:text-3xl">C</span>
               </div>
@@ -210,7 +221,7 @@ export default function BasicoView() {
               </div>
             </div>
 
-            <div className="bg-white p-6 sm:p-8 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-row gap-4 sm:gap-6 items-start sm:items-center">
+            <div className="bg-white p-6 sm:p-8 xl:p-10 rounded-4xl border border-gray-200 shadow-sm flex flex-row gap-4 sm:gap-6 items-start sm:items-center">
               <div className="w-12 h-12 sm:w-16 sm:h-16 bg-black text-white rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 mt-1 sm:mt-0">
                 <Video className="w-5 h-5 sm:w-8 sm:h-8" />
               </div>
@@ -224,8 +235,8 @@ export default function BasicoView() {
             </div>
           </div>
 
-          {/* Tip de Iluminación - Icono en fila */}
-          <div className="bg-orange-50 p-6 sm:p-10 rounded-[2.5rem] border border-orange-200 flex flex-col justify-center">
+          {/* Tip de Iluminación */}
+          <div className="bg-orange-50 p-6 sm:p-10 xl:p-12 rounded-4xl border border-orange-200 flex flex-col justify-center">
             <div className="flex items-center gap-4 mb-4 sm:mb-6">
               <div className="bg-white w-fit p-3 rounded-xl shadow-sm border border-orange-100 shrink-0">
                 <Lightbulb className="w-6 h-6 sm:w-8 sm:h-8 text-orange-500" />
@@ -238,15 +249,15 @@ export default function BasicoView() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-orange-900">
                 <CheckCircle2 className="text-orange-500 shrink-0" size={20} />
-                <span className="font-bold text-sm">Graba siempre de frente a una ventana (Luz natural).</span>
+                <span className="font-bold text-sm xl:text-base">Graba siempre de frente a una ventana (Luz natural).</span>
               </li>
               <li className="flex items-center gap-3 text-orange-900">
                 <CheckCircle2 className="text-orange-500 shrink-0" size={20} />
-                <span className="font-bold text-sm">Limpia el lente de tu cámara antes de empezar.</span>
+                <span className="font-bold text-sm xl:text-base">Limpia el lente de tu cámara antes de empezar.</span>
               </li>
               <li className="flex items-center gap-3 text-orange-900">
                 <CheckCircle2 className="text-orange-500 shrink-0" size={20} />
-                <span className="font-bold text-sm">Apaga las luces amarillas de tu techo.</span>
+                <span className="font-bold text-sm xl:text-base">Apaga las luces amarillas de tu techo.</span>
               </li>
             </ul>
           </div>
@@ -256,13 +267,12 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* MÓDULO 3: ESTRATEGIA DE CONTENIDO          */}
       {/* ========================================== */}
-      <section className="max-w-6xl mx-auto px-4 md:px-0">
+      <section className="w-full">
         
         {/* ENCABEZADO PREMIUM */}
         <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-3 mb-4 sm:mb-5">
             <div className="h-0.5 bg-orange-500 w-8 rounded-full"></div>
-            {/* TEXTO AGRANDADO A text-xs sm:text-sm */}
             <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
               Módulo 3 // Estrategia Visual
             </span>
@@ -277,9 +287,9 @@ export default function BasicoView() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-[2.5rem] border border-gray-200 shadow-sm p-6 sm:p-8 group hover:-translate-y-1 transition-transform duration-300">
-            <div className="flex items-center gap-4 mb-4 sm:mb-6">
+        <div className="grid md:grid-cols-3 gap-6 xl:gap-8">
+          <div className="bg-white rounded-[2.5rem] border border-gray-200 shadow-sm p-6 sm:p-8 xl:p-10 group hover:-translate-y-1 transition-transform duration-300">
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-4 mb-4 sm:mb-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Video className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
@@ -288,13 +298,13 @@ export default function BasicoView() {
                 <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight leading-none mb-0">Reels (Alcance)</h3>
               </div>
             </div>
-            <p className="text-gray-600 font-medium text-sm leading-relaxed">
+            <p className="text-gray-600 font-medium text-sm xl:text-base leading-relaxed">
               El motor para que gente nueva te descubra. Úsalos para dar consejos rápidos. Pon siempre un título llamativo en los primeros 3 segundos.
             </p>
           </div>
 
-          <div className="bg-white rounded-[2.5rem] border border-gray-200 shadow-sm p-6 sm:p-8 group hover:-translate-y-1 transition-transform duration-300">
-            <div className="flex items-center gap-4 mb-4 sm:mb-6">
+          <div className="bg-white rounded-[2.5rem] border border-gray-200 shadow-sm p-6 sm:p-8 xl:p-10 group hover:-translate-y-1 transition-transform duration-300">
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-4 mb-4 sm:mb-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <ImageIcon className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
@@ -303,13 +313,13 @@ export default function BasicoView() {
                 <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight leading-none mb-0">Carruseles</h3>
               </div>
             </div>
-            <p className="text-gray-600 font-medium text-sm leading-relaxed">
+            <p className="text-gray-600 font-medium text-sm xl:text-base leading-relaxed">
               Guías visuales de varias imágenes. La gente los guarda, y eso le dice a Instagram que tu contenido es valioso. Úsalos para tutoriales.
             </p>
           </div>
 
-          <div className="bg-white rounded-[2.5rem] border border-gray-200 shadow-sm p-6 sm:p-8 group hover:-translate-y-1 transition-transform duration-300">
-            <div className="flex items-center gap-4 mb-4 sm:mb-6">
+          <div className="bg-white rounded-[2.5rem] border border-gray-200 shadow-sm p-6 sm:p-8 xl:p-10 group hover:-translate-y-1 transition-transform duration-300">
+            <div className="flex flex-row md:flex-col items-center md:items-start gap-4 mb-4 sm:mb-6">
               <div className="w-10 h-10 sm:w-12 sm:h-12 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                 <Smartphone className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
@@ -318,7 +328,7 @@ export default function BasicoView() {
                 <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight leading-none mb-0">Historias</h3>
               </div>
             </div>
-            <p className="text-gray-600 font-medium text-sm leading-relaxed">
+            <p className="text-gray-600 font-medium text-sm xl:text-base leading-relaxed">
               Para los que ya te siguen. Muestra tu día a día, usa encuestas y cierra ventas charlando directamente por mensaje privado.
             </p>
           </div>
@@ -328,14 +338,13 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* MÓDULOS 4 & 5: CALENDARIO E INTERACCIÓN    */}
       {/* ========================================== */}
-      <section className="max-w-6xl mx-auto px-4 md:px-0 grid md:grid-cols-2 gap-8">
+      <section className="w-full grid lg:grid-cols-2 gap-6 xl:gap-8">
         
         {/* Calendario */}
         <div className="bg-gray-900 p-8 md:p-12 rounded-[2.5rem] border border-gray-800 flex flex-col h-full shadow-xl">
           <div className="mb-10">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-0.5 bg-orange-500 w-6 rounded-full"></div>
-              {/* TEXTO AGRANDADO A text-xs sm:text-sm */}
               <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
                 Módulo 4 // Anticaos
               </span>
@@ -348,21 +357,21 @@ export default function BasicoView() {
               <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">1</div>
               <div>
                 <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Lluvia de Ideas</h4>
-                <p className="text-gray-400 text-sm mt-1">Anota las 5 preguntas que más te hacen tus clientes. Esas son tus primeras publicaciones.</p>
+                <p className="text-gray-400 text-sm xl:text-base mt-1">Anota las 5 preguntas que más te hacen tus clientes. Esas son tus primeras publicaciones.</p>
               </div>
             </div>
             <div className="flex gap-4 sm:gap-5 items-start">
               <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">2</div>
               <div>
                 <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Video Pilar (Fijado)</h4>
-                <p className="text-gray-400 text-sm mt-1">Graba un Reel diciendo quién eres y fíjalo permanentemente arriba en tu perfil.</p>
+                <p className="text-gray-400 text-sm xl:text-base mt-1">Graba un Reel diciendo quién eres y fíjalo permanentemente arriba en tu perfil.</p>
               </div>
             </div>
             <div className="flex gap-4 sm:gap-5 items-start">
               <div className="bg-gray-800 text-orange-500 w-10 h-10 rounded-xl flex items-center justify-center font-black shrink-0 border border-gray-700 mt-0.5">3</div>
               <div>
                 <h4 className="font-black text-white text-base sm:text-lg tracking-tight">Grabación en Bloque</h4>
-                <p className="text-gray-400 text-sm mt-1">Cámbiate de camisa 3 veces en un día y graba 3 videos seguidos. Ahorrarás horas.</p>
+                <p className="text-gray-400 text-sm xl:text-base mt-1">Cámbiate de camisa 3 veces en un día y graba 3 videos seguidos. Ahorrarás horas.</p>
               </div>
             </div>
           </div>
@@ -373,7 +382,6 @@ export default function BasicoView() {
           <div className="mb-8">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-0.5 bg-orange-500 w-6 rounded-full"></div>
-              {/* TEXTO AGRANDADO A text-xs sm:text-sm */}
               <span className="text-orange-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
                 Módulo 5 // Comunidad
               </span>
@@ -388,14 +396,14 @@ export default function BasicoView() {
               <p className="text-[10px] font-black text-red-500 uppercase tracking-widest mb-2 flex items-center gap-2">
                 <AlertTriangle size={14} /> Lo que NO debes hacer
               </p>
-              <p className="text-sm font-medium text-red-900">Responder comentarios solo con emojis ("🔥🙌") o dar likes. Eso frena la interacción algorítmica.</p>
+              <p className="text-sm xl:text-base font-medium text-red-900">Responder comentarios solo con emojis ("🔥🙌") o dar likes. Eso frena la interacción algorítmica.</p>
             </div>
 
             <div className="p-5 border border-green-200 bg-green-50 rounded-3xl">
               <p className="text-[10px] font-black text-green-600 uppercase tracking-widest mb-2 flex items-center gap-2">
                 <CheckCircle2 size={14} /> Lo que SÍ debes hacer
               </p>
-              <p className="text-sm font-medium text-green-900">Hacer preguntas de vuelta: <em>"¡Gracias María! ¿Tú ya lo probaste?"</em>. Usa encuestas en historias a diario.</p>
+              <p className="text-sm xl:text-base font-medium text-green-900">Hacer preguntas de vuelta: <em>"¡Gracias María! ¿Tú ya lo probaste?"</em>. Usa encuestas en historias a diario.</p>
             </div>
           </div>
         </div>
@@ -405,13 +413,12 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* MÓDULO 6: EL EMBUDO DE CIERRE DIRECTO      */}
       {/* ========================================== */}
-      <section className="max-w-6xl mx-auto px-4 md:px-0">
+      <section className="w-full">
         
         {/* ENCABEZADO FINAL HOMOLOGADO */}
         <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-3 mb-4 sm:mb-5">
             <div className="h-0.5 bg-green-500 w-8 rounded-full"></div>
-            {/* TEXTO AGRANDADO A text-xs sm:text-sm (VERDE) */}
             <span className="text-green-500 font-black text-xs sm:text-sm uppercase tracking-[0.2em]">
               Módulo 6 // Conversión Directa
             </span>
@@ -440,7 +447,7 @@ export default function BasicoView() {
             Crear Link de WhatsApp <ExternalLink size={16} />
           </a>
 
-          <div className="mt-10 md:mt-12 p-5 sm:p-6 bg-red-50 border border-red-200 rounded-4xl  max-w-xl md:mx-auto text-left flex gap-4 sm:gap-5 items-start">
+          <div className="mt-10 md:mt-12 p-5 sm:p-6 bg-red-50 border border-red-200 rounded-4xl max-w-xl md:mx-auto text-left flex gap-4 sm:gap-5 items-start">
             <div className="bg-red-100 p-2 sm:p-3 rounded-xl text-red-500 shrink-0 mt-0.5">
               <AlertTriangle className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
