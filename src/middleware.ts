@@ -6,8 +6,8 @@ import { Redis } from "@upstash/redis";
 
 // 1. CONFIGURACIÓN DEL VIGILANTE (Upstash)
 const redis = new Redis({
-  url: process.env.KV_REST_API_URL!,
-  token: process.env.KV_REST_API_TOKEN!,
+  url: process.env.KV_REST_API_URL,
+  token: process.env.KV_REST_API_TOKEN,
 });
 
 const ratelimit = new Ratelimit({
@@ -18,24 +18,10 @@ const ratelimit = new Ratelimit({
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 2. EXCEPCIONES PRIMERO (¡Vital para que NextAuth no se congele!)
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api/auth") ||
-    pathname.includes(".")
-  ) {
-    return NextResponse.next();
-  }
-
-  // 3. ESCUDO ANTI-ATAQUES (Rate Limiting)
+  // 2. ESCUDO ANTIAQUETES (Rate Limiting)
+  // Lo aplicamos a todas las rutas de API para proteger el stock y el servidor
   if (pathname.startsWith("/api/")) {
-    // Solución al error de TypeScript: Leemos la IP directamente de los headers.
-    // x-forwarded-for puede traer varias IPs (ej: "ip1, ip2"), tomamos la primera.
-    const forwardedFor = request.headers.get("x-forwarded-for");
-    const realIp = request.headers.get("x-real-ip");
-    
-    const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : (realIp ?? "127.0.0.1");
-    
+    const ip = request.headers.get("x-real-ip") ?? "127.0.0.1";
     const { success } = await ratelimit.limit(ip);
 
     if (!success) {
@@ -46,6 +32,15 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // 3. Ignorar archivos del sistema, imágenes y rutas de NextAuth
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api/auth") ||
+    pathname.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
   // 4. Obtener el token de la sesión
   const token = await getToken({
     req: request,
@@ -53,10 +48,7 @@ export async function middleware(request: NextRequest) {
   });
 
   // 5. SI NO ESTÁ LOGUEADO: Bloquear zonas privadas
-  const isProtectedRoute = 
-    pathname.startsWith("/admin") || 
-    pathname.startsWith("/home") || 
-    pathname.startsWith("/api/users");
+  const isProtectedRoute = pathname.startsWith("/admin") || pathname.startsWith("/home") || pathname.startsWith("/api/users");
   
   if (!token && isProtectedRoute) {
     return NextResponse.redirect(new URL("/login", request.url));
