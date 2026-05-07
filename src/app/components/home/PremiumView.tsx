@@ -514,8 +514,6 @@ export default function PremiumView() {
           </p>
         </div>
 
-        {/* Renderiza todo el componente BasicoView aquí */}
-        <BasicoView />
       </div>
 
     </div>
