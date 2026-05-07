@@ -262,7 +262,7 @@ export default function PremiumView() {
             <div className="relative z-10 w-full max-w-sm space-y-0 mt-8">
               
               {/* Nodo 1: Instagram */}
-              <div className="bg-linear-to-r from-pink-500 via-rose-500 to-orange-500 p-0.5 rounded-3xl shadow-[0_0_30px_rgba(236,72,153,0.2)] mx-auto w-full max-w-[280px] hover:shadow-[0_0_40px_rgba(236,72,153,0.4)] transition-shadow">
+              <div className="bg-linear-to-r from-pink-500 via-rose-500 to-orange-500 p-0.5 rounded-3xl shadow-[0_0_30px_rgba(236,72,153,0.2)] mx-auto w-full max-w-70 hover:shadow-[0_0_40px_rgba(236,72,153,0.4)] transition-shadow">
                 <div className="bg-gray-950 rounded-[22px] px-6 py-5 flex items-center justify-between">
                   <span className="font-black text-white text-base sm:text-lg flex items-center gap-3">
                     <Camera size={20} className="text-pink-400" /> Instagram
@@ -277,16 +277,16 @@ export default function PremiumView() {
               </div>
 
               {/* Nodo 2: Link in Bio */}
-              <div className="bg-blue-500/20 border border-blue-500/40 rounded-3xl px-6 py-5 flex items-center justify-center backdrop-blur-md mx-auto w-full max-w-[220px] shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:bg-blue-500/30 transition-colors">
+              <div className="bg-blue-500/20 border border-blue-500/40 rounded-3xl px-6 py-5 flex items-center justify-center backdrop-blur-md mx-auto w-full max-w-55 shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:bg-blue-500/30 transition-colors">
                 <span className="font-black text-blue-300 text-base sm:text-lg flex items-center gap-3">
                   <LinkIcon size={20} /> Link in Bio
                 </span>
               </div>
 
               {/* Conectores Diagonales */}
-              <div className="flex justify-center gap-20 my-1 relative h-16 w-full max-w-[220px] mx-auto">
-                <div className="absolute top-0 left-1/4 w-1 h-16 bg-gradient-to-b from-blue-500 to-red-500 rounded-full opacity-60 transform origin-top rotate-[35deg]"></div>
-                <div className="absolute top-0 right-1/4 w-1 h-16 bg-gradient-to-b from-blue-500 to-green-500 rounded-full opacity-60 transform origin-top -rotate-[35deg]"></div>
+              <div className="flex justify-center gap-20 my-1 relative h-16 w-full max-w-55 mx-auto">
+                <div className="absolute top-0 left-1/4 w-1 h-16 bg-linear-to-b from-blue-500 to-red-500 rounded-full opacity-60 transform origin-top rotate-35"></div>
+                <div className="absolute top-0 right-1/4 w-1 h-16 bg-linear-to-b from-blue-500 to-green-500 rounded-full opacity-60 transform origin-top rotate-[-35deg]"></div>
               </div>
 
               {/* Nodos Finales */}
@@ -330,7 +330,7 @@ export default function PremiumView() {
         </div>
 
         <div className="bg-gray-900 rounded-[3rem] p-8 md:p-12 xl:p-16 relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col lg:flex-row items-center gap-12 xl:gap-16">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 blur-[150px] rounded-full pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-125 h-125 bg-yellow-500/10 blur-[150px] rounded-full pointer-events-none"></div>
 
           {/* LADO IZQUIERDO: EXPLICACIÓN */}
           <div className="flex-1 relative z-10 text-left">
@@ -345,7 +345,7 @@ export default function PremiumView() {
               El contenido excelente no sirve de nada si el usuario desliza el dedo antes de escucharlo. Aprende la fórmula neuro-visual para enganchar el cerebro de las personas y retenerlas.
             </p>
             
-            <div className="bg-white/5 border border-white/10 rounded-[2rem] p-6 sm:p-8 backdrop-blur-md max-w-xl">
+            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8 backdrop-blur-md max-w-xl">
               <h4 className="font-black text-white text-base sm:text-lg mb-6 flex items-center gap-3">
                 <Flame className="text-orange-500" /> Los dos tipos de Ganchos
               </h4>
@@ -461,7 +461,7 @@ export default function PremiumView() {
             
             <div className="relative z-10 flex flex-col h-full">
               <div className="flex items-center justify-between mb-8">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-600/10 border border-green-500/20 text-green-400 rounded-2xl flex items-center justify-center shadow-inner shrink-0 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-16 h-16 bg-linear-to-br from-green-500/20 to-emerald-600/10 border border-green-500/20 text-green-400 rounded-2xl flex items-center justify-center shadow-inner shrink-0 group-hover:scale-110 transition-transform duration-500">
                   <TrendingUp className="w-8 h-8" />
                 </div>
                 <div className="bg-green-500/10 border border-green-500/20 text-green-400 px-4 py-2 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest backdrop-blur-md flex items-center gap-2">
@@ -477,14 +477,14 @@ export default function PremiumView() {
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mt-auto">
-                <div className="bg-white/5 border border-white/10 rounded-[2rem] p-6 sm:p-8 backdrop-blur-md hover:bg-white/10 transition-colors group/halo">
+                <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8 backdrop-blur-md hover:bg-white/10 transition-colors group/halo">
                   <Activity size={24} className="text-green-400 mb-4 group-hover/halo:scale-110 transition-transform" />
                   <h4 className="font-black text-white text-lg mb-2">El Efecto Halo</h4>
                   <p className="text-sm text-gray-400 leading-relaxed font-medium">
                     Si tu calidad visual, audio y oratoria transmiten excelencia, el cliente asume que tu servicio es igual de excelente.
                   </p>
                 </div>
-                <div className="bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-[2rem] p-6 sm:p-8 backdrop-blur-md flex flex-col justify-center items-start group/zero">
+                <div className="bg-linear-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-4xl p-6 sm:p-8 backdrop-blur-md flex flex-col justify-center items-start group/zero">
                   <h4 className="font-black text-green-400 text-3xl sm:text-4xl mb-3 leading-none group-hover/zero:scale-105 transition-transform origin-left">Cero<br/>Quejas</h4>
                   <p className="text-sm text-green-100/70 font-medium leading-relaxed">
                     Al elevar tu estatus percibido con contenido estratégico, erradicas las objeciones por precio en tus ventas por DM.
