@@ -222,20 +222,34 @@ export default function LandingPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 items-stretch">
+          
+          {/* TARJETA BÁSICO */}
           <div className="bg-superficie p-8 md:p-10 rounded-3xl border border-gray-200 shadow-xl flex flex-col">
             <div className="mb-6">
               <h3 className="font-outfit text-3xl font-bold mb-2 text-texto-principal">Básico</h3>
               <p className="text-gray-500 text-sm">Los cimientos para ordenar la casa.</p>
             </div>
             <div className="text-5xl font-outfit font-bold mb-8 text-texto-principal">$5.99</div>
-            <ul className="space-y-4 mb-2 grow text-gray-600 font-medium text-sm">
+            <ul className="space-y-4 mb-10 grow text-gray-600 font-medium text-sm">
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-gray-400" />Configuración de Perfil</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-gray-400" />Guías de Canva y CapCut</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-gray-400" />Formatos y Calendario</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-gray-400" />Link a WhatsApp</li>
             </ul>
+            
+            {/* BOTÓN WHATSAPP BÁSICO */}
+            <a 
+              href="https://wa.me/584126900224?text=Hola,%20quiero%20adquirir%20el%20Plan%20B%C3%A1sico%20de%20la%20plataforma%20de%20Capacitacion%20de%20redes%20sociales%20de%20Domenico%20D'Orazio" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="flex items-center justify-center w-full gap-2 bg-green-50 text-green-600 border border-green-200 px-4 py-4 rounded-2xl hover:bg-green-600 hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-sm hover:shadow-lg active:scale-95 group mt-auto"
+            >
+              <MessageCircle size={18} className="fill-current opacity-80 group-hover:scale-110 transition-transform" />
+              <span className="font-bold text-sm tracking-wide">SOLICITAR ACCESO</span>
+            </a>
           </div>
 
+          {/* TARJETA PREMIUM */}
           <div className="bg-texto-principal p-8 md:p-10 rounded-3xl shadow-2xl flex flex-col border-2 border-acento-naranja relative md:-translate-y-4">
             <div className="absolute top-0 right-0 bg-acento-naranja text-white px-5 py-1.5 rounded-bl-2xl rounded-tr-2xl text-xs font-bold uppercase tracking-wider shadow-sm">Recomendado</div>
             <div className="mb-6">
@@ -243,13 +257,24 @@ export default function LandingPage() {
               <p className="text-gray-400 text-sm">Monetiza y eleva tu autoridad.</p>
             </div>
             <div className="text-5xl font-outfit font-bold mb-8 text-superficie">$9.99</div>
-            <ul className="space-y-4 mb-2 grow text-gray-300 font-medium text-sm">
+            <ul className="space-y-4 mb-10 grow text-gray-300 font-medium text-sm">
               <li className="flex items-center gap-3"><ShieldCheck size={20} className="text-acento-naranja" />Todo el contenido Básico</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Psicología Visual Avanzada</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Neuromarketing de Retención</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Cierre de Ventas en WhatsApp</li>
               <li className="flex items-center gap-3"><CheckCircle2 size={20} className="text-acento-naranja" />Bancos de IA (Pexels) y videos de referencia</li>
             </ul>
+
+            {/* BOTÓN WHATSAPP PREMIUM */}
+            <a 
+              href="https://wa.me/584126900224?text=Hola,%20quiero%20adquirir%20el%20Plan%20Premium%20VIP%20de%20la%20plataforma%20de%20Capacitacion%20de%20redes%20sociales%20de%20Domenico%20D'Orazio" 
+              target="_blank" 
+              rel="noreferrer" 
+              className="flex items-center justify-center w-full gap-2 bg-green-500 text-white border border-green-400 px-4 py-4 rounded-2xl hover:bg-green-400 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-[0_10px_20px_rgba(34,197,94,0.3)] active:scale-95 group mt-auto"
+            >
+              <MessageCircle size={18} className="fill-current opacity-90 group-hover:scale-110 transition-transform" />
+              <span className="font-bold text-sm tracking-wide">SOLICITAR ACCESO VIP</span>
+            </a>
           </div>
         </div>
       </section>
