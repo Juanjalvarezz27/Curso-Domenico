@@ -496,27 +496,7 @@ export default function PremiumView() {
 
         </div>
       </section>
-
-      {/* ========================================== */}
-      {/* SECCIÓN DEL PLAN BÁSICO (RENDERIZADO FINAL)*/}
-      {/* ========================================== */}
-      <div className="mt-24 pt-16 border-t-2 border-gray-200/50 relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-orange-500 rounded-b-full"></div>
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-green-50 text-green-600 px-5 py-2.5 rounded-full border border-green-200 shadow-sm text-xs font-black tracking-widest uppercase mb-6">
-            <Unlock size={16} /> Contenido Desbloqueado
-          </div>
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tighter leading-tight mb-4">
-            Fundamentos del <br/> Ecosistema
-          </h2>
-          <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">
-            Tu Plan Premium incluye acceso total y de por vida a todas las guías y herramientas técnicas del Plan Básico.
-          </p>
-        </div>
-
-        {/* Renderiza todo el componente BasicoView aquí */}
-        <BasicoView />
-      </div>
+    
 
     </div>
   );
