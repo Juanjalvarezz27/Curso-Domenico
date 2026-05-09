@@ -50,17 +50,25 @@ export async function middleware(request: NextRequest) {
   });
 
   // ==========================================
-  // VERIFICACIÓN DE SESIÓN ÚNICA (Anti-Compartir Cuentas)
+  // VERIFICACIÓN DE SESIÓN ÚNICA (FIX LOOP)
   // ==========================================
   if (token && token.id && token.sessionId) {
-    // Buscamos cuál es el ticket válido actualmente en Redis
     const activeSessionId = await redis.get(`session:${token.id}`);
     
-    // Si hay un ticket en Redis y NO ES el mismo que tiene este usuario en su navegador...
     if (activeSessionId && activeSessionId !== token.sessionId) {
-      // ¡Alguien más entró con su cuenta! Lo pateamos fuera del sistema.
+      // SESIÓN INVÁLIDA: El ticket cambió en Redis
+      
+      // Si el usuario YA ESTÁ en la página de login, no lo redirigimos de nuevo
+      // Solo le quitamos los permisos y lo dejamos renderizar la página.
+      if (pathname.startsWith("/login")) {
+        const response = NextResponse.next();
+        response.cookies.delete("next-auth.session-token");
+        response.cookies.delete("__Secure-next-auth.session-token");
+        return response;
+      }
+
+      // Si está en /home, /admin, etc. Lo mandamos al login y limpiamos.
       const response = NextResponse.redirect(new URL("/login?error=session_expired", request.url));
-      // Destruimos sus cookies
       response.cookies.delete("next-auth.session-token");
       response.cookies.delete("__Secure-next-auth.session-token");
       return response;
