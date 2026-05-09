@@ -49,38 +49,43 @@ export async function middleware(request: NextRequest) {
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  // ==========================================
-  // VERIFICACIÓN DE SESIÓN ÚNICA (FIX LOOP)
-  // ==========================================
+  // 5. VALIDAR SESIÓN ÚNICA EN REDIS (Anti-Compartir Cuentas)
+  let isSessionValid = true;
+
   if (token && token.id && token.sessionId) {
     const activeSessionId = await redis.get(`session:${token.id}`);
     
+    // Comparamos el ticket de Redis con el del navegador
     if (activeSessionId && activeSessionId !== token.sessionId) {
-      // SESIÓN INVÁLIDA: El ticket cambió en Redis
-      
-      // Si el usuario YA ESTÁ en la página de login, no lo redirigimos de nuevo
-      // Solo le quitamos los permisos y lo dejamos renderizar la página.
-      if (pathname.startsWith("/login")) {
-        const response = NextResponse.next();
-        response.cookies.delete("next-auth.session-token");
-        response.cookies.delete("__Secure-next-auth.session-token");
-        return response;
-      }
-
-      // Si está en /home, /admin, etc. Lo mandamos al login y limpiamos.
-      const response = NextResponse.redirect(new URL("/login?error=session_expired", request.url));
-      response.cookies.delete("next-auth.session-token");
-      response.cookies.delete("__Secure-next-auth.session-token");
-      return response;
+      isSessionValid = false;
     }
   }
 
-  // 5. SI NO ESTÁ LOGUEADO: Bloquear zonas privadas
+  // Zonas que requieren login
   const isProtectedRoute = 
     pathname.startsWith("/admin") || 
     pathname.startsWith("/home") || 
     pathname.startsWith("/api/users");
-  
+
+  // ==========================================
+  // 💥 SI LA SESIÓN FUE CERRADA DESDE OTRO TELÉFONO/PC
+  // ==========================================
+  if (token && !isSessionValid) {
+    // Si intenta ir a zona privada, lo mandamos al login con el error.
+    // Si va a "/" o "/login", lo dejamos pasar (NextResponse.next()).
+    const response = isProtectedRoute 
+      ? NextResponse.redirect(new URL("/login?error=session_expired", request.url))
+      : NextResponse.next(); 
+    
+    // Destruimos las cookies para que pueda volver a loguearse
+    response.cookies.delete("next-auth.session-token");
+    response.cookies.delete("__Secure-next-auth.session-token");
+    return response;
+  }
+
+  // ==========================================
+  // SI NO ESTÁ LOGUEADO: Bloquear zonas privadas
+  // ==========================================
   if (!token && isProtectedRoute) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
@@ -88,8 +93,8 @@ export async function middleware(request: NextRequest) {
   // ==========================================
   // REGLA DE ORO: EL ADMIN ES TODOPODEROSO
   // ==========================================
-  if (token?.role === "ADMIN") {
-    if (pathname.startsWith("/login")) {
+  if (token && isSessionValid && token.role === "ADMIN") {
+    if (pathname === "/login" || pathname === "/") {
       return NextResponse.redirect(new URL("/admin", request.url));
     }
     return NextResponse.next();
@@ -98,8 +103,8 @@ export async function middleware(request: NextRequest) {
   // ==========================================
   // REGLA PARA ALUMNOS (No admins)
   // ==========================================
-  if (token && token.role !== "ADMIN") {
-    if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
+  if (token && isSessionValid && token.role !== "ADMIN") {
+    if (pathname.startsWith("/admin") || pathname === "/login" || pathname === "/") {
       return NextResponse.redirect(new URL("/home", request.url));
     }
   }
