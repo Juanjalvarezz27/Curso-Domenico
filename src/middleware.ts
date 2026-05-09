@@ -6,8 +6,8 @@ import { Redis } from "@upstash/redis";
 
 // 1. CONFIGURACIÓN DEL VIGILANTE (Upstash)
 const redis = new Redis({
-  url: process.env.KV_REST_API_URL,
-  token: process.env.KV_REST_API_TOKEN,
+  url: process.env.KV_REST_API_URL!,
+  token: process.env.KV_REST_API_TOKEN!,
 });
 
 const ratelimit = new Ratelimit({
@@ -18,10 +18,21 @@ const ratelimit = new Ratelimit({
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // 2. ESCUDO ANTIAQUETES (Rate Limiting)
-  // Lo aplicamos a todas las rutas de API para proteger el stock y el servidor
+  // 2. EXCEPCIONES PRIMERO (Evita que NextAuth se congele)
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api/auth") ||
+    pathname.includes(".")
+  ) {
+    return NextResponse.next();
+  }
+
+  // 3. ESCUDO ANTI-ATAQUES (Rate Limiting)
   if (pathname.startsWith("/api/")) {
-    const ip = request.headers.get("x-real-ip") ?? "127.0.0.1";
+    const forwardedFor = request.headers.get("x-forwarded-for");
+    const realIp = request.headers.get("x-real-ip");
+    const ip = forwardedFor ? forwardedFor.split(",")[0].trim() : (realIp ?? "127.0.0.1");
+    
     const { success } = await ratelimit.limit(ip);
 
     if (!success) {
@@ -32,23 +43,35 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // 3. Ignorar archivos del sistema, imágenes y rutas de NextAuth
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api/auth") ||
-    pathname.includes(".")
-  ) {
-    return NextResponse.next();
-  }
-
   // 4. Obtener el token de la sesión
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
 
+  // ==========================================
+  // VERIFICACIÓN DE SESIÓN ÚNICA (Anti-Compartir Cuentas)
+  // ==========================================
+  if (token && token.id && token.sessionId) {
+    // Buscamos cuál es el ticket válido actualmente en Redis
+    const activeSessionId = await redis.get(`session:${token.id}`);
+    
+    // Si hay un ticket en Redis y NO ES el mismo que tiene este usuario en su navegador...
+    if (activeSessionId && activeSessionId !== token.sessionId) {
+      // ¡Alguien más entró con su cuenta! Lo pateamos fuera del sistema.
+      const response = NextResponse.redirect(new URL("/login?error=session_expired", request.url));
+      // Destruimos sus cookies
+      response.cookies.delete("next-auth.session-token");
+      response.cookies.delete("__Secure-next-auth.session-token");
+      return response;
+    }
+  }
+
   // 5. SI NO ESTÁ LOGUEADO: Bloquear zonas privadas
-  const isProtectedRoute = pathname.startsWith("/admin") || pathname.startsWith("/home") || pathname.startsWith("/api/users");
+  const isProtectedRoute = 
+    pathname.startsWith("/admin") || 
+    pathname.startsWith("/home") || 
+    pathname.startsWith("/api/users");
   
   if (!token && isProtectedRoute) {
     return NextResponse.redirect(new URL("/login", request.url));
