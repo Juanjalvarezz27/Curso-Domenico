@@ -5,6 +5,8 @@ import bcrypt from "bcryptjs";
 import { Redis } from "@upstash/redis";
 
 const prisma = new PrismaClient();
+
+// Desactivamos el caché de Vercel usando 'as any' para evitar el error de TypeScript
 const redis = new Redis({
   url: process.env.KV_REST_API_URL!,
   token: process.env.KV_REST_API_TOKEN!,
@@ -50,7 +52,6 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async jwt({ token, user }: any) {
-      // Solo en el login inicial el objeto 'user' existe
       if (user) {
         token.id = user.id;
         token.role = user.role;
