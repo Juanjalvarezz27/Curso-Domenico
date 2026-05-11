@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ArrowLeft, Loader2, Lock, MessageCircle, Eye, EyeOff, AlertTriangle } from "lucide-react";
 
-// Separamos el contenido en un sub-componente para poder usar Suspense (Regla de Next.js)
 function LoginContent() {
   const searchParams = useSearchParams();
   const urlError = searchParams.get("error");
@@ -22,27 +21,29 @@ function LoginContent() {
     setLoading(true);
     setError("");
 
+    // TRUCO DE MAGIA: Limpiamos la barra de direcciones de cualquier error previo
+    // Así NextAuth no se confunde leyendo el error de la sesión expirada anterior
+    window.history.replaceState(null, "", "/login");
+
     const res = await signIn("credentials", {
       username,
       password,
       redirect: false,
     });
 
-    if (res?.error) {
-      setError(res.error);
-      setLoading(false);
-    } else {
-      // Pedimos la sesión recién creada para revisar el rol
+    // FIX CLAVE: Usamos res?.ok en vez de res?.error. 
+    // Si res.ok es true, el login funcionó 100% (ignoramos falsos positivos)
+    if (res?.ok) {
       const session = await getSession();
       
-      // EL FIX DE ORO: Usamos window.location.href en lugar de router.push
-      // Esto fuerza al navegador a hacer una petición nueva al servidor,
-      // obligando al middleware a leer la cookie nueva y limpia.
       if (session?.user?.role === "ADMIN") {
         window.location.href = "/admin"; 
       } else {
         window.location.href = "/home"; 
       }
+    } else {
+      setError(res?.error || "Error al verificar las credenciales");
+      setLoading(false);
     }
   };
 
