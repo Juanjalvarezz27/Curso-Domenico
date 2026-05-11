@@ -7,7 +7,7 @@ import {
   Lightbulb, Video, PenTool, ImageIcon, AlertTriangle,
   ExternalLink, Download, UserCircle, Timer, Map, ArrowRight,
   Mic, Camera, Scissors, Sparkles, Zap, Clock, Star,
-  Play, Images, MessageCircle, Pin, X
+  Play, Images, MessageCircle, Pin, X, Search
 } from "lucide-react";
 
 export default function BasicoView() {
@@ -15,7 +15,7 @@ export default function BasicoView() {
     <div className="space-y-20 pb-24 animate-in fade-in slide-in-from-bottom-8 duration-500">
 
       {/* ========================================== */}
-      {/* HERO SECTION (ESTILO INSTAGRAM)            */}
+      {/* HERO SECTION (ESTILO INSTAGRAM) */}
       {/* ========================================== */}
       <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-gray-800 shadow-2xl w-full">
         <div className="absolute inset-0 opacity-15 mix-blend-luminosity">
@@ -48,7 +48,7 @@ export default function BasicoView() {
       </div>
 
       {/* ========================================== */}
-      {/* MÓDULO 1: LA VITRINA DIGITAL               */}
+      {/* MÓDULO 1: LA VITRINA DIGITAL */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -114,7 +114,7 @@ export default function BasicoView() {
                     <span className="text-[10px] font-black text-orange-500 uppercase tracking-[0.2em] mb-2 block">Paso 02 // Branding</span>
                     <h4 className="font-black text-gray-900 leading-tight text-2xl mb-3">Identidad Visual</h4>
                     <p className="text-sm xl:text-base text-gray-600 font-medium leading-relaxed">
-                      Foto de rostro iluminada con fondo sólido para generar confianza, o el logo de tu negocio si es una marca comercial.
+                      Foto clara con fondo sólido, o el logo de tu negocio. <strong className="text-gray-900 block mt-1">Tip: Si usas logo, la tendencia es el minimalismo y tipografías limpias.</strong>
                     </p>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 2: TU ESTUDIO DE BOLSILLO           */}
+      {/* MÓDULO 2: TU ESTUDIO DE BOLSILLO */}
       {/* ========================================== */}
       <section className="w-full flex flex-col gap-6 xl:gap-8">
         <div className="mb-4 sm:mb-6">
@@ -242,7 +242,7 @@ export default function BasicoView() {
                 <h4 className="font-black text-white text-xl xl:text-2xl">2. El Audio</h4>
               </div>
               <p className="text-base sm:text-lg text-gray-400 font-medium leading-relaxed">
-                El audio es el 50% del éxito. Usa un micrófono inalámbrico ($15) o graba en salas amuebladas para que los objetos absorban el eco.
+                El audio es el 50% del éxito. Usa un micrófono inalámbrico o graba en salas amuebladas para que los objetos absorban el eco.
               </p>
             </div>
 
@@ -260,9 +260,12 @@ export default function BasicoView() {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 xl:gap-8">
+        {/* HERRAMIENTAS - 3 COLUMNAS */}
+        <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
+          
+          {/* CANVA */}
           <div className="bg-white rounded-4xl border border-gray-200 shadow-sm flex flex-col overflow-hidden group hover:shadow-2xl transition-all duration-500">
-            <div className="h-44 sm:h-48 xl:h-56 bg-purple-100 relative overflow-hidden">
+            <div className="h-44 bg-purple-100 relative overflow-hidden">
               <Image 
                 src="/Premier.png" 
                 alt="Canva Interface" 
@@ -270,38 +273,32 @@ export default function BasicoView() {
                 className="object-cover mix-blend-overlay opacity-80 group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent"></div>
-              <div className="absolute bottom-6 left-6 sm:left-8 flex items-center gap-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-linear-to-br from-purple-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white shrink-0">
-                  <span className="font-black text-2xl sm:text-3xl">C</span>
+              <div className="absolute bottom-6 left-6 flex items-center gap-4">
+                <div className="w-12 h-12 bg-linear-to-br from-purple-500 to-indigo-600 text-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white shrink-0">
+                  <span className="font-black text-2xl">C</span>
                 </div>
                 <div>
-                  <h4 className="text-xl sm:text-3xl font-black text-gray-900 leading-none">Canva</h4>
+                  <h4 className="text-xl sm:text-2xl font-black text-gray-900 leading-none">Canva</h4>
                   <p className="text-[10px] font-black text-purple-600 uppercase tracking-widest mt-1">Diseño de Autoridad</p>
                 </div>
               </div>
             </div>
-            <div className="p-6 sm:p-10 flex flex-col flex-1">
-              <div className="bg-purple-50/50 rounded-3xl p-5 sm:p-6 border border-purple-100 mb-8 flex-1">
-                <h5 className="font-black text-purple-900 text-[11px] sm:text-sm mb-4 flex items-center gap-2 uppercase tracking-[0.15em]">
-                  <Sparkles size={18} className="text-purple-500" /> Tips de Retención
+            <div className="p-6 flex flex-col flex-1">
+              <div className="bg-purple-50/50 rounded-3xl p-5 border border-purple-100 mb-6 flex-1">
+                <h5 className="font-black text-purple-900 text-[11px] mb-4 flex items-center gap-2 uppercase tracking-[0.15em]">
+                  <Sparkles size={16} className="text-purple-500" /> Tips de Retención
                 </h5>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0"></div>
-                    <p className="text-sm xl:text-base text-gray-700 font-medium">
-                      <strong className="text-purple-900 font-black">Regla del 20%:</strong> El título debe ser gigante para atrapar el ojo rápido.
+                    <p className="text-sm text-gray-700 font-medium">
+                      <strong className="text-purple-900 font-black">Regla del 20%:</strong> El título gigante atrapa el ojo rápido.
                     </p>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0"></div>
-                    <p className="text-sm xl:text-base text-gray-700 font-medium">
-                      <strong className="text-purple-900 font-black">Zonas Seguras:</strong> No pongas textos importantes en los bordes de la imagen.
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-purple-500 mt-2 shrink-0"></div>
-                    <p className="text-sm xl:text-base text-gray-700 font-medium">
-                      <strong className="text-purple-900 font-black">Consistencia:</strong> Define solo 2 fuentes (una gruesa, una fina) y 2 colores.
+                    <p className="text-sm text-gray-700 font-medium">
+                      <strong className="text-purple-900 font-black">La IA como apoyo:</strong> Usa su Inteligencia Artificial para acelerar ideas, pero <strong className="text-red-500">no dejes que haga todo</strong>. Mantén tu esencia humana.
                     </p>
                   </li>
                 </ul>
@@ -311,15 +308,16 @@ export default function BasicoView() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 onClick={(e) => { e.preventDefault(); window.open('https://www.canva.com/', '_blank'); }} 
-                className="inline-flex items-center justify-center gap-3 w-full px-6 py-4 bg-gray-900 hover:bg-purple-700 text-white rounded-2xl font-black text-xs sm:text-sm uppercase tracking-widest transition-all shadow-lg"
+                className="inline-flex items-center justify-center gap-3 w-full px-6 py-4 bg-gray-900 hover:bg-purple-700 text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg mt-auto"
               >
-                Abrir Canva <ExternalLink size={18} />
+                Abrir Canva <ExternalLink size={16} />
               </a>
             </div>
           </div>
 
+          {/* CAPCUT */}
           <div className="bg-white rounded-4xl border border-gray-200 shadow-sm flex flex-col overflow-hidden group hover:shadow-2xl transition-all duration-500">
-            <div className="h-44 sm:h-48 xl:h-56 bg-gray-200 relative overflow-hidden">
+            <div className="h-44 bg-gray-200 relative overflow-hidden">
               <Image 
                 src="/Meeting1.png" 
                 alt="Video Editing" 
@@ -327,38 +325,32 @@ export default function BasicoView() {
                 className="object-cover mix-blend-multiply opacity-70 group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent"></div>
-              <div className="absolute bottom-6 left-6 sm:left-8 flex items-center gap-4">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-900 text-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white shrink-0">
-                  <Scissors className="w-6 h-6 sm:w-7 sm:h-7" />
+              <div className="absolute bottom-6 left-6 flex items-center gap-4">
+                <div className="w-12 h-12 bg-gray-900 text-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white shrink-0">
+                  <Scissors className="w-6 h-6" />
                 </div>
                 <div>
-                  <h4 className="text-xl sm:text-3xl font-black text-gray-900 leading-none">CapCut</h4>
+                  <h4 className="text-xl sm:text-2xl font-black text-gray-900 leading-none">CapCut</h4>
                   <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mt-1">Edición de Impacto</p>
                 </div>
               </div>
             </div>
-            <div className="p-6 sm:p-10 flex flex-col flex-1">
-              <div className="bg-gray-50 rounded-3xl p-5 sm:p-6 border border-gray-200 mb-8 flex-1">
-                <h5 className="font-black text-gray-900 text-[11px] sm:text-sm mb-4 flex items-center gap-2 uppercase tracking-[0.15em]">
-                  <Zap size={18} className="text-gray-500" /> Fórmula Dinámica
+            <div className="p-6 flex flex-col flex-1">
+              <div className="bg-gray-50 rounded-3xl p-5 border border-gray-200 mb-6 flex-1">
+                <h5 className="font-black text-gray-900 text-[11px] mb-4 flex items-center gap-2 uppercase tracking-[0.15em]">
+                  <Zap size={16} className="text-gray-500" /> Fórmula Dinámica
                 </h5>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 shrink-0"></div>
-                    <p className="text-sm xl:text-base text-gray-700 font-medium">
-                      <strong className="text-gray-900 font-black">Cortes de Aire:</strong> Elimina cada segundo de silencio para ser continuo.
+                    <p className="text-sm text-gray-700 font-medium">
+                      <strong className="text-gray-900 font-black">Mejora de Voz (IA):</strong> Si no tienes buen micrófono, usa la herramienta <em className="text-gray-900">"Mejorar Voz"</em> (Pro) para limpiar el ruido.
                     </p>
                   </li>
-                  <li className="flex items-start gap-3">
+                  <li className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 shrink-0"></div>
-                    <p className="text-sm xl:text-base text-gray-700 font-medium">
-                      <strong className="text-gray-900 font-black">Subtítulos Pop:</strong> Activa los subtítulos dinámicos en el centro para retener.
-                    </p>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gray-900 mt-2 shrink-0"></div>
-                    <p className="text-sm xl:text-base text-gray-700 font-medium">
-                      <strong className="text-gray-900 font-black">SFX (Efectos de Sonido):</strong> Añade un "Whoosh" en transiciones y un "Pop" con textos.
+                    <p className="text-sm text-gray-700 font-medium">
+                      <strong className="text-gray-900 font-black">SFX y Hooks:</strong> Usa Ganchos visuales (zoom in) y Efectos de Sonido (Whoosh, Pop) en transiciones.
                     </p>
                   </li>
                 </ul>
@@ -368,17 +360,71 @@ export default function BasicoView() {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 onClick={(e) => { e.preventDefault(); window.open('https://www.capcut.com/', '_blank'); }}
-                className="inline-flex items-center justify-center gap-3 w-full px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white rounded-2xl font-black text-xs sm:text-sm uppercase tracking-widest transition-all shadow-lg"
+                className="inline-flex items-center justify-center gap-3 w-full px-6 py-4 bg-gray-900 hover:bg-gray-800 text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg mt-auto"
               >
-                Descargar App <Download size={18} />
+                Descargar App <Download size={16} />
               </a>
             </div>
           </div>
+
+          {/* PEXELS (B-ROLL) */}
+          <div className="bg-white rounded-4xl border border-gray-200 shadow-sm flex flex-col overflow-hidden group hover:shadow-2xl transition-all duration-500">
+            <div className="h-44 bg-teal-100 relative overflow-hidden">
+              <Image 
+                src="/Pexels.png" 
+                alt="Pexels Interface" 
+                fill
+                className="object-cover mix-blend-overlay opacity-80 group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-teal-600/10"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-white via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6 flex items-center gap-4">
+                <div className="w-12 h-12 bg-linear-to-br from-teal-500 to-emerald-600 text-white rounded-2xl flex items-center justify-center shadow-2xl border-2 border-white shrink-0">
+                  <Search className="w-6 h-6" />
+                </div>
+                <div>
+                  <h4 className="text-xl sm:text-2xl font-black text-gray-900 leading-none">Pexels</h4>
+                  <p className="text-[10px] font-black text-teal-600 uppercase tracking-widest mt-1">Videos de Apoyo</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6 flex flex-col flex-1">
+              <div className="bg-teal-50/50 rounded-3xl p-5 border border-teal-100 mb-6 flex-1">
+                <h5 className="font-black text-teal-900 text-[11px] mb-4 flex items-center gap-2 uppercase tracking-[0.15em]">
+                  <Video size={16} className="text-teal-500" /> B-Roll Gratuito
+                </h5>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                    <p className="text-sm text-gray-700 font-medium">
+                      <strong className="text-teal-900 font-black">Videos de Fondo:</strong> Busca términos como "aesthetic", "working" o "abstract" para colocar textos encima.
+                    </p>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500 mt-2 shrink-0"></div>
+                    <p className="text-sm text-gray-700 font-medium">
+                      <strong className="text-teal-900 font-black">Dinámismo Total:</strong> Intercala tu rostro hablando con videos descargados de Pexels para evitar que se aburran.
+                    </p>
+                  </li>
+                </ul>
+              </div>
+              <a 
+                href="https://www.pexels.com/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={(e) => { e.preventDefault(); window.open('https://www.pexels.com/', '_blank'); }}
+                className="inline-flex items-center justify-center gap-3 w-full px-6 py-4 bg-gray-900 hover:bg-teal-700 text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-lg mt-auto"
+              >
+                Buscar B-Roll <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 3: FORMATOS QUE FUNCIONAN             */}
+      {/* MÓDULO 3: FORMATOS QUE FUNCIONAN */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -426,7 +472,20 @@ export default function BasicoView() {
               <p className="text-sm text-gray-300 font-medium mb-5 leading-relaxed">
                 El motor para que gente nueva te descubra. Instagram los muestra masivamente a <strong className="text-white">no seguidores</strong>.
               </p>
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 flex-1">
+              
+              {/* Botón Video de Referencia Reel */}
+              <a
+                href="https://www.instagram.com/reel/DQXtyo-ga6s/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-gray-800/80 border border-gray-700 hover:border-pink-500/50 hover:bg-gray-800 rounded-2xl p-4 flex items-center justify-center gap-3 transition-all mb-5 group/btn shadow-sm"
+              >
+                <Play size={18} className="text-pink-400 group-hover/btn:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-white uppercase tracking-widest">Ver Ejemplo Real</span>
+                <ExternalLink size={14} className="text-gray-400" />
+              </a>
+
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mt-auto">
                 <h5 className="font-black text-white text-xs mb-4 flex items-center gap-2 uppercase tracking-widest">
                   <Video size={16} className="text-pink-400" /> Anatomía Viral
                 </h5>
@@ -482,7 +541,20 @@ export default function BasicoView() {
               <p className="text-sm text-blue-200 font-medium mb-5 leading-relaxed">
                 El formato perfecto para enseñar. Mantiene al usuario deslizando, lo cual <strong className="text-white">Instagram premia</strong>.
               </p>
-              <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-5 flex-1">
+
+              {/* Botón Carrusel de Referencia */}
+              <a
+                href="https://www.instagram.com/p/DYAyIu7mlbg/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-blue-900/40 border border-blue-800 hover:border-blue-500/50 hover:bg-blue-900/60 rounded-2xl p-4 flex items-center justify-center gap-3 transition-all mb-5 group/btn shadow-sm"
+              >
+                <Images size={18} className="text-blue-400 group-hover/btn:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-white uppercase tracking-widest">Ver Ejemplo Real</span>
+                <ExternalLink size={14} className="text-blue-300" />
+              </a>
+
+              <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl p-5 mt-auto">
                 <h5 className="font-black text-blue-300 text-xs mb-4 flex items-center gap-2 uppercase tracking-widest">
                   <CheckCircle2 size={16} className="text-blue-400" /> Estructura AIDA
                 </h5>
@@ -538,7 +610,20 @@ export default function BasicoView() {
               <p className="text-sm sm:text-base text-orange-200 font-medium mb-5 leading-relaxed">
                 Para los que <strong className="text-white">ya te siguen</strong>. Aquí conectas humanamente y cierras ventas por DM.
               </p>
-              <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5 flex-1">
+
+              {/* Botón Historias de Referencia */}
+              <a
+                href="https://www.instagram.com/domenicodorazio_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full bg-orange-900/40 border border-orange-800 hover:border-orange-500/50 hover:bg-orange-900/60 rounded-2xl p-4 flex items-center justify-center gap-3 transition-all mb-5 group/btn shadow-sm"
+              >
+                <MessageCircle size={18} className="text-orange-400 group-hover/btn:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-white uppercase tracking-widest">Ver Ejemplo Real</span>
+                <ExternalLink size={14} className="text-orange-300" />
+              </a>
+
+              <div className="bg-orange-500/10 border border-orange-500/20 rounded-2xl p-5 mt-auto">
                 <h5 className="font-black text-orange-300 text-xs mb-4 flex items-center gap-2 uppercase tracking-widest">
                   <CheckCircle2 size={16} className="text-orange-400" /> Secuencia Vendedora
                 </h5>
@@ -573,7 +658,7 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULOS 4 & 5 // OPERACIÓN DIARIA            */}
+      {/* MÓDULOS 4 & 5 // OPERACIÓN DIARIA */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -732,7 +817,7 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 6 // EMBUDO DE CIERRE (REDISEÑO)    */}
+      {/* MÓDULO 6 // EMBUDO DE CIERRE (REDISEÑO) */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -776,9 +861,9 @@ export default function BasicoView() {
           </div>
 
           <div className="w-full md:w-5/12 lg:w-2/5 relative z-10">
-            <div className="bg-red-500/10 border border-red-500/20 backdrop-blur-xl p-6 sm:p-8 rounded-4xl shadow-2xl relative overflow-hidden group">
-               <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
-               <div className="flex items-center gap-4 mb-5">
+            <div className="bg-red-500/10 border border-red-500/20 p-6 sm:p-8 rounded-4xl shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
+              <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
                   <AlertTriangle size={24} />
                 </div>

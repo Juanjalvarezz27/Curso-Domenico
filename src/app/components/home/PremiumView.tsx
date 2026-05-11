@@ -7,7 +7,7 @@ import {
   Briefcase, TrendingUp, ShieldCheck, Crown, 
   Crosshair, Activity, LayoutTemplate, ArrowRight,
   CheckCircle2, Lock, Unlock, Gem, Sparkles, Magnet,
-  Play, MessageCircle, Star
+  Play, MessageCircle, Star, XCircle
 } from "lucide-react";
 
 // Importamos el componente del Plan Básico
@@ -20,7 +20,7 @@ export default function PremiumView() {
       <BasicoView />
 
       {/* ========================================== */}
-      {/* HERO SECTION PREMIUM                       */}
+      {/* HERO SECTION PREMIUM */}
       {/* ========================================== */}
       <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-orange-500/30 shadow-[0_0_80px_-20px_rgba(249,115,22,0.4)] w-full">
         <div className="absolute inset-0 opacity-20 mix-blend-luminosity">
@@ -35,7 +35,7 @@ export default function PremiumView() {
         <div className="absolute inset-0 bg-linear-to-tr from-orange-500/20 via-pink-500/10 to-blue-900/40"></div>
 
         <div className="relative z-10 max-w-5xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-linear-to-r from-orange-500/20 to-rose-500/20 text-orange-300 border border-orange-500/30 text-xs font-black tracking-widest uppercase mb-8 shadow-lg backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-linear-to-r from-orange-500/20 to-rose-500/20 text-orange-300 border border-orange-500/30 text-xs font-black tracking-widest uppercase mb-8 shadow-lg ">
             <Crown size={16} className="text-orange-400" /> Nivel Experto
           </div>
 
@@ -53,7 +53,7 @@ export default function PremiumView() {
       </div>
 
       {/* ========================================== */}
-      {/* MÓDULO 7: INGENIERÍA DE PERFIL             */}
+      {/* MÓDULO 7: INGENIERÍA DE PERFIL */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -73,8 +73,8 @@ export default function PremiumView() {
           </div>
         </div>
 
-        {/* BENTO BOX COMPLEJO */}
-        <div className="grid lg:grid-cols-12 gap-6 xl:gap-8 items-stretch">
+        {/* BENTO BOX PRINCIPAL */}
+        <div className="grid lg:grid-cols-12 gap-6 xl:gap-8 items-stretch mb-6 xl:mb-8">
           
           {/* FÓRMULA BIO (7 Columnas - Dark) */}
           <div className="lg:col-span-7 bg-gray-900 rounded-[3rem] p-8 sm:p-10 xl:p-12 text-white relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col h-full">
@@ -94,42 +94,43 @@ export default function PremiumView() {
               No eres un poeta, eres un negocio. Tu biografía debe actuar como un embudo de ventas que responda 3 preguntas en menos de 5 segundos.
             </p>
 
-            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8 backdrop-blur-md relative z-10 flex-1">
+            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8  relative z-10 flex-1 flex flex-col">
               <h4 className="font-black text-white text-base uppercase tracking-widest mb-6 flex items-center gap-2">
                 <Gem size={18} className="text-orange-400" /> La Fórmula de 4 Líneas
               </h4>
-              <div className="space-y-6 sm:space-y-6 lg:space-y-8 xl:space-y-10">
+              
+              {/* Espaciado reducido aquí (space-y-3 lg:space-y-4) para que no se estire */}
+              <div className="space-y-3 lg:space-y-4 mt-auto mb-auto">
                 
-                {/* FIX MOBILE: flex-col sm:flex-row para que no quede apretado de lado en celulares */}
-                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 sm:p-4 sm:-mx-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
                   <div className="bg-gray-800 text-orange-400 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 mt-0.5 border border-gray-700 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]">L1</div>
                   <div>
-                    <strong className="text-white text-base block mb-1.5 group-hover:text-orange-300 transition-colors duration-300">Autoridad / Nicho</strong>
-                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">Tu audiencia debe saber a qué te dedicas al instante. Olvida los títulos genéricos, sé específico y posiciona tu autoridad. (Ej. <em className="text-gray-300">"Estratega de Ventas"</em>).</p>
+                    <strong className="text-white text-base block mb-1 group-hover:text-orange-300 transition-colors duration-300">Autoridad / Nicho</strong>
+                    <p className="text-sm text-gray-400 leading-relaxed">Olvida los títulos genéricos, sé específico y posiciona tu autoridad. (Ej. <em className="text-gray-300">"Estratega de Ventas"</em>).</p>
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 sm:p-4 sm:-mx-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
                   <div className="bg-gray-800 text-orange-400 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 mt-0.5 border border-gray-700 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]">L2</div>
                   <div>
-                    <strong className="text-white text-base block mb-1.5 group-hover:text-orange-300 transition-colors duration-300">Punto de Dolor</strong>
-                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">Ataca el problema de tu cliente ideal y comunica directamente el beneficio que obtendrán contigo. (Ej. <em className="text-gray-300">"Te ayudo a facturar sin bailes virales"</em>).</p>
+                    <strong className="text-white text-base block mb-1 group-hover:text-orange-300 transition-colors duration-300">Punto de Dolor</strong>
+                    <p className="text-sm text-gray-400 leading-relaxed">Ataca el problema de tu cliente ideal y comunica el beneficio. (Ej. <em className="text-gray-300">"Te ayudo a facturar sin bailes"</em>).</p>
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 sm:p-4 sm:-mx-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
                   <div className="bg-gray-800 text-orange-400 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 mt-0.5 border border-gray-700 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]">L3</div>
                   <div>
-                    <strong className="text-white text-base block mb-1.5 group-hover:text-orange-300 transition-colors duration-300">Prueba Social</strong>
-                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">Mata el escepticismo rápido. Usa datos duros o hitos que demuestren con hechos que dominas tu industria. (Ej. <em className="text-gray-300">"+500 alumnos facturando"</em>).</p>
+                    <strong className="text-white text-base block mb-1 group-hover:text-orange-300 transition-colors duration-300">Prueba Social</strong>
+                    <p className="text-sm text-gray-400 leading-relaxed">Mata el escepticismo rápido con datos duros. (Ej. <em className="text-gray-300">"+500 alumnos facturando"</em>).</p>
                   </div>
                 </div>
                 
-                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 sm:p-4 sm:-mx-4 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
+                <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4 group p-3 -mx-3 rounded-2xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
                   <div className="bg-gray-800 text-orange-400 w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 mt-0.5 border border-gray-700 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300 group-hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]">L4</div>
                   <div>
-                    <strong className="text-white text-base block mb-1.5 group-hover:text-orange-300 transition-colors duration-300">Llamado a la Acción 👇</strong>
-                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed">Da instrucciones claras. El usuario no adivinará qué hacer; dile el siguiente paso y usa emojis para guiar su vista. (Ej. <em className="text-gray-300">"Aplica a mi mentoría aquí 👇"</em>).</p>
+                    <strong className="text-white text-base block mb-1 group-hover:text-orange-300 transition-colors duration-300">Llamado a la Acción 👇</strong>
+                    <p className="text-sm text-gray-400 leading-relaxed">Da instrucciones claras al siguiente paso. (Ej. <em className="text-gray-300">"Aplica a mi mentoría aquí 👇"</em>).</p>
                   </div>
                 </div>
                 
@@ -183,7 +184,7 @@ export default function PremiumView() {
                 Aprende a estructurar las portadas de tus Historias Destacadas hackeando la percepción del cliente.
               </p>
               
-              <div className="bg-blue-900/50 border border-blue-800/50 rounded-2xl p-6 relative z-10 backdrop-blur-md">
+              <div className="bg-blue-900/50 border border-blue-800/50 rounded-2xl p-6 relative z-10 ">
                 <div className="flex items-start gap-3">
                   <Sparkles size={20} className="text-blue-400 shrink-0 mt-0.5" />
                   <div>
@@ -194,6 +195,73 @@ export default function PremiumView() {
               </div>
             </div>
 
+          </div>
+        </div>
+
+        {/* ========================================== */}
+        {/* LA COMPARATIVA VISUAL (ESTILO LUMINOSO Y LIMPIO) */}
+        {/* ========================================== */}
+        <div className="bg-white rounded-[3rem] p-8 md:p-12 xl:p-16 border border-gray-200 shadow-xl relative overflow-hidden group">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-linear-to-r from-red-500/10 to-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+          
+          <div className="relative z-10 text-center mb-10 xl:mb-12">
+            <h4 className="font-black text-gray-900 text-xl md:text-3xl uppercase tracking-widest flex items-center justify-center gap-3">
+              <Eye className="text-gray-400" size={28} />
+              Ejemplo Real: <span className="text-red-500">Genérica</span> vs <span className="text-green-500">Perfecta</span>
+            </h4>
+            <p className="text-gray-500 font-medium text-sm md:text-base mt-4 max-w-2xl mx-auto">
+              Observa cómo la misma persona puede proyectar una imagen de "novato" o "experto High-Ticket" dependiendo exclusivamente del orden de sus palabras.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 relative z-10 max-w-6xl mx-auto">
+            {/* BIO MALA (IA) */}
+            <div className="bg-red-50/50 border border-red-100 rounded-4xl p-6 lg:p-8 hover:bg-red-50 transition-colors shadow-sm flex flex-col">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center shrink-0">
+                  <XCircle size={20} />
+                </div>
+                <strong className="text-red-600 text-lg font-black uppercase tracking-wider">El Error (Desorden)</strong>
+              </div>
+              <div className="bg-white p-6 lg:p-8 rounded-2xl border border-red-100 font-sans text-base text-gray-500 leading-relaxed shadow-sm flex-1 flex flex-col justify-center">
+                <span className="font-bold text-gray-800">Domenico | Marketing Digital 🚀</span>
+                <br/><br/>
+                Amante del café ☕️ y el crecimiento personal 🌱<br/>
+                Te ayudo a brillar en redes sociales ✨<br/>
+                Consultorías, estrategias y más 🔥<br/>
+                #Marketing #Emprendimiento #Metas<br/>
+                <span className="text-blue-500 mt-4 block break-all hover:underline cursor-pointer">linktr.ee/domenico_12345</span>
+              </div>
+              <div className="mt-6 flex justify-center">
+                <span className="text-xs text-red-600 font-bold uppercase tracking-[0.2em] bg-red-100 px-4 py-2 rounded-xl border border-red-200">
+                  Cero Autoridad • Confusa • Muchos Emojis
+                </span>
+              </div>
+            </div>
+
+            {/* BIO BUENA (DOMENICO) */}
+            <div className="bg-green-50/50 border border-green-100 rounded-4xl p-6 lg:p-8 hover:bg-green-50 transition-colors shadow-sm flex flex-col">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-green-100 text-green-600 rounded-xl flex items-center justify-center shrink-0">
+                  <CheckCircle2 size={20} />
+                </div>
+                <strong className="text-green-600 text-lg font-black uppercase tracking-wider">El Acierto (Estructura)</strong>
+              </div>
+              <div className="bg-white p-6 lg:p-8 rounded-2xl border border-green-100 font-sans text-base text-gray-700 leading-relaxed shadow-sm flex-1 flex flex-col justify-center">
+                <span className="font-bold text-gray-900">Domenico D'Orazio | Negocios Digitales</span>
+                <br/><br/>
+                Estratega de Ventas & Marketing ♟️<br/>
+                Escalo tu negocio facturando High-Ticket 💸<br/>
+                +1.000 alumnos transformando sus perfiles 🏆<br/>
+                Agenda tu mentoría estratégica aquí 👇<br/>
+                <span className="text-blue-500 mt-4 block break-all hover:underline cursor-pointer">beacons.ai/domenicodorazio</span>
+              </div>
+              <div className="mt-6 flex justify-center">
+                <span className="text-xs text-green-700 font-bold uppercase tracking-[0.2em] bg-green-100 px-4 py-2 rounded-xl border border-green-200">
+                  Autoridad Clara • Prueba Social • CTA Directo
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -277,7 +345,7 @@ export default function PremiumView() {
               </div>
 
               {/* Nodo 2: Link in Bio */}
-              <div className="bg-blue-500/20 border border-blue-500/40 rounded-3xl px-6 py-5 flex items-center justify-center backdrop-blur-md mx-auto w-full max-w-55 shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:bg-blue-500/30 transition-colors">
+              <div className="bg-blue-500/20 border border-blue-500/40 rounded-3xl px-6 py-5 flex items-center justify-center  mx-auto w-full max-w-55 shadow-[0_0_20px_rgba(59,130,246,0.1)] hover:bg-blue-500/30 transition-colors">
                 <span className="font-black text-blue-300 text-base sm:text-lg flex items-center gap-3">
                   <LinkIcon size={20} /> Link in Bio
                 </span>
@@ -291,12 +359,12 @@ export default function PremiumView() {
 
               {/* Nodos Finales */}
               <div className="flex gap-4 justify-between w-full max-w-[320px] mx-auto relative z-20">
-                <div className="flex-1 bg-gray-800/80 border border-red-500/30 rounded-3xl p-5 backdrop-blur-xl flex flex-col items-center shadow-lg hover:border-red-500/60 transition-colors group/btn">
+                <div className="flex-1 bg-gray-800/80 border border-red-500/30 rounded-3xl p-5  flex flex-col items-center shadow-lg hover:border-red-500/60 transition-colors group/btn">
                   <Play size={28} className="text-red-500 mb-3 group-hover/btn:scale-110 transition-transform" />
                   <strong className="text-white font-black text-sm block">YouTube</strong>
                   <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Autoridad</span>
                 </div>
-                <div className="flex-1 bg-gray-800/80 border border-green-500/30 rounded-3xl p-5 backdrop-blur-xl flex flex-col items-center shadow-lg hover:border-green-500/60 transition-colors group/btn">
+                <div className="flex-1 bg-gray-800/80 border border-green-500/30 rounded-3xl p-5  flex flex-col items-center shadow-lg hover:border-green-500/60 transition-colors group/btn">
                   <MessageCircle size={28} className="text-green-500 mb-3 group-hover/btn:scale-110 transition-transform" />
                   <strong className="text-white font-black text-sm block">WhatsApp</strong>
                   <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Ventas</span>
@@ -309,7 +377,7 @@ export default function PremiumView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 9: NEURO-RETENCIÓN                  */}
+      {/* MÓDULO 9: NEURO-RETENCIÓN */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -334,7 +402,7 @@ export default function PremiumView() {
 
           {/* LADO IZQUIERDO: EXPLICACIÓN */}
           <div className="flex-1 relative z-10 text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-black tracking-widest uppercase mb-8 shadow-sm backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-xs font-black tracking-widest uppercase mb-8 shadow-sm ">
               <Zap size={14} /> La Regla de los 3 Segundos
             </div>
             
@@ -345,7 +413,7 @@ export default function PremiumView() {
               El contenido excelente no sirve de nada si el usuario desliza el dedo antes de escucharlo. Aprende la fórmula neuro-visual para enganchar el cerebro de las personas y retenerlas.
             </p>
             
-            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8 backdrop-blur-md max-w-xl">
+            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8  max-w-xl">
               <h4 className="font-black text-white text-base sm:text-lg mb-6 flex items-center gap-3">
                 <Flame className="text-orange-500" /> Los dos tipos de Ganchos
               </h4>
@@ -406,7 +474,7 @@ export default function PremiumView() {
       </section>
 
       {/* ========================================== */}
-      {/* MÓDULO 10: ESTATUS Y MONETIZACIÓN          */}
+      {/* MÓDULO 10: ESTATUS Y MONETIZACIÓN */}
       {/* ========================================== */}
       <section className="w-full">
         <div className="mb-10 sm:mb-12">
@@ -464,7 +532,7 @@ export default function PremiumView() {
                 <div className="w-16 h-16 bg-linear-to-br from-green-500/20 to-emerald-600/10 border border-green-500/20 text-green-400 rounded-2xl flex items-center justify-center shadow-inner shrink-0 group-hover:scale-110 transition-transform duration-500">
                   <TrendingUp className="w-8 h-8" />
                 </div>
-                <div className="bg-green-500/10 border border-green-500/20 text-green-400 px-4 py-2 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest backdrop-blur-md flex items-center gap-2">
+                <div className="bg-green-500/10 border border-green-500/20 text-green-400 px-4 py-2 rounded-xl text-[10px] sm:text-xs font-black uppercase tracking-widest  flex items-center gap-2">
                   <Gem size={14} /> High Ticket
                 </div>
               </div>
@@ -477,14 +545,14 @@ export default function PremiumView() {
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mt-auto">
-                <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8 backdrop-blur-md hover:bg-white/10 transition-colors group/halo">
+                <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8  hover:bg-white/10 transition-colors group/halo">
                   <Activity size={24} className="text-green-400 mb-4 group-hover/halo:scale-110 transition-transform" />
                   <h4 className="font-black text-white text-lg mb-2">El Efecto Halo</h4>
                   <p className="text-sm text-gray-400 leading-relaxed font-medium">
                     Si tu calidad visual, audio y oratoria transmiten excelencia, el cliente asume que tu servicio es igual de excelente.
                   </p>
                 </div>
-                <div className="bg-linear-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-4xl p-6 sm:p-8 backdrop-blur-md flex flex-col justify-center items-start group/zero">
+                <div className="bg-linear-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-4xl p-6 sm:p-8  flex flex-col justify-center items-start group/zero">
                   <h4 className="font-black text-green-400 text-3xl sm:text-4xl mb-3 leading-none group-hover/zero:scale-105 transition-transform origin-left">Cero<br/>Quejas</h4>
                   <p className="text-sm text-green-100/70 font-medium leading-relaxed">
                     Al elevar tu estatus percibido con contenido estratégico, erradicas las objeciones por precio en tus ventas por DM.
@@ -496,8 +564,7 @@ export default function PremiumView() {
 
         </div>
       </section>
-    
-
+      
     </div>
   );
 }
