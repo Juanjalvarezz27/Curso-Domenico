@@ -4,7 +4,6 @@ import { getToken } from "next-auth/jwt";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
-// 1. CONFIGURACIÓN DEL VIGILANTE (Upstash)
 const redis = new Redis({
   url: process.env.KV_REST_API_URL!,
   token: process.env.KV_REST_API_TOKEN!,
@@ -16,9 +15,9 @@ const ratelimit = new Ratelimit({
 });
 
 export async function middleware(request: NextRequest) {
-  const { pathname, searchParams } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
-  // 2. EXCEPCIONES: Archivos y Auth API
+  // 1. EXCEPCIONES: Archivos y Auth API
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api/auth") ||
@@ -27,7 +26,7 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // 3. ESCUDO ANTI-ATAQUES (Rate Limit)
+  // 2. ESCUDO ANTI-ATAQUES
   if (pathname.startsWith("/api/")) {
     const forwardedFor = request.headers.get("x-forwarded-for");
     const realIp = request.headers.get("x-real-ip");
@@ -35,20 +34,17 @@ export async function middleware(request: NextRequest) {
     
     const { success } = await ratelimit.limit(ip);
     if (!success) {
-      return NextResponse.json(
-        { error: "Demasiadas peticiones." },
-        { status: 429 }
-      );
+      return NextResponse.json({ error: "Demasiadas peticiones." }, { status: 429 });
     }
   }
 
-  // 4. OBTENER TOKEN
+  // 3. OBTENER TOKEN
   const token: any = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
 
-  // 5. VALIDAR SI LA SESIÓN ES REAL EN REDIS
+  // 4. VALIDAR SI LA SESIÓN ES REAL EN REDIS
   let isSessionValid = true;
   if (token?.id && token?.sessionId) {
     const activeSessionId = await redis.get(`session:${token.id}`);
@@ -63,39 +59,39 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/api/users");
 
   // =========================================================
-  // CASO A: SESIÓN EXPIRADA (Pateado por otro dispositivo)
+  // 💥 CASO A: SESIÓN EXPIRADA (Pateado por intruso)
   // =========================================================
   if (token && !isSessionValid) {
-    // Si intenta entrar a una zona privada con una sesión vieja, lo mandamos al login
-    const response = isProtectedRoute 
+    // Definimos hacia dónde lo enviamos
+    let response = isProtectedRoute 
       ? NextResponse.redirect(new URL("/login?error=session_expired", request.url))
-      : NextResponse.next(); // Si ya está en login o /, lo dejamos estar ahí
+      : NextResponse.next();
 
-    // LIMPIEZA ABSOLUTA DE COOKIES: Para que pueda volver a iniciar sesión
-    response.cookies.set("next-auth.session-token", "", { maxAge: 0, path: "/" });
-    response.cookies.set("__Secure-next-auth.session-token", "", { maxAge: 0, path: "/" });
+    // ANIQUILACIÓN TOTAL DE COOKIES ZOMBIES
+    response.cookies.delete("next-auth.session-token");
+    response.cookies.delete("__Secure-next-auth.session-token");
+    response.cookies.delete("next-auth.csrf-token");
+    response.cookies.delete("__Host-next-auth.csrf-token");
+    
     return response;
   }
 
   // =========================================================
-  // CASO B: NO HAY TOKEN (Usuario anónimo)
+  // 🔓 CASO B: NO HAY TOKEN (Usuario anónimo)
   // =========================================================
   if (!token && isProtectedRoute) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
   // =========================================================
-  // CASO C: SESIÓN VÁLIDA (Redirecciones por rol)
+  // 🏆 CASO C: SESIÓN VÁLIDA (Redirecciones normales)
   // =========================================================
   if (token && isSessionValid) {
-    // Redirección de ADMIN
     if (token.role === "ADMIN") {
       if (pathname === "/login" || pathname === "/") {
         return NextResponse.redirect(new URL("/admin", request.url));
       }
-    } 
-    // Redirección de ALUMNO
-    else {
+    } else {
       if (pathname.startsWith("/admin") || pathname === "/login" || pathname === "/") {
         return NextResponse.redirect(new URL("/home", request.url));
       }

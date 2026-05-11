@@ -5,8 +5,6 @@ import bcrypt from "bcryptjs";
 import { Redis } from "@upstash/redis";
 
 const prisma = new PrismaClient();
-
-// Desactivamos el caché de Vercel usando 'as any' para evitar el error de TypeScript
 const redis = new Redis({
   url: process.env.KV_REST_API_URL!,
   token: process.env.KV_REST_API_TOKEN!,
@@ -33,31 +31,33 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Usuario o contraseña incorrectos");
         }
 
-        // Generamos el ticket único de esta sesión
-        const sessionId = crypto.randomUUID();
-        
-        // Guardamos en Redis: expira en 24h
-        await redis.set(`session:${user.id}`, sessionId, { ex: 86400 });
-
+        // Ya NO generamos el ticket aquí para evitar el bug de la doble llamada de NextAuth.
+        // Solo devolvemos la info del usuario.
         return {
           id: user.id,
           name: user.name,
           username: user.username,
           role: user.role,
           plan: user.plan,
-          sessionId: sessionId // Importante: lo pasamos aquí
-        };
+        } as any;
       }
     })
   ],
   callbacks: {
     async jwt({ token, user }: any) {
+      // El objeto 'user' solo existe la PRIMERA vez que se crea el token (al iniciar sesión).
+      // ¡Este es el lugar perfecto y seguro para generar el ticket único!
       if (user) {
+        const sessionId = crypto.randomUUID();
+        
         token.id = user.id;
         token.role = user.role;
         token.username = user.username;
         token.plan = user.plan;
-        token.sessionId = user.sessionId;
+        token.sessionId = sessionId;
+
+        // Guardamos el ticket en Redis por 24 horas
+        await redis.set(`session:${user.id}`, sessionId, { ex: 86400 });
       }
       return token;
     },
