@@ -47,10 +47,10 @@ export default function LandingPage() {
         {/* CONTENEDOR DEL VIDEO (PLACEHOLDER EN BLANCO) */}
         <div className="relative max-w-4xl mx-auto rounded-[3rem] border-2 border-dashed border-gray-300 bg-gray-50 aspect-video flex flex-col items-center justify-center shadow-sm">
           <PlayCircle size={48} className="text-gray-300 mb-4" />
-          <span className="font-outfit text-2xl font-black text-gray-400 uppercase tracking-widest">
+          <span className="font-outfit text-2xl font-black text-gray-400 uppercase tracking-widest mb-1">
             VIDEO
           </span>
-          <span className="text-sm font-bold text-gray-400 mt-2 uppercase tracking-widest">
+          <span className="text-[10px] sm:text-sm font-bold text-gray-400 mt-1 sm:mt-2 uppercase tracking-wider sm:tracking-widest text-center px-4 leading-tight">
             Espacio reservado para el reproductor
           </span>
         </div>

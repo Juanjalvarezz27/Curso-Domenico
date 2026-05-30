@@ -7,7 +7,7 @@ import {
   Briefcase, TrendingUp, ShieldCheck, Crown, 
   Crosshair, Activity, LayoutTemplate, ArrowRight,
   CheckCircle2, Lock, Unlock, Gem, Sparkles, Magnet,
-  Play, MessageCircle, Star, XCircle
+  Play, MessageCircle, Star, XCircle, Video
 } from "lucide-react";
 
 // Importamos el componente del Plan Básico
@@ -22,7 +22,7 @@ export default function PremiumView() {
       {/* ========================================== */}
       {/* HERO SECTION PREMIUM */}
       {/* ========================================== */}
-      <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-orange-500/30 shadow-[0_0_80px_-20px_rgba(249,115,22,0.4)] w-full">
+      <div className="bg-gray-900 rounded-2xl sm:rounded-[3rem] p-6 sm:p-8 md:p-20 text-center relative overflow-hidden border-2 border-orange-500/30 shadow-[0_0_80px_-20px_rgba(249,115,22,0.4)] w-full">
         <div className="absolute inset-0 opacity-20 mix-blend-luminosity">
           <Image
             src="/Ig.png"
@@ -39,14 +39,14 @@ export default function PremiumView() {
             <Crown size={16} className="text-orange-400" /> Nivel Experto
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-6 leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-6 leading-[1.1]">
             Psicología, Estrategia <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-rose-400 to-purple-500">
               y Ventas
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl font-medium text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
+          <p className="text-base sm:text-lg md:text-xl font-medium text-gray-300 leading-relaxed max-w-3xl mx-auto mb-12">
             Deja de competir por precio. Hackea la percepción de tu audiencia, posiciona tu perfil como una autoridad indiscutible y aprende los secretos de neuromarketing para vender servicios High-Ticket.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function PremiumView() {
         <div className="grid lg:grid-cols-12 gap-6 xl:gap-8 items-stretch mb-6 xl:mb-8">
           
           {/* FÓRMULA BIO (7 Columnas - Dark) */}
-          <div className="lg:col-span-7 bg-gray-900 rounded-[3rem] p-8 sm:p-10 xl:p-12 text-white relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col h-full">
+          <div className="lg:col-span-7 bg-gray-900 rounded-2xl sm:rounded-[3rem] p-5 sm:p-10 xl:p-12 text-white relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col h-full">
             <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none"></div>
             
             <div className="flex items-center gap-4 mb-8 relative z-10">
@@ -94,7 +94,7 @@ export default function PremiumView() {
               No eres un poeta, eres un negocio. Tu biografía debe actuar como un embudo de ventas que responda 3 preguntas en menos de 5 segundos.
             </p>
 
-            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8  relative z-10 flex-1 flex flex-col">
+            <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-4xl p-5 sm:p-8  relative z-10 flex-1 flex flex-col">
               <h4 className="font-black text-white text-base uppercase tracking-widest mb-6 flex items-center gap-2">
                 <Gem size={18} className="text-orange-400" /> La Fórmula de 4 Líneas
               </h4>
@@ -142,7 +142,7 @@ export default function PremiumView() {
           <div className="lg:col-span-5 flex flex-col gap-6 xl:gap-8 h-full">
             
             {/* LA FOTO ESTRATÉGICA */}
-            <div className="bg-white p-6 sm:p-8 xl:p-10 rounded-[2.5rem] border border-gray-200 shadow-xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 flex-1 flex flex-col justify-center">
+            <div className="bg-white p-5 sm:p-8 xl:p-10 rounded-2xl sm:rounded-[2.5rem] border border-gray-200 shadow-xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 flex-1 flex flex-col justify-center">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center shadow-sm border border-rose-100 shrink-0 group-hover:scale-110 transition-transform">
                   <Camera className="w-6 h-6" />
@@ -168,7 +168,7 @@ export default function PremiumView() {
             </div>
 
             {/* PSICOLOGÍA DEL COLOR */}
-            <div className="bg-blue-950 p-6 sm:p-8 xl:p-10 rounded-[2.5rem] border border-blue-900 shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 flex-1 flex flex-col justify-center">
+            <div className="bg-blue-950 p-5 sm:p-8 xl:p-10 rounded-2xl sm:rounded-[2.5rem] border border-blue-900 shadow-2xl relative overflow-hidden group hover:-translate-y-1 transition-transform duration-500 flex-1 flex flex-col justify-center">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/20 blur-[50px] rounded-full pointer-events-none"></div>
               
               <div className="flex items-center gap-4 mb-6 relative z-10">
@@ -201,13 +201,14 @@ export default function PremiumView() {
         {/* ========================================== */}
         {/* LA COMPARATIVA VISUAL (ESTILO LUMINOSO Y LIMPIO) */}
         {/* ========================================== */}
-        <div className="bg-white rounded-[3rem] p-8 md:p-12 xl:p-16 border border-gray-200 shadow-xl relative overflow-hidden group">
+        <div className="bg-white rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 xl:p-16 border border-gray-200 shadow-xl relative overflow-hidden group">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-linear-to-r from-red-500/10 to-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
           
           <div className="relative z-10 text-center mb-10 xl:mb-12">
-            <h4 className="font-black text-gray-900 text-xl md:text-3xl uppercase tracking-widest flex items-center justify-center gap-3">
-              <Eye className="text-gray-400" size={28} />
-              Ejemplo Real: <span className="text-red-500">Genérica</span> vs <span className="text-green-500">Perfecta</span>
+            <h4 className="font-black text-gray-900 text-base sm:text-xl md:text-3xl uppercase tracking-wider sm:tracking-widest flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 sm:gap-3">
+              <Eye className="text-gray-400 hidden sm:block" size={28} />
+              <span>Ejemplo Real:</span>
+              <span><span className="text-red-500">Genérica</span> vs <span className="text-green-500">Perfecta</span></span>
             </h4>
             <p className="text-gray-500 font-medium text-sm md:text-base mt-4 max-w-2xl mx-auto">
               Observa cómo la misma persona puede proyectar una imagen de "novato" o "experto High-Ticket" dependiendo exclusivamente del orden de sus palabras.
@@ -216,14 +217,14 @@ export default function PremiumView() {
           
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12 relative z-10 max-w-6xl mx-auto">
             {/* BIO MALA (IA) */}
-            <div className="bg-red-50/50 border border-red-100 rounded-4xl p-6 lg:p-8 hover:bg-red-50 transition-colors shadow-sm flex flex-col">
+          <div className="bg-red-50/50 border border-red-100 rounded-2xl sm:rounded-4xl p-4 sm:p-6 lg:p-8 hover:bg-red-50 transition-colors shadow-sm flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-red-100 text-red-600 rounded-xl flex items-center justify-center shrink-0">
                   <XCircle size={20} />
                 </div>
                 <strong className="text-red-600 text-lg font-black uppercase tracking-wider">El Error (Desorden)</strong>
               </div>
-              <div className="bg-white p-6 lg:p-8 rounded-2xl border border-red-100 font-sans text-base text-gray-500 leading-relaxed shadow-sm flex-1 flex flex-col justify-center">
+              <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl border border-red-100 font-sans text-sm sm:text-base text-gray-500 leading-relaxed shadow-sm flex-1 flex flex-col justify-center">
                 <span className="font-bold text-gray-800">Domenico | Marketing Digital 🚀</span>
                 <br/><br/>
                 Amante del café ☕️ y el crecimiento personal 🌱<br/>
@@ -233,21 +234,21 @@ export default function PremiumView() {
                 <span className="text-blue-500 mt-4 block break-all hover:underline cursor-pointer">linktr.ee/domenico_12345</span>
               </div>
               <div className="mt-6 flex justify-center">
-                <span className="text-xs text-red-600 font-bold uppercase tracking-[0.2em] bg-red-100 px-4 py-2 rounded-xl border border-red-200">
+                <span className="text-[10px] sm:text-xs text-red-600 font-bold uppercase tracking-widest sm:tracking-[0.2em] bg-red-100 px-3 sm:px-4 py-2 rounded-xl border border-red-200 text-center">
                   Cero Autoridad • Confusa • Muchos Emojis
                 </span>
               </div>
             </div>
 
             {/* BIO BUENA (DOMENICO) */}
-            <div className="bg-green-50/50 border border-green-100 rounded-4xl p-6 lg:p-8 hover:bg-green-50 transition-colors shadow-sm flex flex-col">
+            <div className="bg-green-50/50 border border-green-100 rounded-2xl sm:rounded-4xl p-4 sm:p-6 lg:p-8 hover:bg-green-50 transition-colors shadow-sm flex flex-col">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-green-100 text-green-600 rounded-xl flex items-center justify-center shrink-0">
                   <CheckCircle2 size={20} />
                 </div>
                 <strong className="text-green-600 text-lg font-black uppercase tracking-wider">El Acierto (Estructura)</strong>
               </div>
-              <div className="bg-white p-6 lg:p-8 rounded-2xl border border-green-100 font-sans text-base text-gray-700 leading-relaxed shadow-sm flex-1 flex flex-col justify-center">
+              <div className="bg-white p-4 sm:p-6 lg:p-8 rounded-2xl border border-green-100 font-sans text-sm sm:text-base text-gray-700 leading-relaxed shadow-sm flex-1 flex flex-col justify-center">
                 <span className="font-bold text-gray-900">Domenico D'Orazio | Negocios Digitales</span>
                 <br/><br/>
                 Estratega de Ventas & Marketing ♟️<br/>
@@ -257,10 +258,68 @@ export default function PremiumView() {
                 <span className="text-blue-500 mt-4 block break-all hover:underline cursor-pointer">beacons.ai/domenicodorazio</span>
               </div>
               <div className="mt-6 flex justify-center">
-                <span className="text-xs text-green-700 font-bold uppercase tracking-[0.2em] bg-green-100 px-4 py-2 rounded-xl border border-green-200">
+                <span className="text-[10px] sm:text-xs text-green-700 font-bold uppercase tracking-widest sm:tracking-[0.2em] bg-green-100 px-3 sm:px-4 py-2 rounded-xl border border-green-200 text-center">
                   Autoridad Clara • Prueba Social • CTA Directo
                 </span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================== */}
+      {/* 🎬 VIDEO 3: PSICOLOGÍA DE MARCA EN ACCIÓN */}
+      {/* ========================================== */}
+      <section className="w-full">
+        <div className="bg-linear-to-br from-gray-900 via-gray-900 to-blue-950 rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 relative overflow-hidden border border-blue-900/30 shadow-2xl">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-0.5 bg-blue-400 w-8 rounded-full"></div>
+              <span className="text-blue-400 font-black text-xs uppercase tracking-[0.2em]">Video Clase 3 — Premium</span>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8 mb-8">
+              <div className="flex-1">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight mb-3">
+                  Psicología de Marca <span className="text-blue-400">en Acción</span>
+                </h3>
+                <p className="text-gray-400 font-medium text-sm sm:text-base leading-relaxed max-w-xl">
+                  Transformación en vivo de un perfil genérico a uno de autoridad usando copywriting persuasivo, foto estratégica y psicología del color.
+                </p>
+              </div>
+            </div>
+
+            {/* REPRODUCTOR PLACEHOLDER */}
+            <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl border-2 border-dashed border-blue-800 bg-blue-950/40 flex flex-col items-center justify-center mb-8 backdrop-blur-sm">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 border border-blue-500/30 shadow-[0_0_30px_rgba(59,130,246,0.2)]">
+                <Play className="w-7 h-7 sm:w-9 sm:h-9 text-blue-400 ml-1" />
+              </div>
+              <span className="font-black text-xl sm:text-2xl text-gray-500 uppercase tracking-widest mb-1">VIDEO</span>
+              <span className="text-[10px] sm:text-sm font-bold text-gray-600 uppercase tracking-wider sm:tracking-widest text-center px-4 leading-tight">Espacio reservado para el reproductor</span>
+            </div>
+
+            {/* GUÍA PARA EL GRABADOR */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6">
+              <h4 className="text-white font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Video size={16} className="text-blue-400" /> Guía rápida de Grabación
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-300 font-medium"><strong className="text-white">Copywriting en la Bio:</strong> Reescribir un perfil genérico aplicando la fórmula de autoridad y persuasión.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-300 font-medium"><strong className="text-white">Psicología Visual:</strong> Optimizar la foto de perfil y portadas aplicando psicología del color para generar confianza.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-300 font-medium"><strong className="text-white">Impacto Perceptivo:</strong> Comparar el "antes y después" demostrando cómo el nuevo diseño atrae clientes High-Ticket.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -290,7 +349,7 @@ export default function PremiumView() {
         <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-stretch">
           
           {/* TEXTO Y EXPLICACIÓN (Light Card) */}
-          <div className="bg-white p-8 md:p-12 xl:p-14 rounded-[3rem] border border-gray-200 shadow-xl flex flex-col justify-center h-full group hover:shadow-2xl transition-all duration-500">
+          <div className="bg-white p-5 sm:p-8 md:p-12 xl:p-14 rounded-2xl sm:rounded-[3rem] border border-gray-200 shadow-xl flex flex-col justify-center h-full group hover:shadow-2xl transition-all duration-500">
             <h3 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight leading-tight mb-6">
               El Error de depender solo de Instagram
             </h3>
@@ -322,7 +381,7 @@ export default function PremiumView() {
           </div>
 
           {/* GRÁFICO VISUAL (Dark Diagram Card) */}
-          <div className="bg-gray-900 p-8 md:p-12 xl:p-14 rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center text-center group">
+          <div className="bg-gray-900 p-5 sm:p-8 md:p-12 xl:p-14 rounded-2xl sm:rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden flex flex-col items-center justify-center text-center group">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none group-hover:bg-blue-500/20 transition-colors duration-1000"></div>
             
             <h4 className="absolute top-8 left-8 text-[10px] font-black text-gray-500 uppercase tracking-widest">Esquema de Tráfico</h4>
@@ -397,7 +456,7 @@ export default function PremiumView() {
           </div>
         </div>
 
-        <div className="bg-gray-900 rounded-[3rem] p-8 md:p-12 xl:p-16 relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col lg:flex-row items-center gap-12 xl:gap-16">
+        <div className="bg-gray-900 rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 xl:p-16 relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col lg:flex-row items-center gap-8 sm:gap-12 xl:gap-16">
           <div className="absolute top-0 right-0 w-125 h-125 bg-yellow-500/10 blur-[150px] rounded-full pointer-events-none"></div>
 
           {/* LADO IZQUIERDO: EXPLICACIÓN */}
@@ -413,7 +472,7 @@ export default function PremiumView() {
               El contenido excelente no sirve de nada si el usuario desliza el dedo antes de escucharlo. Aprende la fórmula neuro-visual para enganchar el cerebro de las personas y retenerlas.
             </p>
             
-            <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8  max-w-xl">
+            <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-4xl p-5 sm:p-8  max-w-xl">
               <h4 className="font-black text-white text-base sm:text-lg mb-6 flex items-center gap-3">
                 <Flame className="text-orange-500" /> Los dos tipos de Ganchos
               </h4>
@@ -474,6 +533,63 @@ export default function PremiumView() {
       </section>
 
       {/* ========================================== */}
+      {/* 🎬 VIDEO 4: EL DOBLE HOOK EN PRÁCTICA */}
+      {/* ========================================== */}
+      <section className="w-full">
+        <div className="bg-linear-to-br from-yellow-50 via-white to-orange-50 rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 relative overflow-hidden border border-yellow-200/60 shadow-xl">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-yellow-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-0.5 bg-yellow-500 w-8 rounded-full"></div>
+              <span className="text-yellow-600 font-black text-xs uppercase tracking-[0.2em]">Video Clase 4 — Premium</span>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8 mb-8">
+              <div className="flex-1">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight mb-3">
+                  El Doble Hook <span className="text-yellow-600">en Práctica</span>
+                </h3>
+                <p className="text-gray-500 font-medium text-sm sm:text-base leading-relaxed max-w-xl">
+                  Demostración real de cómo grabar un reel con la técnica del Doble Gancho. Verás la diferencia entre un intro aburrido y uno que atrapa.
+                </p>
+              </div>
+            </div>
+
+            {/* REPRODUCTOR PLACEHOLDER */}
+            <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl border-2 border-dashed border-yellow-300 bg-yellow-50/50 flex flex-col items-center justify-center mb-8">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-100 rounded-full flex items-center justify-center mb-4 border border-yellow-300 shadow-sm">
+                <Play className="w-7 h-7 sm:w-9 sm:h-9 text-yellow-600 ml-1" />
+              </div>
+              <span className="font-black text-xl sm:text-2xl text-yellow-300 uppercase tracking-widest mb-1">VIDEO</span>
+              <span className="text-[10px] sm:text-sm font-bold text-yellow-400 uppercase tracking-wider sm:tracking-widest text-center px-4 leading-tight">Espacio reservado para el reproductor</span>
+            </div>
+
+            {/* GUÍA PARA EL GRABADOR */}
+            <div className="bg-white border border-gray-200 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm">
+              <h4 className="text-gray-900 font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Video size={16} className="text-yellow-600" /> Guía rápida de Grabación
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-yellow-600 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-600 font-medium"><strong className="text-gray-900">El Doble Gancho:</strong> Grabar un comparativo del mismo inicio de video de forma aburrida vs. usando técnicas de movimiento y un mensaje fuerte.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-yellow-600 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-600 font-medium"><strong className="text-gray-900">Retención Visual:</strong> Mostrar cómo hacer cortes rápidos y usar recursos (B-roll/efectos) en edición para mantener la atención.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-yellow-600 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-600 font-medium"><strong className="text-gray-900">Demostración de Resultados:</strong> Mostrar brevemente estadísticas reales de cómo un buen inicio mejora la retención del video.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================== */}
       {/* MÓDULO 10: ESTATUS Y MONETIZACIÓN */}
       {/* ========================================== */}
       <section className="w-full">
@@ -497,7 +613,7 @@ export default function PremiumView() {
         <div className="grid lg:grid-cols-12 gap-6 xl:gap-8 items-stretch">
           
           {/* SEPARACIÓN PROFESIONAL (5 Columnas) */}
-          <div className="lg:col-span-5 bg-white p-8 xl:p-12 rounded-[3rem] border border-gray-200 shadow-xl flex flex-col relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
+          <div className="lg:col-span-5 bg-white p-5 sm:p-8 xl:p-12 rounded-2xl sm:rounded-[3rem] border border-gray-200 shadow-xl flex flex-col relative overflow-hidden group hover:shadow-2xl transition-all duration-500">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gray-50 rounded-full blur-[80px] pointer-events-none group-hover:bg-green-50/50 transition-colors duration-700"></div>
             
             <div className="relative z-10 flex-1 flex flex-col">
@@ -524,7 +640,7 @@ export default function PremiumView() {
           </div>
 
           {/* HIGH TICKET Y PRECIOS (7 Columnas) */}
-          <div className="lg:col-span-7 bg-gray-900 p-8 xl:p-12 rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden group flex flex-col justify-center">
+          <div className="lg:col-span-7 bg-gray-900 p-5 sm:p-8 xl:p-12 rounded-2xl sm:rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden group flex flex-col justify-center">
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full pointer-events-none group-hover:bg-green-500/20 transition-colors duration-700"></div>
             
             <div className="relative z-10 flex flex-col h-full">
@@ -545,14 +661,14 @@ export default function PremiumView() {
               </p>
 
               <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 mt-auto">
-                <div className="bg-white/5 border border-white/10 rounded-4xl p-6 sm:p-8  hover:bg-white/10 transition-colors group/halo">
+                <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-4xl p-5 sm:p-8  hover:bg-white/10 transition-colors group/halo">
                   <Activity size={24} className="text-green-400 mb-4 group-hover/halo:scale-110 transition-transform" />
                   <h4 className="font-black text-white text-lg mb-2">El Efecto Halo</h4>
                   <p className="text-sm text-gray-400 leading-relaxed font-medium">
                     Si tu calidad visual, audio y oratoria transmiten excelencia, el cliente asume que tu servicio es igual de excelente.
                   </p>
                 </div>
-                <div className="bg-linear-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-4xl p-6 sm:p-8  flex flex-col justify-center items-start group/zero">
+                <div className="bg-linear-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl sm:rounded-4xl p-5 sm:p-8  flex flex-col justify-center items-start group/zero">
                   <h4 className="font-black text-green-400 text-3xl sm:text-4xl mb-3 leading-none group-hover/zero:scale-105 transition-transform origin-left">Cero<br/>Quejas</h4>
                   <p className="text-sm text-green-100/70 font-medium leading-relaxed">
                     Al elevar tu estatus percibido con contenido estratégico, erradicas las objeciones por precio en tus ventas por DM.

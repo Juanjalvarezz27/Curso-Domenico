@@ -17,7 +17,7 @@ export default function BasicoView() {
       {/* ========================================== */}
       {/* HERO SECTION (ESTILO INSTAGRAM) */}
       {/* ========================================== */}
-      <div className="bg-gray-900 rounded-[3rem] p-8 md:p-20 text-center relative overflow-hidden border-2 border-gray-800 shadow-2xl w-full">
+      <div className="bg-gray-900 rounded-2xl sm:rounded-[3rem] p-6 sm:p-8 md:p-20 text-center relative overflow-hidden border-2 border-gray-800 shadow-2xl w-full">
         <div className="absolute inset-0 opacity-15 mix-blend-luminosity">
           <Image
             src="/Ig.png"
@@ -34,14 +34,14 @@ export default function BasicoView() {
             <LayoutTemplate size={16} /> Fundamentos del Negocio
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-6 leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tighter mb-6 leading-[1.1]">
             Tu Ecosistema <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 via-pink-500 to-purple-500">
               Digital
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl font-medium text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl font-medium text-gray-400 leading-relaxed max-w-2xl mx-auto">
             Esta es tu hoja de ruta. Lee, aplica los conceptos, usa las herramientas y transforma tu perfil en una máquina de atracción en tiempo récord.
           </p>
         </div>
@@ -71,7 +71,7 @@ export default function BasicoView() {
         <div className="grid lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px] gap-6 xl:gap-8 items-stretch">
           <div className="flex flex-col gap-6 min-w-0">
             {/* Banner Regla de 3 segundos */}
-            <div className="bg-gray-900 rounded-4xl p-6 sm:p-8 text-white relative overflow-hidden shadow-xl border border-gray-800">
+            <div className="bg-gray-900 rounded-2xl sm:rounded-4xl p-5 sm:p-8 text-white relative overflow-hidden shadow-xl border border-gray-800">
               <div className="relative z-10 flex flex-col gap-4">
                 <div className="flex items-center gap-4">
                   <div className="bg-linear-to-br from-orange-500 to-orange-600 text-white p-3 rounded-xl shrink-0 shadow-lg shadow-orange-500/30">
@@ -88,7 +88,7 @@ export default function BasicoView() {
 
             {/* LAS 3 CARDS REDISEÑADAS */}
             <div className="grid sm:grid-cols-3 gap-6 flex-1">
-              <div className="bg-white p-6 sm:p-8 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500">
+              <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500">
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="flex flex-col gap-5 h-full">
                   <div className="w-12 h-12 bg-orange-50 border border-orange-100 text-orange-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
@@ -104,7 +104,7 @@ export default function BasicoView() {
                 </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500">
+              <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500">
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="flex flex-col gap-5 h-full">
                   <div className="w-12 h-12 bg-orange-50 border border-orange-100 text-orange-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
@@ -120,7 +120,7 @@ export default function BasicoView() {
                 </div>
               </div>
 
-              <div className="bg-white p-6 sm:p-8 rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500">
+              <div className="bg-white p-5 sm:p-8 rounded-2xl sm:rounded-[2.5rem] border border-gray-200 shadow-sm flex flex-col relative overflow-hidden group hover:shadow-2xl hover:shadow-orange-500/10 hover:-translate-y-2 transition-all duration-500">
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-linear-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div className="flex flex-col gap-5 h-full">
                   <div className="w-12 h-12 bg-orange-50 border border-orange-100 text-orange-600 rounded-2xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500">
@@ -137,7 +137,7 @@ export default function BasicoView() {
               </div>
             </div>
 
-            <div className="bg-linear-to-br from-orange-50 to-orange-100 border border-orange-200 p-5 rounded-4xl flex flex-row items-center gap-4 hover:shadow-md hover:shadow-orange-500/10 transition-all group">
+            <div className="bg-linear-to-br from-orange-50 to-orange-100 border border-orange-200 p-4 sm:p-5 rounded-2xl sm:rounded-4xl flex flex-row items-center gap-3 sm:gap-4 hover:shadow-md hover:shadow-orange-500/10 transition-all group">
               <div className="bg-white text-orange-500 w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm border border-orange-100 group-hover:scale-105 transition-transform">
                 <Lightbulb className="w-6 h-6" />
               </div>
@@ -151,7 +151,7 @@ export default function BasicoView() {
             </div>
           </div>
 
-          <div className="bg-white rounded-4xl p-6 xl:p-8 border border-gray-200 shadow-lg flex flex-col h-full relative overflow-hidden">
+          <div className="bg-white rounded-2xl sm:rounded-4xl p-5 sm:p-6 xl:p-8 border border-gray-200 shadow-lg flex flex-col h-full relative overflow-hidden">
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-gray-50 rounded-full blur-2xl pointer-events-none"></div>
             <h3 className="text-xl font-black text-gray-900 uppercase tracking-tight mb-10 flex items-center gap-3 relative z-10">
               <Map className="text-orange-500" size={24} /> Roadmap 
@@ -186,6 +186,64 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
+      {/* 🎬 VIDEO 1: DEMO CONFIGURACIÓN DE PERFIL */}
+      {/* ========================================== */}
+      <section className="w-full">
+        <div className="bg-gray-900 rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 relative overflow-hidden border border-gray-800 shadow-2xl">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-500/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-0.5 bg-orange-500 w-8 rounded-full"></div>
+              <span className="text-orange-400 font-black text-xs uppercase tracking-[0.2em]">Video Clase 1</span>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8 mb-8">
+              <div className="flex-1">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight leading-tight mb-3">
+                  Configura tu Perfil <span className="text-orange-400">Paso a Paso</span>
+                </h3>
+                <p className="text-gray-400 font-medium text-sm sm:text-base leading-relaxed max-w-xl">
+                  Mira cómo se aplican todos los conceptos del Módulo 1 en un perfil real. Desde la bio hasta las historias destacadas.
+                </p>
+              </div>
+            </div>
+
+            {/* REPRODUCTOR PLACEHOLDER */}
+            <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl border-2 border-dashed border-gray-700 bg-gray-950/60 flex flex-col items-center justify-center mb-8 backdrop-blur-sm">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-orange-500/20 rounded-full flex items-center justify-center mb-4 border border-orange-500/30 shadow-[0_0_30px_rgba(249,115,22,0.2)]">
+                <Play className="w-7 h-7 sm:w-9 sm:h-9 text-orange-400 ml-1" />
+              </div>
+              <span className="font-black text-xl sm:text-2xl text-gray-500 uppercase tracking-widest mb-1">VIDEO</span>
+              <span className="text-[10px] sm:text-sm font-bold text-gray-600 uppercase tracking-wider sm:tracking-widest text-center px-4 leading-tight">Espacio reservado para el reproductor</span>
+            </div>
+
+            {/* GUÍA PARA EL GRABADOR */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6">
+              <h4 className="text-white font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Video size={16} className="text-orange-400" /> Guía rápida de Grabación
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-orange-400 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-300 font-medium"><strong className="text-white">Cuenta y Bio:</strong> Mostrar cómo cambiar a cuenta de creador y escribir una biografía atractiva paso a paso.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-orange-400 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-300 font-medium"><strong className="text-white">Foto de Perfil:</strong> Demostrar cómo mejorar una foto genérica usando Canva (quitar fondo y poner color sólido).</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-orange-400 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-300 font-medium"><strong className="text-white">Historias Destacadas:</strong> Diseñar portadas básicas en Canva y subirlas para completar la estructura del perfil.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================== */}
       {/* MÓDULO 2: TU ESTUDIO DE BOLSILLO */}
       {/* ========================================== */}
       <section className="w-full flex flex-col gap-6 xl:gap-8">
@@ -196,27 +254,27 @@ export default function BasicoView() {
               Módulo 2 // Tu Estudio de Bolsillo
             </span>
           </div>
-          <div className="flex items-center gap-4 sm:gap-6">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white border border-gray-200 text-gray-900 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
-              <Smartphone className="w-6 h-6 sm:w-7 sm:h-7" />
+          <div className="flex items-center gap-3 sm:gap-6">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white border border-gray-200 text-gray-900 rounded-2xl flex items-center justify-center shadow-sm shrink-0">
+              <Smartphone className="w-5 h-5 sm:w-7 sm:h-7" />
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter leading-tight sm:leading-none">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-gray-900 uppercase tracking-tighter leading-tight sm:leading-none">
               Producción Audiovisual
             </h2>
           </div>
         </div>
 
-        <div className="w-full bg-gray-900 rounded-4xl p-5 sm:p-8 xl:p-12 text-white relative overflow-hidden shadow-2xl border border-gray-800">
+        <div className="w-full bg-gray-900 rounded-2xl sm:rounded-4xl p-4 sm:p-8 xl:p-12 text-white relative overflow-hidden shadow-2xl border border-gray-800">
           <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-4 sm:gap-6 mb-4 sm:mb-10 pb-6 sm:pb-8 border-b border-gray-800/80">
-            <div className="flex items-center gap-4 sm:gap-6">
-              <div className="bg-linear-to-br from-orange-500/20 to-orange-600/10 p-3 sm:p-4 rounded-2xl border border-white/10 shadow-inner shrink-0">
-                <Camera className="w-7 h-7 sm:w-10 sm:h-10 text-orange-400" />
+            <div className="flex items-center gap-3 sm:gap-6">
+              <div className="bg-linear-to-br from-orange-500/20 to-orange-600/10 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border border-white/10 shadow-inner shrink-0">
+                <Camera className="w-6 h-6 sm:w-10 sm:h-10 text-orange-400" />
               </div>
-              <h3 className="text-2xl sm:text-4xl xl:text-5xl font-black tracking-tight leading-none">El Set Físico</h3>
+              <h3 className="text-xl sm:text-4xl xl:text-5xl font-black tracking-tight leading-none">El Set Físico</h3>
             </div>
-            <p className="text-gray-400 font-medium text-base sm:text-lg xl:text-xl max-w-2xl lg:text-right leading-relaxed">
+            <p className="text-gray-400 font-medium text-sm sm:text-lg xl:text-xl max-w-2xl lg:text-right leading-relaxed">
               No necesitas invertir cientos de dólares. Domina estas 3 variables clave para multiplicar tu calidad visual hoy mismo.
             </p>
           </div>
@@ -448,7 +506,7 @@ export default function BasicoView() {
         <div className="grid lg:grid-cols-3 gap-6 xl:gap-8">
 
           {/* CARD REELS */}
-          <div className="bg-gray-900 rounded-[2.5rem] border border-gray-800 shadow-2xl flex flex-col overflow-hidden group hover:shadow-pink-500/10 transition-all duration-500">
+          <div className="bg-gray-900 rounded-2xl sm:rounded-[2.5rem] border border-gray-800 shadow-2xl flex flex-col overflow-hidden group hover:shadow-pink-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-gray-950 shrink-0">
               <Image
                 src="/Reels.png"
@@ -517,7 +575,7 @@ export default function BasicoView() {
           </div>
 
           {/* CARD CARRUSELES */}
-          <div className="bg-blue-950/80 rounded-4xl border border-blue-900/50 shadow-2xl flex flex-col overflow-hidden group hover:shadow-blue-500/10 transition-all duration-500">
+          <div className="bg-blue-950/80 rounded-2xl sm:rounded-4xl border border-blue-900/50 shadow-2xl flex flex-col overflow-hidden group hover:shadow-blue-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-blue-900 shrink-0">
               <Image
                 src="/Historias.png"
@@ -586,7 +644,7 @@ export default function BasicoView() {
           </div>
 
           {/* CARD HISTORIAS */}
-          <div className="bg-orange-950/80 rounded-4xl border border-orange-900/50 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
+          <div className="bg-orange-950/80 rounded-2xl sm:rounded-4xl border border-orange-900/50 shadow-2xl flex flex-col overflow-hidden group hover:shadow-orange-500/10 transition-all duration-500">
             <div className="h-32 sm:h-36 relative overflow-hidden bg-orange-900 shrink-0">
               <Image
                 src="/Youtube.png"
@@ -658,6 +716,63 @@ export default function BasicoView() {
       </section>
 
       {/* ========================================== */}
+      {/* 🎬 VIDEO 2: DEMO CREACIÓN DE CONTENIDO */}
+      {/* ========================================== */}
+      <section className="w-full">
+        <div className="bg-white rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 relative overflow-hidden border border-gray-200 shadow-xl">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-pink-500/5 blur-[100px] rounded-full pointer-events-none"></div>
+
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="h-0.5 bg-pink-500 w-8 rounded-full"></div>
+              <span className="text-pink-500 font-black text-xs uppercase tracking-[0.2em]">Video Clase 2</span>
+            </div>
+
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 md:gap-8 mb-8">
+              <div className="flex-1">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-tight mb-3">
+                  Crea tu Primer <span className="text-pink-500">Reel Viral</span>
+                </h3>
+                <p className="text-gray-500 font-medium text-sm sm:text-base leading-relaxed max-w-xl">
+                  Aplica todo lo aprendido en los módulos de formatos y producción. Desde la idea hasta la publicación final.
+                </p>
+              </div>
+            </div>
+
+            {/* REPRODUCTOR PLACEHOLDER */}
+            <div className="relative w-full aspect-video rounded-2xl sm:rounded-3xl border-2 border-dashed border-gray-300 bg-gray-50 flex flex-col items-center justify-center mb-8">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-pink-50 rounded-full flex items-center justify-center mb-4 border border-pink-200 shadow-sm">
+                <Play className="w-7 h-7 sm:w-9 sm:h-9 text-pink-400 ml-1" />
+              </div>
+              <span className="font-black text-xl sm:text-2xl text-gray-300 uppercase tracking-widest mb-1">VIDEO</span>
+              <span className="text-[10px] sm:text-sm font-bold text-gray-400 uppercase tracking-wider sm:tracking-widest text-center px-4 leading-tight">Espacio reservado para el reproductor</span>
+            </div>
+
+            {/* GUÍA PARA EL GRABADOR */}
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl sm:rounded-3xl p-5 sm:p-6">
+              <h4 className="text-gray-900 font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Video size={16} className="text-pink-500" /> Guía rápida de Grabación
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-pink-500 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-600 font-medium"><strong className="text-gray-900">Set y Grabación:</strong> Mostrar iluminación natural básica, posición de la cámara y grabar algunos ejemplos de ganchos.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-pink-500 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-600 font-medium"><strong className="text-gray-900">Edición Rápida:</strong> Usar CapCut para cortar silencios, agregar subtítulos dinámicos y algún efecto sencillo.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 size={16} className="text-pink-500 shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-600 font-medium"><strong className="text-gray-900">Carrusel y Publicación:</strong> Armar un carrusel en Canva y mostrar el proceso de publicar con un buen texto (caption).</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================== */}
       {/* MÓDULOS 4 & 5 // OPERACIÓN DIARIA */}
       {/* ========================================== */}
       <section className="w-full">
@@ -681,7 +796,7 @@ export default function BasicoView() {
         <div className="grid lg:grid-cols-2 gap-6 xl:gap-8 items-stretch">
           
           {/* MÓDULO 4: CALENDARIO */}
-          <div className="bg-gray-900 p-8 xl:p-12 rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden group flex flex-col">
+          <div className="bg-gray-900 p-5 sm:p-8 xl:p-12 rounded-2xl sm:rounded-[3rem] border border-gray-800 shadow-2xl relative overflow-hidden group flex flex-col">
             <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 blur-[100px] rounded-full pointer-events-none"></div>
             
             <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-3 relative z-10">
@@ -692,7 +807,7 @@ export default function BasicoView() {
             </p>
 
             <div className="space-y-4 sm:space-y-6 relative z-10 flex-1">
-              <div className="bg-white/5 border border-white/10 rounded-4xl p-6 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-4xl p-5 sm:p-6 hover:bg-white/10 transition-colors">
                 <div className="flex gap-4 sm:gap-5 items-start">
                   <div className="w-12 h-12 bg-orange-500/20 text-orange-400 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
                     <Lightbulb size={24} />
@@ -706,7 +821,7 @@ export default function BasicoView() {
                 </div>
               </div>
               
-              <div className="bg-white/5 border border-white/10 rounded-4xl p-6 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-4xl p-5 sm:p-6 hover:bg-white/10 transition-colors">
                 <div className="flex gap-4 sm:gap-5 items-start">
                   <div className="w-12 h-12 bg-pink-500/20 text-pink-400 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
                     <Pin size={24} />
@@ -720,7 +835,7 @@ export default function BasicoView() {
                 </div>
               </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-4xl p-6 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-4xl p-5 sm:p-6 hover:bg-white/10 transition-colors">
                 <div className="flex gap-4 sm:gap-5 items-start">
                   <div className="w-12 h-12 bg-blue-500/20 text-blue-400 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
                     <Camera size={24} />
@@ -737,7 +852,7 @@ export default function BasicoView() {
           </div>
 
           {/* MÓDULO 5: COMUNIDAD */}
-          <div className="bg-white p-8 xl:p-12 rounded-[3rem] border border-gray-200 shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all flex flex-col">
+          <div className="bg-white p-5 sm:p-8 xl:p-12 rounded-2xl sm:rounded-[3rem] border border-gray-200 shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all flex flex-col">
             <div className="absolute top-0 right-0 w-80 h-80 bg-blue-500/5 blur-[100px] rounded-full pointer-events-none"></div>
             
             <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-3 relative z-10">
@@ -750,7 +865,7 @@ export default function BasicoView() {
             <div className="space-y-6 relative z-10 flex-1 flex flex-col justify-center">
               
               {/* THE DON'T */}
-              <div className="bg-red-50/50 border border-red-100 rounded-4xl p-6 sm:p-8 relative overflow-hidden">
+              <div className="bg-red-50/50 border border-red-100 rounded-2xl sm:rounded-4xl p-5 sm:p-8 relative overflow-hidden">
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-red-500/10 blur-[20px] rounded-full pointer-events-none"></div>
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-red-500/10 text-red-600 flex items-center justify-center shrink-0">
@@ -781,7 +896,7 @@ export default function BasicoView() {
               </div>
 
               {/* THE DO */}
-              <div className="bg-green-50/50 border border-green-100 rounded-4xl p-6 sm:p-8 relative overflow-hidden">
+              <div className="bg-green-50/50 border border-green-100 rounded-2xl sm:rounded-4xl p-5 sm:p-8 relative overflow-hidden">
                 <div className="absolute -right-4 -top-4 w-24 h-24 bg-green-500/10 blur-[20px] rounded-full pointer-events-none"></div>
                 <div className="flex items-center gap-4 mb-5">
                   <div className="w-12 h-12 rounded-2xl bg-green-500/10 text-green-600 flex items-center justify-center shrink-0">
@@ -837,7 +952,7 @@ export default function BasicoView() {
           </div>
         </div>
 
-        <div className="bg-gray-900 rounded-[3rem] p-8 md:p-12 xl:p-16 relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col md:flex-row items-center gap-10 xl:gap-16">
+        <div className="bg-gray-900 rounded-2xl sm:rounded-[3rem] p-5 sm:p-8 md:p-12 xl:p-16 relative overflow-hidden shadow-2xl border border-gray-800 flex flex-col md:flex-row items-center gap-6 sm:gap-10 xl:gap-16">
           <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/10 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -861,7 +976,7 @@ export default function BasicoView() {
           </div>
 
           <div className="w-full md:w-5/12 lg:w-2/5 relative z-10">
-            <div className="bg-red-500/10 border border-red-500/20 p-6 sm:p-8 rounded-4xl shadow-2xl relative overflow-hidden group">
+            <div className="bg-red-500/10 border border-red-500/20 p-5 sm:p-8 rounded-2xl sm:rounded-4xl shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
               <div className="flex items-center gap-4 mb-5">
                 <div className="w-12 h-12 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center shrink-0">
