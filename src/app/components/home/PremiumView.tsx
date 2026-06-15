@@ -304,8 +304,12 @@ export default function PremiumView() {
  <div className="flex items-center gap-3 sm:gap-6 min-w-max sm:min-w-0 sm:w-full mx-auto justify-center">
  
  {/* ANTES */}
- <div className="snap-center w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] relative rounded-2xl sm:rounded-3xl border-4 border-gray-800 bg-gray-900 shadow-xl overflow-hidden shrink-0 group">
- <div className="absolute top-4 left-4 z-20 bg-gray-800 text-gray-300 text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-gray-600">
+ <div className="snap-center w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] flex flex-col gap-3 shrink-0 group">
+ <div className="sm:hidden self-center bg-gray-800 text-gray-300 text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-gray-600">
+ Antes (Amateur)
+ </div>
+ <div className="relative rounded-2xl sm:rounded-3xl border-4 border-gray-800 bg-gray-900 shadow-xl overflow-hidden w-full">
+ <div className="hidden sm:block absolute top-4 left-4 z-20 bg-gray-800 text-gray-300 text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-gray-600">
  Antes (Amateur)
  </div>
  <div className="relative aspect-[9/16] w-full">
@@ -317,17 +321,22 @@ export default function PremiumView() {
  />
  </div>
  </div>
-
+ </div>
+ 
  {/* FLECHA */}
  <div className="shrink-0 flex items-center justify-center relative z-10 -mx-8 sm:mx-0">
  <div className="w-10 h-10 sm:w-14 sm:h-14 bg-blue-500 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(59,130,246,0.6)] border-[3px] border-gray-900">
  <ArrowRight className="w-5 h-5 sm:w-7 sm:h-7 text-white" />
  </div>
  </div>
-
+ 
  {/* DESPUÉS */}
- <div className="snap-center w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] relative rounded-2xl sm:rounded-3xl border-4 border-blue-500 bg-gray-900 shadow-[0_0_40px_rgba(59,130,246,0.3)] overflow-hidden shrink-0 group">
- <div className="absolute top-4 left-4 z-20 bg-blue-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-blue-400">
+ <div className="snap-center w-[260px] sm:w-[280px] md:w-[300px] lg:w-[340px] flex flex-col gap-3 shrink-0 group">
+ <div className="sm:hidden self-center bg-blue-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-blue-400">
+ Después (Premium)
+ </div>
+ <div className="relative rounded-2xl sm:rounded-3xl border-4 border-blue-500 bg-gray-900 shadow-[0_0_40px_rgba(59,130,246,0.3)] overflow-hidden w-full">
+ <div className="hidden sm:block absolute top-4 left-4 z-20 bg-blue-500 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg border border-blue-400">
  Después (Premium)
  </div>
  <div className="relative aspect-[9/16] w-full">
@@ -338,8 +347,6 @@ export default function PremiumView() {
  className="object-cover object-top group-hover:scale-105 transition-transform duration-700" 
  />
  </div>
- </div>
-
  </div>
  </div>
  </div>

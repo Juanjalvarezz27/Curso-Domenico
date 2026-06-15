@@ -91,7 +91,7 @@ export default function DobleHookStoryboard() {
  <strong className="text-gray-900 font-black uppercase tracking-widest text-sm">Lo que ve el ojo <span className={`transition-colors duration-500 ${isAburrido ? 'text-slate-400' : 'text-orange-400'}`}>(0.0s)</span></strong>
  </div>
  <p className="text-gray-600 font-medium text-lg sm:text-xl italic leading-relaxed relative">
- <span className="text-4xl absolute -top-4 -left-3 opacity-20 font-serif">"</span>
+ <span className="hidden sm:block text-4xl absolute -top-4 -left-3 opacity-20 font-serif">"</span>
  {isAburrido 
  ? 'Estático, sentado frente a la cámara, sin mover las manos ni cambiar de plano.' 
  : 'Inicia caminando hacia la cámara o hace un Zoom In dinámico desde la edición.'}
@@ -111,7 +111,7 @@ export default function DobleHookStoryboard() {
  <strong className="text-gray-900 font-black uppercase tracking-widest text-sm">Lo que escucha <span className={`transition-colors duration-500 ${isAburrido ? 'text-slate-400' : 'text-amber-500'}`}>(1.0s)</span></strong>
  </div>
  <p className="text-gray-600 font-medium text-lg sm:text-xl italic leading-relaxed relative">
- <span className="text-4xl absolute -top-4 -left-3 opacity-20 font-serif">"</span>
+ <span className="hidden sm:block text-4xl absolute -top-4 -left-3 opacity-20 font-serif">"</span>
  {isAburrido 
  ? 'Hola chicos, ¿cómo están? Hoy les vengo a hablar de un tema muy importante...' 
  : 'El 90% de tus clientes te ignoran porque estás cometiendo este estúpido error...'}
