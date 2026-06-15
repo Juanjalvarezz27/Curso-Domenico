@@ -481,59 +481,55 @@ export default function PremiumView() {
                     </div>
                   </div>
                 </div>
-
-                {/* TIPS PÚBLICOS */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6">
-                  <h4 className="text-white font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
-                    <Sparkles size={16} className="text-blue-400" /> El Efecto
-                    Halo en Acción
-                  </h4>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2
-                        size={16}
-                        className="text-blue-400 shrink-0 mt-0.5"
-                      />
-                      <span className="text-sm text-gray-300 font-medium">
-                        <strong className="text-white">
-                          Percepción Inmediata:
-                        </strong>{" "}
-                        Al cambiar a una estética pulida, el cerebro del cliente
-                        automáticamente percibe tus servicios como de mayor
-                        valor ("High-Ticket").
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2
-                        size={16}
-                        className="text-blue-400 shrink-0 mt-0.5"
-                      />
-                      <span className="text-sm text-gray-300 font-medium">
-                        <strong className="text-white">
-                          Copywriting Estratégico:
-                        </strong>{" "}
-                        Reemplazar descripciones genéricas por resultados
-                        tangibles filtra curiosos y atrae compradores listos
-                        para invertir.
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <CheckCircle2
-                        size={16}
-                        className="text-blue-400 shrink-0 mt-0.5"
-                      />
-                      <span className="text-sm text-gray-300 font-medium">
-                        <strong className="text-white">
-                          Coherencia Visual:
-                        </strong>{" "}
-                        Todo tu perfil (historias, bio, foto) ahora trabaja en
-                        sintonía, demostrando atención al detalle y generando
-                        confianza extrema.
-                      </span>
-                    </li>
-                  </ul>
-                </div>
               </div>
+            </div>
+            {/* TIPS PÚBLICOS */}
+            <div className="bg-white/5 border border-white/10 rounded-2xl sm:rounded-3xl p-5 sm:p-6">
+              <h4 className="text-white font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
+                <Sparkles size={16} className="text-blue-400" /> El Efecto Halo
+                en Acción
+              </h4>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={16}
+                    className="text-blue-400 shrink-0 mt-0.5"
+                  />
+                  <span className="text-sm text-gray-300 font-medium">
+                    <strong className="text-white">
+                      Percepción Inmediata:
+                    </strong>{" "}
+                    Al cambiar a una estética pulida, el cerebro del cliente
+                    automáticamente percibe tus servicios como de mayor valor
+                    ("High-Ticket").
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={16}
+                    className="text-blue-400 shrink-0 mt-0.5"
+                  />
+                  <span className="text-sm text-gray-300 font-medium">
+                    <strong className="text-white">
+                      Copywriting Estratégico:
+                    </strong>{" "}
+                    Reemplazar descripciones genéricas por resultados tangibles
+                    filtra curiosos y atrae compradores listos para invertir.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2
+                    size={16}
+                    className="text-blue-400 shrink-0 mt-0.5"
+                  />
+                  <span className="text-sm text-gray-300 font-medium">
+                    <strong className="text-white">Coherencia Visual:</strong>{" "}
+                    Todo tu perfil (historias, bio, foto) ahora trabaja en
+                    sintonía, demostrando atención al detalle y generando
+                    confianza extrema.
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
